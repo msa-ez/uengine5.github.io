@@ -10,7 +10,7 @@ module.exports = {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
+  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.bpm-uengine5.io'),
   settings: {
     web: process.env.URL_WEB || false,
     twitter: process.env.URL_TWITTER || false,
