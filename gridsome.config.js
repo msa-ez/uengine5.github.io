@@ -25,19 +25,33 @@ module.exports = {
         name: 'uengine',
         sections: [
           {
-            title: '시작하기',
+            title: 'Getting Started',
             items: [
               '/uengine/',
               '/uengine/installation/',
               '/uengine/writing-content/',
               '/uengine/deploying/',
               '/uengine/sidebar/',
+              '/uengine/message-listener/',
+              '/uengine/script-task/',
             ]
           },
           {
-            title: '리소스',
+            title: 'resource',
             items: [
               '/group/settings/',
+            ]
+          },
+          {
+            title: 'Chapter',
+            items: [
+              '/tutorial/chapter1/',
+              '/tutorial/chapter2/',
+              '/tutorial/chapter3/',
+              '/tutorial/chapter4/',
+              '/tutorial/chapter5/',
+              '/tutorial/chapter6/',
+              '/tutorial/chapter7/',
             ]
           }
         ]
