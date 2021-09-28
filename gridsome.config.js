@@ -28,7 +28,7 @@ module.exports = {
             title: 'Getting Started',
             items: [
               '/uengine/',
-              '/uengine/installation/',
+              '/uengine/activity/',
               '/uengine/writing-content/',
               '/uengine/deploying/',
               '/uengine/sidebar/',
