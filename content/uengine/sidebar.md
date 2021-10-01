@@ -7,14 +7,13 @@ next: ''
 
 # uEngine5 API Reference
 
-## 원칙
-
+<h3>원칙</h3>
 
 - **[uEngine5 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다](https://en.wikipedia.org/wiki/HATEOAS)**
 - 따라서 hybind 와 같은 Javascript binding library 를 통해 쉽게 UI 와 인터랙션 하도록 한다.
 
 
-## Resources
+## 프로세스 폴더 관리
 
 **/definition**
 
@@ -47,7 +46,8 @@ http GET localhost:8080/definition
 http GET localhost:8080/definition/folder
 ```
 
-## 결과
+<h3>결과</h3>
+
 ```java
 {
     "_embedded": {
@@ -126,9 +126,13 @@ vi process.json
 http localhost:8080/definition/raw/process.json < process.json
 ```
 
-## 프로세스 정의 JSON
-```java
+## 프로세스 정의 관리
 
+<details>
+<summary>프로세스 정의 JSON Code</summary>
+<div markdown="1">
+
+```java
 {
     "definition": {
         "_type": "org.uengine.kernel.ProcessDefinition", 
@@ -453,6 +457,9 @@ http localhost:8080/definition/raw/process.json < process.json
     }
 }
 ```
+</div>
+</details>
+
 
 - 디플로이 결과:
 ```java
@@ -474,7 +481,7 @@ http localhost:8080/definition/raw/process.json < process.json
 }
 ```
 
-- instantiation 링크를 따라 가본다:
+## 프로세스 instantiation 생성
 ```java
 http POST localhost:8080/definition/instance/process.json
 ```
@@ -518,6 +525,10 @@ http localhost:8080/instance/3451/variables
 
 
 ## Hybind example
+<details>
+<summary>Hybind example Code</summary>
+<div markdown="1">
+
 ```java
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script src="https://unpkg.com/hybind@latest/index.js"></script>
@@ -611,8 +622,11 @@ http localhost:8080/instance/3451/variables
 
 </script>
 ```
+</div>
+</details>
 
-## /version
+## 프로세스 버전관리
+**/version**
 - 버전 리스팅
 ```java
 http localhost:8080/version
