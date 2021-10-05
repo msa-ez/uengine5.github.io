@@ -34,12 +34,7 @@ module.exports = {
               '/uengine/sidebar/',
               '/uengine/message-listener/',
               '/uengine/script-task/',
-            ]
-          },
-          {
-            title: 'resource',
-            items: [
-              '/group/settings/',
+              '/uengine/facebook/',
             ]
           },
           {
@@ -52,6 +47,7 @@ module.exports = {
               '/tutorial/chapter5/',
               '/tutorial/chapter6/',
               '/tutorial/chapter7/',
+              '/tutorial/video/'
             ]
           }
         ]
