@@ -10,44 +10,49 @@ module.exports = {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.bpm-uengine5.io'),
+  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.bpm-getting-started5.io'),
   settings: {
     web: process.env.URL_WEB || false,
     twitter: process.env.URL_TWITTER || false,
     github: process.env.URL_GITHUB || false,
     nav: {
       links: [
-        { path: '/uengine/', title: 'Docs' }
+        { path: '/getting-started/', title: 'Docs' }
       ]
     },
     sidebar: [
       {
-        name: 'uengine',
+        name: 'getting-started',
         sections: [
           {
             title: 'Getting Started',
             items: [
-              '/uengine/',
-              '/uengine/activity/',
-              '/uengine/writing-content/',
-              '/uengine/deploying/',
-              '/uengine/sidebar/',
-              '/uengine/message-listener/',
-              '/uengine/script-task/',
-              '/uengine/facebook/',
+              '/getting-started/',
+              '/getting-started/process-workflow/',
+              '/getting-started/soa-architecture/',
             ]
           },
           {
-            title: 'Chapter',
+            title: 'API & CUSTOMIZING',
             items: [
-              '/tutorial/chapter1/',
-              '/tutorial/chapter2/',
-              '/tutorial/chapter3/',
-              '/tutorial/chapter4/',
-              '/tutorial/chapter5/',
-              '/tutorial/chapter6/',
-              '/tutorial/chapter7/',
-              '/tutorial/video/'
+              '/api-customizing/api-reference/',
+              '/api-customizing/message-listener/',
+              '/api-customizing/create-project/',
+              '/api-customizing/new-activity/',
+              '/api-customizing/migration/',
+              '/api-customizing/transaction-listener/',
+              '/api-customizing/script-task/',
+            ]
+          },
+          {
+            title: 'BPM 개념 학습',
+            items: [
+              '/bpm-concept/example-video/',
+              '/bpm-concept/business-process/',
+              '/bpm-concept/workflow/',
+              '/bpm-concept/workflow-management-system/',
+              '/bpm-concept/open-source/',
+              '/bpm-concept/facebook/',
             ]
           }
         ]

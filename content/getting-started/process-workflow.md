@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 7. 사람간의 프로세스 Workflow
+# 사람간의 프로세스 Workflow
 
 ## 1. 조건분기 흐름제어
 

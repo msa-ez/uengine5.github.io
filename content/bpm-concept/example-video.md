@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 8. Example Video
+# Example Video
 
 ## 실전예제 - 대고객 만족 프로세스
 

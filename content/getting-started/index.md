@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 6. 모델링 툴의 사용법
+# 모델링 툴의 사용법
 
 ## 1. 프로세스 정의 만들기
 

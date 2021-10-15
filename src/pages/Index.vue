@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Layout >
+  <Layout>
     <div class="pt-8 md:pt-16">
       <div class="flex">
         <div style = "width:47.5%;">
@@ -14,13 +14,13 @@
             </p>
             <div class="flex">
               <g-link
-                to="/uengine/"
+                to="/getting-started/"
                 class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
               >
-              Started
+                Getting Started
               </g-link>
               <g-link
-                to="https://github.com/TheOpenCloudEngine/uengine-bpm"
+                to="https://github.com/uengine-oss/uEngine5-bpm"
                 class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
               >
                 Github
@@ -31,13 +31,6 @@
                 class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
               >
                 Facebook
-              </g-link>
-
-              <g-link
-                to="https://uengine.org/assets/docs/%EC%9C%A0%EC%97%94%EC%A7%84%20BPM%20%EC%82%AC%EC%9A%A9%EC%9E%90%EB%A9%94%EB%89%B4%EC%96%BC%20V_3.5.5.doc"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Guide
               </g-link>
             </div>
           </div>
@@ -132,161 +125,7 @@
       <br><br><br>
     </div>
 
-    <h3 style = "font-size:30px; font-weight:500;">uEngine 제품 그룹</h3>
-    <table style = "width:100%;">
-        <tr><!-- 첫번째 줄 시작 -->
-            <td>제품</td>
-            <td>설명</td>
-            <td>
-              프로세스<br>
-              모델링 및<br>
-              정의보기<br>
-            </td>
-            <td>
-              프로세스<br>
-              모니터링<br>
-            </td>
-            <td>프로세스 실행</td>
-            <td>워크플로우</td>
-            <td>분석 / 통계</td>
-            <td>확장기능</td>
-            <td>다운로드</td>
-            <td>데모보기</td>
-        </tr><!-- 첫번째 줄 끝 -->
-
-        <tr><!-- 두번째 줄 시작 -->
-            <td>uEngine BPMS</td>
-            <td>
-              업무 프로세스<br>
-              관리<br>
-            </td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td></td>
-            <td >
-              <g-link style="color:#2979FF;" to="https://sourceforge.net/projects/uengine/files/2.%20uengine%20packaged%20edition/">- 제품다운로드</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/ubpm.pdf">- 제품소개서</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/uEngine_BPMS_3.6_Quick_Guide.pdf">- 퀵스타트</g-link><br>
-            </td>
-            <td></td>
-        </tr><!-- 두번째 줄 끝 -->
-
-        <tr><!-- 세번째 줄 시작 -->
-            <td>uEngine BRMS</td>
-            <td>룰엔진</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td></td>
-            <td></td>
-            <td>를 모델러	</td>
-            <td></td>
-            <td></td>
-        </tr><!-- 세번째 줄 끝 -->
-
-        <tr><!-- 네번째 줄 시작 -->
-            <td>uEngine 전자결재</td>
-            <td>
-              전자결재<br>
-              그룹웨어<br>
-            </td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td></td>
-            <td>
-              결재선 편집기와<br>
-              기안기<br>
-            </td>
-            <td></td>
-            <td></td>
-        </tr><!-- 네번째 줄 끝 -->
-
-        <tr><!-- 다섯번째 줄 시작 -->
-            <td>uEngine JMS</td>
-            <td>
-              업무 메뉴얼<br>
-              지식관리<br>
-            </td>
-            <td>●</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/uJMSje.pdf">- 제품소개서</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/uJMSsa.pdf">- 사용자메뉴얼</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/uJMS.pdf">- 브로셔</g-link><br>
-            </td>
-            <td></td>
-        </tr><!-- 다섯번째 줄 끝 -->
-
-        <tr><!-- 여섯번째 줄 시작 -->
-            <td>uEngine PMT</td>
-            <td>
-              프로세스<br>
-              모니터링툴킷<br>
-            </td>
-            <td>●</td>
-            <td>●</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/upmt1.pdf">- 제품소개서</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/upmt.pdf">- 사용자메뉴얼</g-link><br>
-            </td>
-            <td></td>
-        </tr><!-- 여섯번째 줄 끝 -->
-
-        <tr><!-- 일곱번째 줄 시작 -->
-            <td>Process Codi</td>
-            <td>소셜BPM</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>●</td>
-            <td>
-              기업용<br>
-              SNS 서비스<br>
-            </td>
-            <td>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/upmt1.pdf">- 제품다운로드</g-link><br>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/upmt.pdf">- 브로셔</g-link><br>
-            </td>
-            <td>
-              <g-link style="color:#2979FF;" to="http://www1.processcodi.com/?tm=1&subid4=1632989396.0374300000">- 데모보기</g-link><br>
-            </td>
-        </tr><!-- 일곱번째 줄 끝 -->
-
-        <tr><!-- 여덟번째 줄 시작 -->
-            <td>Process Mobi</td>
-            <td>
-              모바일<br>
-              클라이언트<br>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              모바일<br>
-              클라이언트<br>
-            </td>
-            <td>
-              <g-link style="color:#2979FF;" to="http://uengine.org/assets/docs/umobi.pdf">- 브로셔</g-link><br>
-            </td>
-            <td></td>
-        </tr><!-- 여덟번째 줄 끝 -->
-      </table>
+    <!-- uEngine 제품 그룹 섹션 위치 -->
 
       <br><br><br>
       <h3 style = "font-size:30px; font-weight:500;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h3>
@@ -368,69 +207,8 @@
           일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.
         </div>
         <br><br>
-        <h3 style = "font-size:30px; font-weight:500;">Zero Code & Extensible Vocalbulary</h3>
-        <h4>모델링이 곧 실행 프로세스</h4>
-        <h4>단일 툴을 통한 통합</h4>
-        <h4>업무관리자에 의한 프로세스 복구</h4>
-        <h4>사용자 설정을 통한 통계 분석 개발</h4>
-        <h4>확장적 업무</h4>
-      
-        <br><br>
-        <h3 style = "font-size:30px; font-weight:500;">기능적으로 유엔진 BPM은 어떠한 차별점이 있습니까?</h3>
-<pre class="language-">
-BPM적용을 한번 해보신 고객들을 다음과 같은 불평들을 하나같이 하십니다. 프로세스 모델링을 현업이 할 수 있다고 했는데, 너무 어려워서 IT의 도움을 결국 받을 수 밖에 없다.
-자체적으로 프로세스를 개선할 수 있다는 이야기는 아무래도 못믿겠다. 한번 흘러간 프로세스의 단계는 도대체 복구라는 것이 불가능하다.
-신이 아닌 이상, 업무적으로나 기술적으로나 어떻게든 프로세스의 진행을 뒤로 돌릴 수 없는 BPM제품은 결국 못쓴다.
-업무의 흐름은 생각보다 복잡하다.
-때때로 모델링시에 예측하지 못했던 동적인 상황이 벌어지는데, 이를 설계할 방법이 없어서 결국은 프로그래밍으로 해결해야 하는 순간,
-이 프로세스는 현업에 의해 개선이 불가능해지는 "대수술"의 과정을 밟게 된다.</pre>
-
-        <br><br>
-        <h3 style = "font-size:30px; font-weight:500;">요약하자면</h3>
-<pre class="language-">
-1. 사용자에 의한 프로세스 모델링이 불가능하다
-2. 롤백이 지원되지 않는다
-3. 동적인 프로세스의 유연성이 지금까지 BPM제품들의 주요한계점이었다는 것입니다.</pre>
-<br><br>
-
-        <div style = "line-height:30px;">
-          <div style = "font-weight:700;">이러한 것들이 지원되지 못하는 것을 유엔진은 다음과 같은 기능들로 뛰어넘고 있습니다:</div>
-          사용자는 업무를 마음껏 그리고자 하는 "미술가"이며,
-          BPM은 이러한 미술가를 위해 다양한 색의 "페인트"를 제공해야 한다는 것입니다. 그런데 이때 어떤 BPM은 색의 3원색만을 제공하여 "사용자가 알아서 색을 섞어서 사용하시라"는 접근을 한다면,
-          물론 최고의 미술가가 되기위해 사용자는 노력해야만 할것입니다.
-          하지만 현업을 위해 최대한 다양한 의미의 비즈니스적인 색체를 띤 컴포넌트들을 쉽게 컴포넌트로 만들어 낼 수 있고 이를 현업이 사용하는 환경 (BPM에서는 프로세스 모델링을 위한 액티비티 타입 유형이 됩니다)에 쉽게 추가할 수 있는 "디자인타임 개발 프레임워크"의 제공이 중요하다는 것입니다.
-          앞서 설명된 것처럼, 유엔진의 컴포넌트 프레임워크는 기술적인 단위 기능의 컴포넌트를 BPM의 라이프사이클에서 유용하도록 디자인 타임의 자동 생성 및 포장기능과 인터페이스를 제공하여 이러한 "지속적인 프로세스 개선"을 위한 "지속적인 액티비티 표현력 개선"을 지원합니다.
-          무심코 "프로세스"라고 우리가 칭하는 것에는 다양한 대상들이 존재합니다.
-          사람과 사람간의 문서의 전달만을 고려한 "워크플로우", 시스템과 시스템간의 데이터 전달 과정인 "EAI 프로세스", 비즈니스 파트너와 파트너간의 "B2Bi 프로세스", 룰의 해석과정을 나타난 "디시젼 프로세스", 혹은 단순히 웹페이지들의 전이과정을 나타내는 "페이지플로우"... 이러한 것들은 사용자는 사실 그 명명조차 구분하지 못합니다.
-          왜 이들을 분리하여 다른 모델링 도구에서 설계하고 다종의 엔진에서 수행하여야 합니까?
-          그리고 이러한 것들을 기술적으로 연결함에 있어서 한계점은 왜 그렇게 많이 존재합니까?
-          현업이 그리고자 하는 프로세스는 이러한 다양하게 기술적으로는 다른 유형의 프로세스를 하나의 툴에서 그리고자 하고 하나의 도구에서 실행되는 추상적인 모습을 당연히 떠올립니다.
-          그것이 BPM이라고 생각하는 것이 사용자 입장에서는 당연한 것입니다.
-          이러한 통합 모델링과 실행기능을 "End-to-End프로세스 지원" 이라고 합니다.
-          이러한 End-to-End 프로세스 지원이 어려운 이유는 단일 소프트웨어 벤더가 혼자서 이모든 프로세스 유형을 지원할 SW를 경쟁력있게 만들 수 없기 때문입니다.
-          그래서 대형 SW벤더들은 여러 경쟁력있는 해당 영역의 제품들을 M&A하여 엮기도 하지만, 아키텍처적으로 갑자기 통합하려 들면 소화가 잘 안됩니다.
-          유엔진은 최고의 오픈소스 제품들을 소스코드의 깊은 레벨에서부터 통합하여 유엔진의 통합 모델링 환경에서 Workflow - EAI - B2Bi - Decision Tree - Page Flow를 통합 모델링, 실행하는 것을 지원하는 몇 안되는 제품입니다.
-          BPM의 업무 진행의 복병은 한번 커밋해버린 지난 단계의 업무를 때때로 복구하길 원한다는 것입니다.
-          물론 BPM엔진이 지난 일에 대해 모든 것을 기억하고 그것을 정확히 복구해주면 가능하겠지만 프로세스가 실질적으로 설계된 모습을 모면,
-          외부 데이터베이스에의 접근등 BPM이 알아서 할 수 없는 권한밖의 일들또한 모델링이 되기 때문이 이를 복구한다는것은 아주 어려운 일입니다.
-          현존하는 기술로서 이를 지원하기 위한 기능으로 "Compensation Handling"혹은 "Business Transaction"이라는 기법이 있는데,
-          이는 미리 프로세스 설계시에 순차흐름시 동작하는 change에 반대되는 복구 로직을 pair로 작성하는 것입니다.
-          유엔진은 BPEL4WS에 정의된 compensation handling framework를 지원하여 이러한 복구로직에 대한 이벤트 핸들링 처리를 지원합니다.
-          업무 담당자의 수나 어떤 데이터의 수에 따라 동적으로 프로세스 일부의 병렬건수가 동적으로 늘어나거나 줄어들고 그로인한 결과 데이터의 배분과 취합 또한 자동화되어야 하는 아주 복잡한 이슈가 현업에서는 아주 빈번히 발생합니다.
-          이를 유엔진은 GUI설정과 동적 프로세스 변수 배열처리의 기능을 통해 최대한 쉽고 용이하게 현업이 이러한 멀티플인스턴스(Multiple Instances)를 구현할 수 있도록 지원합니다.
-          이외에도, 유엔진 3.0에는 "집단지성기반의 사용자에의한 자생적 프로세스 개선" 기능,
-          웹에서 별도 설치 전혀없이 MS Office의 모든 기능을 수행가능한 순수 자바 오피스 "u-Office"내장,
-          다양한 Web 2.0 도구들을 통한 KM2.0과 BPM2.0의 통합 등의 혁신적인 기능들이 지속적으로 추가되어가고 있습니다.
-          이러한 월등한 기능적 우월성이 가능한것은 유엔진은 단일 SW회사의 일부 "머리"들이 고집스럽게 혼자서 만드는 제품이 아니라 많은 컨소시엄 참여기업들의 개발참여와 사용자들의 수많은 버그신고 등에 의해 자생적으로 집단지성에 의해 성장하는 제품이기 때문입니다.
-          <br><br>
-          <h3>(참고자료)</h3>
-<pre class="language-">
-1. 좋은 BPMS가 가져야 하는 속성 (Ismael Galimi-The founder of BPMI.org)
-2. 모델링이 곧 실행 프로세스 (Zero Coding) 단일 툴을 통한 통합 (End-to-End Process Modeling)
-3. 업무관리자에 의한 프로세스 복구 (Compensation Handling)
-4. 사용자 설정을 통한 통계 분석 개발 (Native BAM)
-5. 확장적 업무 표현력 (Extensible Vocabulary)</pre>
-        </div>
+        
+        <!-- Zero Code & Extensible Vocalbulary 섹션 -->
 
         <br><br>
         <h3 style = "font-size:30px; font-weight:500;">License</h3>

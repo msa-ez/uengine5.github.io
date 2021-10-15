@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 prev: ''
 next: ''
 ---
@@ -10,7 +10,7 @@ next: ''
 **먼저, uEngine-default 프로젝트를 복제한다:**
 
 ```bash
-git clone https://github.com/TheOpenCloudEngine/uEngine5-default.git
+git clone https://github.com/uengine-oss/uEngine5-bpm
 ```
 
 **복제한 uEngine-default 프로젝트를 해당 사이트의 프로젝트 명으로 전환한다:**

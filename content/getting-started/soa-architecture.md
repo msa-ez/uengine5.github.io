@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 5. SOA (MSA) 아키텍처 예제
+# SOA (MSA) 아키텍처 예제
 
 ## 서비스 시나리오
 

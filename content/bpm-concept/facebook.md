@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
 # Facebook group

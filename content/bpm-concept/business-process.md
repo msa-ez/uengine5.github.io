@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 1. 비즈니스 프로세스와 BPM
+# 비즈니스 프로세스와 BPM
 
 ## 1. 기업과 비즈니스 프로세스
 

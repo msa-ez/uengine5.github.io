@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 3. 워크플로우 관리 시스템과 RTE BPM
+# 워크플로우 관리 시스템과 RTE BPM
 
 ## 1. 워크플로우 관리 시스템 (WFMS)
 

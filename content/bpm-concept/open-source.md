@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 4. 오픈소스 BPMS uEngine 소개
+# 오픈소스 BPMS uEngine 소개
 
 본 교재에서는 BPM활용 과정을 보다 직접적으로 체득할 수 있도록 하기 위해 누구나 무료로 활용/서비스 할 수 있는 오픈소스 BPMS인 uEngine 을 통해 실습의 모든 과정을 기술하고자 한다.
 

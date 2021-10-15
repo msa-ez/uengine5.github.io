@@ -1,9 +1,9 @@
 ---
 description: ''
-sidebar: 'uengine'
+sidebar: 'getting-started'
 ---
 
-# 2. 워크플로우
+# 워크플로우
 
 ## 1. 워크플로우 개념과 유형
 
