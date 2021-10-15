@@ -10,7 +10,6 @@
             title="Home"
           >
             <g-image src="../../uengine-image/logo.png"></g-image>
-            <div style = "font-weight:400; margin:0 0 0 1px; color:#616161;">5</div>
           </g-link>
 
           <!-- <div v-if="settings.nav.links.length > 0" class="hidden ml-2 mr-5 sm:block sm:ml-8">

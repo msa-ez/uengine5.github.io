@@ -1,7 +1,8 @@
 <template>
 <div>
   <Layout>
-    <div class="pt-8 md:pt-16">
+    <!-- pc 환경 style -->
+    <div class="pt-8 md:pt-16 is-pc">
       <div class="flex">
         <div style = "width:47.5%;">
           <div class="flex flex-col items-left mb-2 text-ui-primary">
@@ -121,6 +122,131 @@
             다양한 관점의 프로세스 실행과 조직 역량을 한곳에서 모니터링하세요
           </div>
         </div>
+      </div>
+      <br><br><br>
+    </div>
+
+    <!-- 모바일 환경 style -->
+    <div class="is-mobile">
+      <div>
+        <div style = "width:100%;">
+          <div class="flex flex-col items-left mb-2 text-ui-primary">
+            <!-- <Logo :width="80" /> -->
+            <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
+              BPM
+            </h2>
+            <p class="text-left text-1xl">
+              급변하는 비즈니스 프로세스를 고착화된 코드에서 분리하십시오. 대기업에게는 기존 업무 베테랑들의 프로세스를 자산화하여 지속가능한 비즈니스의 기반을 구축하고, 중소기업에게는 우리기업만의 프로세스 혁신과 통제를 통한 생산성과 표준화된 품질을 확보하십시오. uEngine BPMS 는 OMG 국제표준인 BPMN 2.0 을 지원하여 기업의 프로세스를 관리하고 지속적인 개선을 수행할 수 있도록 하는 프로세스 혁신 기능과 소셜 네트워크 기반의 포털을 통하여 창의적인 프로세스 협업을 가능하게하는 두가지 통제와 혁신의 관점의 UI/UX 를 통합하는 UI를 제공합니다. 기업은행, LG 디스플레이, SK 텔레콤 등 굴지의 금융과 통신 기업에서 검증된 uEngine BPMS를 통한 혁신 사례를 만드시기 바랍니다.
+            </p>
+            <div class="flex">
+              <g-link
+                style="font-size:14px; font-weight:500;"
+                to="/getting-started/"
+                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+              >
+                Getting Started
+              </g-link>
+              <g-link
+                style="font-size:14px; font-weight:500;"
+                to="https://github.com/uengine-oss/uEngine5-bpm"
+                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+              >
+                Github
+              </g-link>
+
+              <g-link
+                style="font-size:14px; font-weight:500;"
+                to="https://www.facebook.com/groups/uenginebpm/"
+                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+              >
+                Facebook
+              </g-link>
+            </div>
+          </div>
+          <!-- <p class="text-xl font-medium text-center">
+            Perfect Lighthouse score out of the box. Easy to set-up. Dark mode included.
+            <br>
+            <strong class="text-ui-primary">Got a minute?</strong>
+          </p> -->
+        </div>
+        <div style = "width:100%;">
+            <iframe style ="width:100%; height:315px; margin:20px 0 20px 0;"
+              src="https://www.youtube.com/embed/2xcl_aFKtrI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+            <iframe style ="width:100%; height:315px;"
+              src="https://www.youtube.com/embed/2xcl_aFKtrI"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+        </div>
+      </div>
+
+      <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+
+      <h2 class = "sub-title" style="font-size:30px;">FEATURES</h2>
+
+
+      <div style="margin-top:50px;">
+        <div style= "width:100%;">
+          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Full Support of BPMN 2.0</h3>
+          <div style="font-size:16px;">
+            uEngine5 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
+            세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
+            uEngine5 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
+          </div>
+        </div>
+        <g-image style = "width:100%; height:50%;"
+          src="https://user-images.githubusercontent.com/487999/36926534-c1f9c24a-1ebb-11e8-96e1-5d8e3b73391b.png">
+        </g-image>
+      </div>
+
+
+      <div style = "margin-top:50px;">
+        <div style = "width:100%;">
+          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">UML Class Modeling</h3>
+          <div style="font-size:16px;">
+            uEngine5 에 내장된 UML 클래스 모델러를 통하여 도메인 모델을 설계할 수 있습니다.
+            이렇게 설계된 도메인 모델은 프로세스 변수와 룰 편집기의 모델로 활용되며,
+            Open Cloud Engine PaaS 에 결합되어 곧바로 Java Spring Boot 애플리케이션의 형태 (마이크로 서비스) 로 생성-역공학 (Round-trip Engineering) 됩니다.
+            DDD (Domain Driven Design) 의 사상을 기반하여 마이크로 서비스 아키텍처 기반의 애플리케이션을 빠르게 생성하여 BPM 기반의 SOA 아키텍처를 이루고 싶다면 이 강력한 도구를 활용하지 않을 수 없을 것입니다.
+          </div>
+        </div>
+        <g-image style = "width:100%;"
+          src="https://user-images.githubusercontent.com/487999/36926642-39525302-1ebc-11e8-9004-7ccffd346546.png">
+        </g-image>
+      </div>
+
+
+      <div style="margin-top:50px;">
+        <div style= "width:100%;">
+          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Social Workspace</h3>
+          <div style="font-size:16px;">
+            uEngine5 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
+            세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
+            uEngine5 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
+          </div>
+        </div>
+        <g-image style = "width:100%;"
+          src="https://user-images.githubusercontent.com/487999/36926643-39936f54-1ebc-11e8-8419-d238f519a53d.png">
+        </g-image>
+      </div>
+
+      <div style = "margin-top:50px;">
+        <div style = "width:100%;">
+          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">프로세스 모니터링</h3>
+          <div style="font-size:16px;">
+            다양한 관점의 프로세스 실행과 조직 역량을 한곳에서 모니터링하세요
+          </div>
+        </div>
+        <g-image style = "width:100%;"
+          src="https://user-images.githubusercontent.com/487999/36926800-e81e2942-1ebc-11e8-9e02-0ba68fc1d40d.png">
+        </g-image>
       </div>
       <br><br><br>
     </div>
@@ -287,19 +413,38 @@
         <br>
   </Layout>
 
+<!-- pc footer -->
   <footer 
     style = "width:100%;
     height:300px;
     background-color:#1E88E5;"
+    class="is-pc-footer"
   >
-    <div class="flex" style = "width:20%; margin-left:40%;  padding-top:60px;">
+    <div class="flex logo-style">
       <div>
       <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
       </div>
-      <div style = "color:#5E5B5B; font-size:60px; margin:-10px 0 0 1px;">5</div>
     </div>
     <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:50px; padding-top:20px;">
       <div>Copyright © 2017 uEngine &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; All Rights Reserved &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Designed By Sppark &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
+      <div>Email : help@uengine.org</div>
+    </div>
+  </footer>
+
+<!-- 모바일 footer -->
+  <footer 
+    style = "width:100%;
+    height:300px;
+    background-color:#1E88E5;"
+    class="is-mobile-footer"
+  >
+    <div class="flex logo-style">
+      <div>
+      <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+      </div>
+    </div>
+    <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:30px; padding-top:20px;">
+      <div>Copyright © 2017 uEngine <br> All Rights Reserved <br> Designed By Sppark <br> Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
       <div>Email : help@uengine.org</div>
     </div>
   </footer>
@@ -358,22 +503,41 @@ export default {
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
-}
-.glink-margin:nth-child(2),
-.glink-margin:nth-child(3),
-.glink-margin:nth-child(4){
-  margin-left:2%;
-}
-.sub-title{
-  width:100%; text-align:center; font-size:40px; font-weight:700;
-}
+  .home-links a {
+    margin-right: 1rem;
+  }
+  .glink-margin:nth-child(2),
+  .glink-margin:nth-child(3),
+  .glink-margin:nth-child(4){
+    margin-left:2%;
+  }
+  .sub-title{
+    width:100%; text-align:center; font-size:40px; font-weight:700;
+  }
 
-td {
-    border: 1px solid #999;
-    text-align:center;
-    padding:5px !important;
-}
+  .logo-style{
+    width:20%; margin-left:40%;  padding-top:60px;
+  }
+
+  .is-mobile-footer{display:none;}
+
+  td {
+      border: 1px solid #999;
+      text-align:center;
+      padding:5px !important;
+  }
+  .is-mobile{display:none;}
+
+  @media only screen and (max-width:1279px) {
+    .is-pc{display:none;}
+    .is-mobile{display:block;}
+
+    .logo-style{
+      width:40%; margin-left:30%;  padding-top:30px;
+    }
+    .is-mobile-footer{display:block;}
+    .is-pc-footer{display:none;}
+  }
+
 
 </style>
