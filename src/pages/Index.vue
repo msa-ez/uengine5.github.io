@@ -253,7 +253,6 @@
 
     <!-- uEngine 제품 그룹 섹션 위치 -->
 
-      <br><br><br>
       <h3 style = "font-size:30px; font-weight:500;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h3>
       <g-image style ="width:100%;" src="../../uengine-image/96.png"></g-image>
 
