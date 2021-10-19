@@ -3,13 +3,13 @@
     <div class="container">
 
       <div class="flex items-center justify-between -mx-2 sm:-mx-4">
-        <div style = "width:130px;" class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row">
+        <div class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row">
           <g-link
             to="/"
             class="flex items-center"
             title="Home"
           >
-            <g-image src="../../uengine-image/logo.png"></g-image>
+            <g-image style="width:200px;" src="../../uengine-image/logo.png"></g-image>
           </g-link>
 
           <!-- <div v-if="settings.nav.links.length > 0" class="hidden ml-2 mr-5 sm:block sm:ml-8">
