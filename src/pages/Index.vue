@@ -8,7 +8,7 @@
           <div class="flex flex-col items-left mb-2 text-ui-primary">
             <!-- <Logo :width="80" /> -->
             <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
-              BPM
+              uEngine5-BPM
             </h2>
             <p class="text-left text-2xl">
               급변하는 비즈니스 프로세스를 고착화된 코드에서 분리하십시오. 대기업에게는 기존 업무 베테랑들의 프로세스를 자산화하여 지속가능한 비즈니스의 기반을 구축하고, 중소기업에게는 우리기업만의 프로세스 혁신과 통제를 통한 생산성과 표준화된 품질을 확보하십시오. uEngine BPMS 는 OMG 국제표준인 BPMN 2.0 을 지원하여 기업의 프로세스를 관리하고 지속적인 개선을 수행할 수 있도록 하는 프로세스 혁신 기능과 소셜 네트워크 기반의 포털을 통하여 창의적인 프로세스 협업을 가능하게하는 두가지 통제와 혁신의 관점의 UI/UX 를 통합하는 UI를 제공합니다. 기업은행, LG 디스플레이, SK 텔레콤 등 굴지의 금융과 통신 기업에서 검증된 uEngine BPMS를 통한 혁신 사례를 만드시기 바랍니다.
@@ -133,7 +133,7 @@
           <div class="flex flex-col items-left mb-2 text-ui-primary">
             <!-- <Logo :width="80" /> -->
             <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
-              BPM
+              uEngine5-BPM
             </h2>
             <p class="text-left text-1xl">
               급변하는 비즈니스 프로세스를 고착화된 코드에서 분리하십시오. 대기업에게는 기존 업무 베테랑들의 프로세스를 자산화하여 지속가능한 비즈니스의 기반을 구축하고, 중소기업에게는 우리기업만의 프로세스 혁신과 통제를 통한 생산성과 표준화된 품질을 확보하십시오. uEngine BPMS 는 OMG 국제표준인 BPMN 2.0 을 지원하여 기업의 프로세스를 관리하고 지속적인 개선을 수행할 수 있도록 하는 프로세스 혁신 기능과 소셜 네트워크 기반의 포털을 통하여 창의적인 프로세스 협업을 가능하게하는 두가지 통제와 혁신의 관점의 UI/UX 를 통합하는 UI를 제공합니다. 기업은행, LG 디스플레이, SK 텔레콤 등 굴지의 금융과 통신 기업에서 검증된 uEngine BPMS를 통한 혁신 사례를 만드시기 바랍니다.

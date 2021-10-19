@@ -52,6 +52,7 @@ import OnThisPage from '@/components/OnThisPage.vue';
 import NextPrevLinks from '@/components/NextPrevLinks.vue';
 import Clipboard from 'clipboard'
 
+
 export default {
   components: {
     OnThisPage,
@@ -79,7 +80,7 @@ export default {
               // check if its a pre tag with a prism class
               if (isPrismClass(pres[i])) {
                   // insert code and copy element
-                  pres[i].innerHTML = `<div class="markdown-body copy">📝</div><code class="markdown-body ${pres[i].className}">${pres[i].innerHTML}</code>`
+                  pres[i].innerHTML = `<i class="fas fa-smile fa-5x markdown-body"></i><code class="markdown-body ${pres[i].className}">${pres[i].innerHTML}</code>`
               }
           }
       }
@@ -91,10 +92,10 @@ export default {
       });
       // do stuff when copy is clicked
       clipboard.on('success', (event) => {
-          event.trigger.textContent = '📄';
+          event.trigger.textContent = '';
           setTimeout(() => {
               event.clearSelection();
-              event.trigger.textContent = '📝';
+              event.trigger.textContent = '';
           }, 1000);
       });
       // helper function
