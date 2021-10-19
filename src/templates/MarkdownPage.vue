@@ -52,7 +52,6 @@ import OnThisPage from '@/components/OnThisPage.vue';
 import NextPrevLinks from '@/components/NextPrevLinks.vue';
 import Clipboard from 'clipboard'
 
-
 export default {
   components: {
     OnThisPage,
@@ -80,7 +79,8 @@ export default {
               // check if its a pre tag with a prism class
               if (isPrismClass(pres[i])) {
                   // insert code and copy element
-                  pres[i].innerHTML = `<i class="fas fa-smile fa-5x markdown-body"></i><code class="markdown-body ${pres[i].className}">${pres[i].innerHTML}</code>`
+                  // 이미지 저장 및 호출 https://github.com/msa-ez/uengine5.github.io/blob/main/README.md
+                  pres[i].innerHTML = `<div class="markdown-body copy"><img style="" src="https://user-images.githubusercontent.com/59447401/137833005-f4f6b7b0-ac2e-4dc6-a414-3bc132b4919a.png" /></div><code class="markdown-body ${pres[i].className}">${pres[i].innerHTML}</code>`
               }
           }
       }
@@ -92,11 +92,11 @@ export default {
       });
       // do stuff when copy is clicked
       clipboard.on('success', (event) => {
-          event.trigger.textContent = '';
+          // event.trigger.textContent = '📄';
           setTimeout(() => {
               event.clearSelection();
-              event.trigger.textContent = '';
-          }, 1000);
+              // event.trigger.textContent = '📝';
+          }, 500);
       });
       // helper function
       function isPrismClass(preTag) {
@@ -162,14 +162,18 @@ code[class*=language-]:nth-child(1) {
 pre[class*=language-] .copy {
   content: "copy";
   position: absolute;
+  width:32px;
+  height:32px;
+  filter: invert(100%);
   top: 0;
   right: 0;
-  margin-top:25px;
-  margin-right:-3px;
+  margin-top:35px;
+  margin-right:-8px;
   transform: translate(-10px, -90%);
   cursor: pointer;
   transition: all 200ms ease;
 }
+
 pre[class*=language-]:hover .copy {
   transform: translate(-10px, -100%);
 }
@@ -182,7 +186,7 @@ code {
 }
 code ::selection {
 		color: #5967d8;
-	}
+}
 code[class*="language-"]::selection, 
 pre[class*="language-"]::selection, 
 code[class*="language-"] ::selection,

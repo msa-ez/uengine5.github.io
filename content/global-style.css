@@ -86,7 +86,7 @@ code{padding:.0rem}
     border-radius: 5px;
 }
 
-.markdown-body pre[class*="language-"] .copy {
+pre[class*="language-"] .copy {
     content: "copy";
 	padding-bottom:5px;
 	width:30px;
@@ -101,7 +101,7 @@ code{padding:.0rem}
 	display:none;
 }
 
-.markdown-body pre[class*="language-"]:hover .copy {
+pre[class*="language-"]:hover .copy {
 	display:block;
 }
 
