@@ -13,3 +13,6 @@ If you have the Gridsome CLI installed, simply run:
 ## Documentation
 
 Documentation can be found [here](https://docc-theme.netlify.com/).
+
+
+![copy](https://user-images.githubusercontent.com/59447401/137833005-f4f6b7b0-ac2e-4dc6-a414-3bc132b4919a.png)
