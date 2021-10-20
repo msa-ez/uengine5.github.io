@@ -42,20 +42,21 @@
           </p> -->
         </div>
         <div style = "width:47.5%; margin-left:5%;">
-            <iframe style ="width:100%; height:315px; margin:20px 0 20px 0;"
-              src="https://www.youtube.com/embed/2xcl_aFKtrI"
-              title="YouTube video player"
-              frameborder="0"
+            <iframe style ="width:100%; height:600px;"
+              src="https://www.youtube.com/embed/9RtGeyvZrJo"
+              title="YouTube video player" 
+              frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
+              allowfullscreen
+            >
             </iframe>
-            <iframe style ="width:100%; height:315px;"
+            <!-- <iframe style ="width:100%; height:315px;"
               src="https://www.youtube.com/embed/2xcl_aFKtrI"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
-            </iframe>
+            </iframe> -->
         </div>
       </div>
 
@@ -170,19 +171,13 @@
           </p> -->
         </div>
         <div style = "width:100%;">
-            <iframe style ="width:100%; height:315px; margin:20px 0 20px 0;"
-              src="https://www.youtube.com/embed/2xcl_aFKtrI"
-              title="YouTube video player"
-              frameborder="0"
+            <iframe style ="width:100%; height:300px;"
+              src="https://www.youtube.com/embed/9RtGeyvZrJo"
+              title="YouTube video player" 
+              frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-            <iframe style ="width:100%; height:315px;"
-              src="https://www.youtube.com/embed/2xcl_aFKtrI"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
+              allowfullscreen
+            >
             </iframe>
         </div>
       </div>
