@@ -248,7 +248,7 @@
 
     <!-- uEngine 제품 그룹 섹션 위치 -->
 
-      <h3 style = "font-size:30px; font-weight:500;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h3>
+      <h3 style = "font-size:24px; font-weight:500;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h3>
       <g-image style ="width:100%;" src="../../uengine-image/96.png"></g-image>
 
       <br>
@@ -260,60 +260,9 @@
       </div>
 
       <br><br>
-      <h3>BPMS</h3> 
-<pre class="language-">
-도입 필요성 다양한 시스템(Groupware, EDM, KM 등)의 도입을 통하여 업무 경쟁력을 강화하려 했지만
-업무의 중복성과 통일성 결여 그리고 특히 협업 차원에서 각 시스템간의 연계성이 떨어짐</pre>
       
-
-      <br><br>
-      <h4>관리자</h4>
-<pre class="language-">
-도대체 업무가 어디까지 진행되고 있는 거야?
-내 부하직원의 업무 스케줄이 어떻게 되나?
-지난번에 지시한 사항이 반영되고 있나?</pre>
-
-        <br><br>
-        <h4>업무 담당자</h4>
-<pre class="language-">
-여러 시스템에 관여된 업무화면을 한 곳에서 처리할 수 없을까?
-한번 입력한 내용을 또 입력해야 하나? 전체 업무가 어떻게 흘러가는 거지? 이 업무를 어떻게 처리하는지 모르겠어.</pre>
-        
-        <br><br>
-        <h4>시스템 관리자</h4>
-<pre class="language-">
-시스템 간의 통합에 너무 많은 비용이 들어 간다.
-요구변경이 너무 잦아서 매일 야근해도 작업량은 늘어만 가고 요청자(고객)들은 불평만 계속 늘어만 간다.</pre>
-
-        <br><br>
-        <h3>BPMS</h3>
-<pre class="language-">
-도입 효과 BPM 시스템이 업무간의 전이를 담당하여 개인별 평균 업무 생산성이 향상되고,
-조직 업무 규정에 대한 공통언어인 프로세스를 통하여 빠른 업무 파악이 가능하며,
-업무 자겁 오류 또한 감소 효과가 뚜렷함</pre>
-
-<br><br>
-<h3>관리자</h3>
-<pre class="language-">
-부하직원에게 요청한 사항을 실시간으로 모니터링 가능해짐 위험 혹은 예외 경우를 보다 빠르게 포착 가능해짐
-보다 효과적인 프로세스 진행을 위해 단위업무를 재할당 할 수 있음</pre>
-
-        <br><br>
-        <h3>업무 담당자</h3>
-<pre class="language-">
-수행해야 할 업무가 찾아 들어오므로 어떻게 업무를 수행하는지 알 필요 없음
-업무 진척상황을 보고 할 필요 없음 프로세스에 대한 보다 빠르고 폭넓은 이해가 가능해짐</pre>
-
-
-        <br><br>
-        <h3>시스템 관리자</h3>
-<pre class="language-">
-비즈니스 프로세스를 어플리케이션과 분리함으로써 빠른 개발 가능 비즈니스 프로세스에 대한 변경을 바로 반영함으로써
-실시간 기업 구현이 가능해짐 보다 프로세스지향적이고 어플리케이션 통합 지향적인 시스템 아키텍처로의 발전이 촉진됨</pre>
-      
-        <br><br><br>
-        <h3 style = "font-size:30px; font-weight:500;">유엔진 BPM은 어떠한 아키텍처적 장점이 있습니까?</h3><br>
-        <g-image style ="width:100%;" src="../../uengine-image/97.png"></g-image>
+      <h3 style = "font-size:24px; font-weight:500;">TRUSTEO BY</h3>
+      <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
         
         <br>
         <div style = "line-height:30px;">
