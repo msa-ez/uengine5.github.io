@@ -261,7 +261,7 @@
 
       <br><br>
       
-      <h3 style = "font-size:24px; font-weight:500;">TRUSTEO BY</h3>
+      <h3 style = "font-size:24px; font-weight:500;">Trusted by</h3>
       <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
         
         <br>
