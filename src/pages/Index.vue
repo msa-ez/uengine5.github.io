@@ -246,26 +246,24 @@
       <br><br><br>
     </div>
 
+    <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+
+    <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">Trusted by</h2>
+    <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
+
     <!-- uEngine 제품 그룹 섹션 위치 -->
 
-      <h3 style = "font-size:24px; font-weight:500;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h3>
+      <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+
+      <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h2>
       <g-image style ="width:100%;" src="../../uengine-image/96.png"></g-image>
 
-      <br>
-      <div style = "font-size:20px; font-weight:500;">
-      유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고,
-      이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써,
-      컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성,
-      소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다.
-      </div>
 
-      <br><br>
-      
-      <h3 style = "font-size:24px; font-weight:500;">Trusted by</h3>
-      <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
-        
-        <br>
-        <div style = "line-height:30px;">
+        <div style = "line-height:30px; font-weight:500; font-size:16px;">
+          유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고,
+          이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써,
+          컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성,
+          소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다.
           BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있느냐, 입니다.
           이러한 커스터마이저빌리티와 리스크 낮은 융합을 위해 유엔진BPMS의 아키텍처는 "객체지향 컴포넌트 프레임워크"의 접근방식인 IoC (제어권의 반전)과 "설계의 재사용"의 컨셉을 적용하고 있습니다.
           이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여
@@ -279,8 +277,10 @@
         
         <!-- Zero Code & Extensible Vocalbulary 섹션 -->
 
-        <br><br>
-        <h3 style = "font-size:30px; font-weight:500;">License</h3>
+
+        <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+
+        <h2 class="sub-title is-mobile-sub-title">License</h2>
         <h3>uEngine Open Source License : LGPL</h3>
 
         <table style = "width:100%;">
@@ -474,6 +474,8 @@ export default {
   @media only screen and (max-width:1279px) {
     .is-pc{display:none;}
     .is-mobile{display:block;}
+
+    .is-mobile-sub-title{font-size:30px;}
 
     .logo-style{
       width:40%; margin-left:30%;  padding-top:30px;
