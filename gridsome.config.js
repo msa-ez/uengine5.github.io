@@ -42,6 +42,7 @@ module.exports = {
               '/api-customizing/migration/',
               '/api-customizing/transaction-listener/',
               '/api-customizing/script-task/',
+              '/api-customizing/external-service/',
             ]
           },
           {
