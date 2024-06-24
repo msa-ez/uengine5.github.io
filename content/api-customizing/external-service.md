@@ -148,23 +148,21 @@ public class TroubleTicket {
 }
 ```
 3. TroubleTicket 클래스로 이벤트를 송신(Publisher) 하기 위해서 실행하는 클래스 입니다. publishAfterCommit() 함수를 통해서 메시지브로커 쪽으로 송신 하게 됩니다.
-
+- 송신 메시지 예시
 ```sh
 {"eventType":"TroubleIssued","timestamp":1718873491127,"id":1,"troubleType":"sw","description":"sw is error."}
 ```
 
 
 ### 2.2 BPM(Subscriber)
-     App에서 메시지가 발행될 때마다 수신되며, 조건에 따라 메시지를 분류할 수 있습니다.
+App에서 메시지가 발행될 때마다 수신되며, 조건에 따라 메시지를 분류할 수 있습니다.
 
 
 
 ## 3. 프로세스 모델링
 "프로세스 정의"탭 에서 프로세스에 대한 정의를 진행합니다. 프로세스를 정의하기 위해서 전체적인 TASK를 그리고, 각 TASK 마다 역할을 설정하여, 업무에 대한 내용을 정의합니다.
-    
+
 ### 3.1 외부 어플리케이션 설정
-
-
 1. 상단에 tools 중 "Create task"를 클릭하여 task를 생성합니다. 
 
 ![Setting userTask](../../uengine-image/99.png)
@@ -175,9 +173,8 @@ public class TroubleTicket {
 이미지 3) UserTask 판넬 설정
 
 3. 해당 UserTask를 더블클릭하여 우측 판넬에 "외부 어플리케이션" 설정 합니다.
-- Event Type은 수신 받을 타입인 "TroubleIssued"을 설정 합니다.
+- 예시) "Event Type"은 수신 받을 타입인 "TroubleIssued"을 설정 합니다.
 
-4. "외부 어플리케이션" 설정 후 항목 정의 합니다.
 
 #### 3.1.1 "외부 어플리케이션" 설정
 - URL
