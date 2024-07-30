@@ -16,7 +16,7 @@ sidebar: 'getting-started'
 
 목표하는 프로세스는 [그림 7-1] 과 같다.
 
->![](../../uengine-image/76.png)
+>![](../../uengine-image/76-1.png)
 
 >**그림 7-1) 최종 프로세스 화면**
 
@@ -26,7 +26,7 @@ sidebar: 'getting-started'
 조건 분기 블록을 만들기 위해서는 “흐름제어” 액티비티 그룹내의 “조건분기” 액티비티를 사용하게 된다.
 
 
->![](../../uengine-image/77.png)
+>![](../../uengine-image/77-1.png)
 
 >**그림 7-2) 조건분기 프로세스**
 
@@ -45,14 +45,14 @@ drag&drop하면 위와 같이 플로우 차트 상에 조건분기 블록이 나
 드래그 앤 드롭으로 순서대로 조건분기 블록 안에 포함시키도록 한다.
 
 
->![](../../uengine-image/78.png)
+>![](../../uengine-image/78-1.png)
 
 >**그림 7-3) 실행영역지정**
 
 <br><br><br>
 
 
->![](../../uengine-image/79.png)
+>![](../../uengine-image/79-1.png)
 
 >**그림 7-4) 두 번째 실행영역 지정**
 
@@ -63,7 +63,7 @@ drag&drop하면 위와 같이 플로우 차트 상에 조건분기 블록이 나
 - 두 번째 실행영역: Request for improvement
 
 
->![](../../uengine-image/80.png)
+>![](../../uengine-image/80-1.png)
 
 >**그림 7-6) 분기 프로세스 타이틀 지정**
 
@@ -82,9 +82,9 @@ S/Wor H/W두 가지에 해당하는 경우 우측의 프로세스를 실행하�
 
 
 
->![](../../uengine-image/81.png)
+>![](../../uengine-image/81-1.png)
 
->![](../../uengine-image/82.png)
+<!-- >![](../../uengine-image/82.png) -->
 
 >**그림 7-8) 분기 조건 설정(Otherwise)**
 
@@ -96,9 +96,9 @@ S/Wor H/W두 가지에 해당하는 경우 우측의 프로세스를 실행하�
 
 
 
->![](../../uengine-image/83.png)
+<!-- >![](../../uengine-image/83.png) -->
 
->![](../../uengine-image/84.png)
+>![](../../uengine-image/85-1.png)
 
 >**그림 7-9) 조건분기 실행 내역 (system관련 장애일 때)**
 
@@ -110,9 +110,9 @@ software장애 영역으로 프로세스가 이동하였음을 확인할 수 있
 
 <br><br><br>
 
->![](../../uengine-image/85.png)
+<!-- >![](../../uengine-image/85-1.png) -->
 
->![](../../uengine-image/86.png)
+>![](../../uengine-image/86-1.png)
 
 >**그림 7-10) 조건분기 실행 내역 (개선 요구일 때)**
 
@@ -136,7 +136,7 @@ software장애 영역으로 프로세스가 이동하였음을 확인할 수 있
 “반복흐름” 유형을 배워 보도록 하겠다.
 
 
->![](../../uengine-image/87.png)
+>![](../../uengine-image/87-1.png)
 
 >**그림 7-11) 최종 프로세스 화면**
 
@@ -191,7 +191,7 @@ Gateway액티비티를 먼저 설치한 후 일반사람 업무 액티비티
 
 업무가 다시 반복됨을 확인할 수 있다.
 
->![](../../uengine-image/89.png)
+>![](../../uengine-image/89-1.png)
 
 >**그림 7-13) Loop 화면**
 
@@ -211,11 +211,11 @@ Gateway액티비티를 먼저 설치한 후 일반사람 업무 액티비티
 
 그 프로세스의 정의를 분리하여 작업을 처리하도록 해 보겠다.
 
->![](../../uengine-image/90.png)
+>![](../../uengine-image/90-1.png)
 
 >**그림 A**
 
->![](../../uengine-image/91.png)
+>![](../../uengine-image/91-1.png)
 
 >**그림 B**
 
@@ -231,7 +231,7 @@ Gateway액티비티를 먼저 설치한 후 일반사람 업무 액티비티
 기능개선제안 프로세스를 다음과 같이 작성한다.
 
 
->![](../../uengine-image/92.png)
+>![](../../uengine-image/92-1.png)
 
 >**그림 7-14) 기능개선제안 프로세스**
 
@@ -289,7 +289,7 @@ Gateway액티비티를 먼저 설치한 후 일반사람 업무 액티비티
 두 번째 분기점에 끌어다 놓고 기존의 빈 작업은 삭제한다.
 
 
->![](../../uengine-image/93.png)
+>![](../../uengine-image/93-1.png)
 
 >**그림 7-15) 서브프로세스 정의**
 

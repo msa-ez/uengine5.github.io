@@ -9,7 +9,7 @@ sidebar: 'getting-started'
 
 - BPM 을 통한 보험 처리 프로세스
 
->![](../../uengine-image/32.png)
+>![](../../uengine-image/32-1.png)
 
 
 <details>
