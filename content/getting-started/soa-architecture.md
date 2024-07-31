@@ -9,7 +9,7 @@ sidebar: 'getting-started'
 
 - BPM 을 통한 보험 처리 프로세스
 
->![](../../uengine-image/32.png)
+>![](../../uengine-image/32-1.png)
 
 
 <details>
@@ -908,24 +908,3 @@ eureka:
 - pom.xml 수정 후, eureka서버 접속(http://localhost:8761/)을 해보면 현재 서비스가 떠있는 것을 확인 할 수 있다.
 
 >![](../../uengine-image/40.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
