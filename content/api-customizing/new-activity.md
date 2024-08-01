@@ -17,7 +17,7 @@ And register that VueJS component to the list of the context menu of task.
 
 
 ## Example
-![](../../uengine-image/0.png)
+![](../../uengine-image/0-1.png)
 
 - **[Source](https://github.com/TheOpenCloudEngine/uEngine5-base/commit/a6a0339af75b5e2013a16f28fc7831d04d7ad529)**
 
@@ -220,8 +220,8 @@ It must be located in the project - 'front-end/src/components/bpmn/task'
 **Finally, add the component in the list of the configuration context menu**
 
 
-![](../../uengine-image/2.png)
-![](../../uengine-image/3.png)
+![](../../uengine-image/2-1.png)
+<!-- ![](../../uengine-image/3.png) -->
 
 - **[The source code for launching the list of task types can be found at BpmnComponentChanger.vue](https://github.com/TheOpenCloudEngine/uEngine5-base/blob/master/front-end/src/components/bpmn/BpmnComponentChanger.vue)**
 

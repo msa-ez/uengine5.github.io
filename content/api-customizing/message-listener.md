@@ -35,7 +35,7 @@ http localhost:8080/services/message content="메시지" user_key="XXXXX"
 
 - user_key 는 카카오톡 단말기나 사용자에 유일하게 정해져서 넘어오기 때문에 이 값을 correlation key 로 사용하면 됩니다. 따라서, 다음과 같은 MessageStartEvent 설정으로 서비스를 열 수 있습니다:
 
-![](../../uengine-image/12.png)
+![](../../uengine-image/12-1.png)
 
 - path: message
 - correlation key: user_key
