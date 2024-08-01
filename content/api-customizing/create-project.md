@@ -5,18 +5,18 @@ prev: ''
 next: ''
 ---
 
-# uEngine5 기반 프로젝트 만들기
+# uEngine6 기반 프로젝트 만들기
 
 **먼저, uEngine-default 프로젝트를 복제한다:**
 
 ```bash
-git clone https://github.com/uengine-oss/uEngine5-bpm
+git clone https://github.com/uengine-oss/uEngine6-bpm
 ```
 
 **복제한 uEngine-default 프로젝트를 해당 사이트의 프로젝트 명으로 전환한다:**
 
 ```bash
-mv uEngine5-default someproject
+mv uEngine6-default someproject
 cd someproject
 ```
 
@@ -45,7 +45,7 @@ package org.uengine.five;
 
 @EnableWebMvc
 @Configuration
-public class WebConfig extends org.uengine.social.uEngine5WebConfig {
+public class WebConfig extends org.uengine.social.uEngine6WebConfig {
 
 
     /**

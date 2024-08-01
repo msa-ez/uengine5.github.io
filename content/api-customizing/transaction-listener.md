@@ -5,7 +5,7 @@ prev: ''
 next: ''
 ---
 
-# uEngine5 트랜잭션 리스너
+# uEngine6 트랜잭션 리스너
 
 Main interface of ProcessTransactionListener is as follows:
 
@@ -22,7 +22,7 @@ public interface ProcessTransactionListener {
 
 하나의 트랜잭션 내에 여러개의 메인과 서브 프로세스 인스턴스, 그리고 심지어 멀티플 인스턴스가 생성되었다가 한번에 저장되어야 하기 때문에, 액티비티들을 실행하면서 발생하는 모든 프로세스 인스턴스의 상태나 프로세스 변수의 값을 JPA Repository 를 통하여 매번 읽고 쓰고가 생길때마다 SQL 을 DB 로 전송했다가는 성능 저하가 심각하게 발생하여 uEngine 은 전통적으로 DAO 에 대한 Caching 프레임워크를 자체적으로 개발하여 사용하고 있었다.
 
-uEngine5 에서는 대대적으로 기존 자체 기술을 Spring 기반의 가능한 표준 기술로 대체하기로 한바, JPA 기반으로 기존 동작을 구현하기로 하였다.
+uEngine6 에서는 대대적으로 기존 자체 기술을 Spring 기반의 가능한 표준 기술로 대체하기로 한바, JPA 기반으로 기존 동작을 구현하기로 하였다.
 
 해서 하나의 Request 에 유일한 완료시점에 변경된 프로세스 인스턴스들만 마지막 상태값을 저장할 수 있어야 한다.
 

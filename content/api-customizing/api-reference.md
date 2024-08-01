@@ -5,11 +5,11 @@ prev: ''
 next: ''
 ---
 
-# uEngine5 API Reference
+# uEngine6 API Reference
 
 <h3>원칙</h3>
 
-- **[uEngine5 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다](https://en.wikipedia.org/wiki/HATEOAS)**
+- **[uEngine6 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다](https://en.wikipedia.org/wiki/HATEOAS)**
 - 따라서 hybind 와 같은 Javascript binding library 를 통해 쉽게 UI 와 인터랙션 하도록 한다.
 
 
