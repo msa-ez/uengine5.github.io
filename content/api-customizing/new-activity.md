@@ -23,7 +23,7 @@ And register that VueJS component to the list of the context menu of task.
 
 **ServiceTask.java**
 
-Activity class must extends org.uengine.kernel.Activity or DefaultActivity (if system activity) or HumanActivity (if the activity is done by human with some user interface). The class must be located at the project can be accessed by the uEngine5-base/definition and /process project for both or you can add the dependency to uEngine5-base/pom.xml to be accessed by the whole uEngine5-base sub projects)
+Activity class must extends org.uengine.kernel.Activity or DefaultActivity (if system activity) or HumanActivity (if the activity is done by human with some user interface). The class must be located at the project can be accessed by the uEngine6-base/definition and /process project for both or you can add the dependency to uEngine6-base/pom.xml to be accessed by the whole uEngine6-base sub projects)
 
 ```javascript
 package org.uengine.kernel.bpmn;

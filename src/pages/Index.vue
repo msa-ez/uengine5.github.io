@@ -234,7 +234,7 @@
           <div class="flex flex-col items-left mb-2 text-ui-primary">
             <!-- <Logo :width="80" /> -->
             <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
-              uEngine5-BPM
+              uEngine6-BPM
             </h2>
             <p class="text-left text-1xl">
               급변하는 비즈니스 프로세스를 고착화된 코드에서 분리하십시오. 대기업에게는 기존 업무 베테랑들의 프로세스를 자산화하여 지속가능한 비즈니스의 기반을 구축하고, 중소기업에게는 우리기업만의 프로세스 혁신과 통제를 통한 생산성과 표준화된 품질을 확보하십시오. uEngine BPMS 는 OMG 국제표준인 BPMN 2.0 을 지원하여 기업의 프로세스를 관리하고 지속적인 개선을 수행할 수 있도록 하는 프로세스 혁신 기능과 소셜 네트워크 기반의 포털을 통하여 창의적인 프로세스 협업을 가능하게하는 두가지 통제와 혁신의 관점의 UI/UX 를 통합하는 UI를 제공합니다. 기업은행, LG 디스플레이, SK 텔레콤 등 굴지의 금융과 통신 기업에서 검증된 uEngine BPMS를 통한 혁신 사례를 만드시기 바랍니다.
@@ -291,9 +291,9 @@
         <div style= "width:100%;">
           <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Full Support of BPMN 2.0</h3>
           <div style="font-size:16px;">
-            uEngine5 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
+            uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
             세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
-            uEngine5 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
+            uEngine6 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
           </div>
         </div>
         <g-image style = "width:100%; height:50%;"
@@ -306,7 +306,7 @@
         <div style = "width:100%;">
           <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">UML Class Modeling</h3>
           <div style="font-size:16px;">
-            uEngine5 에 내장된 UML 클래스 모델러를 통하여 도메인 모델을 설계할 수 있습니다.
+            uEngine6 에 내장된 UML 클래스 모델러를 통하여 도메인 모델을 설계할 수 있습니다.
             이렇게 설계된 도메인 모델은 프로세스 변수와 룰 편집기의 모델로 활용되며,
             Open Cloud Engine PaaS 에 결합되어 곧바로 Java Spring Boot 애플리케이션의 형태 (마이크로 서비스) 로 생성-역공학 (Round-trip Engineering) 됩니다.
             DDD (Domain Driven Design) 의 사상을 기반하여 마이크로 서비스 아키텍처 기반의 애플리케이션을 빠르게 생성하여 BPM 기반의 SOA 아키텍처를 이루고 싶다면 이 강력한 도구를 활용하지 않을 수 없을 것입니다.
@@ -322,9 +322,9 @@
         <div style= "width:100%;">
           <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Social Workspace</h3>
           <div style="font-size:16px;">
-            uEngine5 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
+            uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
             세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
-            uEngine5 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
+            uEngine6 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
           </div>
         </div>
         <g-image style = "width:100%;"
@@ -543,7 +543,7 @@ export default {
   },
 
   metaInfo() {
-    const title = 'uengine5';
+    const title = 'uengine6';
     const description = 'DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!';
 
     return {

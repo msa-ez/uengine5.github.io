@@ -9,7 +9,7 @@
             class="flex items-center"
             title="Home"
           >
-            <g-image style="width:200px;" src="../../uengine-image/logo.png"></g-image>
+            <g-image style="width:200px;" src="../../uengine-image/logo2.png"></g-image>
           </g-link>
 
           <!-- <div v-if="settings.nav.links.length > 0" class="hidden ml-2 mr-5 sm:block sm:ml-8">
