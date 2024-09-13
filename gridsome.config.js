@@ -28,11 +28,14 @@ module.exports = {
             title: 'Getting Started',
             items: [
               '/getting-started/',
+              '/getting-started/database-table/',
               '/getting-started/form-definition/',
               '/getting-started/form-mapping/',
               '/getting-started/conditional-branch/',
               '/getting-started/multiple-instance/',
               '/getting-started/process-monitoring/',
+              '/getting-started/soa-architecture-event/',
+              '/getting-started/soa-architecture-message/',
               '/getting-started/soa-architecture/',
             ]
           },
