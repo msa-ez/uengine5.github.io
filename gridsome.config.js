@@ -36,7 +36,6 @@ module.exports = {
               '/getting-started/process-monitoring/',
               '/getting-started/soa-architecture-event/',
               '/getting-started/soa-architecture-message/',
-              '/getting-started/soa-architecture/',
             ]
           },
           {
@@ -49,7 +48,6 @@ module.exports = {
               '/api-customizing/migration/',
               '/api-customizing/transaction-listener/',
               '/api-customizing/script-task/',
-              '/api-customizing/external-service/',
             ]
           },
           {
