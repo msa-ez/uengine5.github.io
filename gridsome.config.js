@@ -28,7 +28,7 @@ module.exports = {
             title: 'Getting Started',
             items: [
               '/getting-started/',
-              '/getting-started/modeling-tools',
+              '/getting-started/modeling-tools/',
               '/getting-started/database-table/',
               '/getting-started/form-definition/',
               '/getting-started/form-mapping/',
