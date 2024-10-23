@@ -21,7 +21,7 @@ Docker에 uEngine을 올려서 실행하려면 다음 단계를 따르세요:
     ```sh
     # Docker Compose
     cd infra
-    docker-compose up
+    docker compose up
     ```
     이 명령어는 `infra` 폴더에 정의된 모든 서비스를 시작합니다.
 4. **실행 확인**:
@@ -32,6 +32,6 @@ Docker에 uEngine을 올려서 실행하려면 다음 단계를 따르세요:
 
 5. **uEngine 종료**: uEngine을 종료하려면 다음 명령어를 사용합니다.
     ```sh
-    docker-compose down
+    docker compose down
     ```
 
