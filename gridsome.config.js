@@ -6,6 +6,9 @@
 
 module.exports = {
   siteName: '',
+  // 주석 부분 : uengine6 뒤에 각 리스트의 타이틀을 출력하고 싶을때 사용
+  // titleTemplate: 'uengine6 - %s',
+  titleTemplate: 'uengine6',
   icon: {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
