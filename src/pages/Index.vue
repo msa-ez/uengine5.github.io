@@ -1,61 +1,31 @@
 <template>
-<div>
-  <Layout>
-    <!-- pc 환경 style -->
-    <div class="pt-8 md:pt-16 is-pc">
-      <div class="flex">
-        <div style = "width:47.5%;">
-          <div class="flex flex-col items-left mb-2 text-ui-primary">
-            <!-- <Logo :width="80" /> -->
-            <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
-              uEngine6-BPM
-            </h2>
-            <p class="lead mt-n20 mb-5" style="font-size: 18px;">
-                <span style="font-size: 20px; font-weight: bold;">유엔진은</span> BPM 기반 아키텍처 분석에서 운영자동화까지 한번에 지원하는 SOA MM Level 7을 지원하는 플랫폼입니다
-            </p>
-            <p class="lead mt-0 mb-5" style="font-size: 18px;">
-                <span style="font-size: 20px; font-weight: bold;">uEngine6 BPM은</span> 최신 클라우드 네이티브 아키텍처를 기반으로 하는 비즈니스 프로세스 관리 시스템(BPMS)으로, Process GPT라는 uEngine의 AI 버전을 통해 프로세스 정의와 폼 생성, 그리고 애플리케이션 연동을 자동화하는 능력을 갖추었습니다. 
-                이 AI 기능은 복잡한 프로세스들을 자동으로 처리하며, 사용자가 직접 개입하지 않아도 실행단계까지 완전히 자동화됩니다.
-                <!-- 특히, Process GPT는 짧고 사람에 의해 실행되는 Ad-hoc 프로세스<span style="font-size:14px;">(계획되지 않고 필요에 따라 즉각적으로 실행되는 임시적이고 비정형적인 프로세스)</span>나 간단한 시스템 통합과 같은 상황에 최적화되어 있습니다. 
-                이와 대조적으로, uEngine6 BPM은 전통적인 프로덕션 워크플로우에 적합하며, 금융 기관의 여신 처리나 제조업체의 제조 프로세스, 공공 기관의 정해진 절차가 요구되는 디터미니스틱한 프로세스<span style="font-size:14px;">(명확한 규칙과 절차에 따라 실행되는 프로세스)</span> 실행에 특화되어 있습니다.
-                이러한 차별화된 기능은 각각의 프로세스 요구사항에 따라 최적의 솔루션을 제공함으로써 기업들이 더 빠르고, 더 효율적으로 업무를 수행할 수 있도록 지원합니다.  -->
-            </p>
-            <p class="lead mt-0 mb-5" style="font-size: 18px;">
-                이벤트 기반 아키텍처(EDA)를 활용하여 서비스 간 의존성을 최소화하고, 애플리케이션의 진행 상태를 동기화하며 장애 전파 없이 관리합니다. 또한, 시스템 연동 시 자동화된 재시도(retry), 보상 처리(compensation), 타임아웃 등을 모델링을 통해 제공함으로써, 마이크로서비스 아키텍처에서 흔히 복잡하게 다루어지는 트랜잭션 처리를 안정적으로 수행합니다.
-            </p>
-            <p class="lead mt-0 mb-5" style="font-size: 18px;">
-                LLM AI 기술을 기반으로 프로세스 모델링, 폼 생성 등을 자연어 처리를 통해 자동으로 수행하며, 이는 시스템 통합을 포함한 다양한 비즈니스 요구사항을 효과적으로 지원합니다. uEngine6 BPM은 기업이 클라우드 네이티브 및 마이크로서비스 아키텍처로의 전환을 모색하는데 있어 이상적인 솔루션을 제공합니다.
-            </p>
-            <div class="flex">
-              <g-link
-                to="/getting-started/"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Getting Started
-              </g-link>
-              <g-link
-                to="https://github.com/uengine-oss/uEngine5-bpm"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Github
-              </g-link>
-
-              <g-link
-                to="https://www.facebook.com/groups/uenginebpm/"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Facebook
-              </g-link>
+  <div>
+    <Layout>
+      <!-- pc 환경 style -->
+      <div class="pt-8 md:pt-16 is-pc">
+        <div class="flex">
+          <div style = "width:47.5%;">
+            <div class="flex flex-col items-left mb-2 text-ui-primary">
+              <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
+                uEngine6-BPM
+              </h2>
+              <div v-for="(paragraph, index) in paragraphs" :key="index">
+                <p class="lead mt-0 mb-5" style="font-size: 18px;" v-html="paragraph.content"></p>
+              </div>
+              <div class="flex">
+                <g-link
+                  v-for="(link, index) in links"
+                  :key="index"
+                  :to="link.to"
+                  class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
+                >
+                  {{ link.text }}
+                </g-link>
+              </div>
             </div>
           </div>
-          <!-- <p class="text-xl font-medium text-center">
-            Perfect Lighthouse score out of the box. Easy to set-up. Dark mode included.
-            <br>
-            <strong class="text-ui-primary">Got a minute?</strong>
-          </p> -->
-        </div>
-        <div style = "width:47.5%; margin-left:5%; margin-top:140px;" >
-            <iframe style ="width:100%; height:350px;"
+          <div style = "width: 47.5%; margin-left: 5%; margin-top: 140px;">
+            <iframe style ="width: 100%; height: 350px;"
               src="https://www.youtube.com/embed/ZmytoLlvpMs"
               title="YouTube video player" 
               frameborder="0" 
@@ -63,296 +33,106 @@
               allowfullscreen
             >
             </iframe>
-            <!-- <iframe style ="width:100%; height:315px;"
-              src="https://www.youtube.com/embed/2xcl_aFKtrI"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe> -->
-        </div>
-      </div>
-
-      <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
-
-      <h2 class = "sub-title">FEATURES</h2>
-
-
-      <!-- 텍스트 왼쪽 -->
-      <div style="margin-top:50px;" class="flex">
-        <div style= "width:47.5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">Full Support of BPMN 2.0</h3>
-          <div style="font-size:20px;">
-            uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원하여 OCE 상에 운영되어 REST API들로 노출된 마이크로 서비스들을 효율적으로 매시업할 수 있는 프로세스 오케스트레이션 기능을 제공합니다. 
-            또한 순수한 BPMN 기반만으로도 간단한 프로세스 기반 REST 마이크로 서비스를 생성할 수도 있습니다.
           </div>
         </div>
-        <g-image style = "width:47.5%; margin-left:5%;"
-          src="../../uengine-image/full.jpeg">
-        </g-image>
-      </div>
 
-
-      <!-- 텍스트 오른쪽 -->
-      <div style = "margin-top:50px;" class="flex">
-        <g-image style = "width:47.5%;"
-          src="../../uengine-image/sub.jpeg">
-        </g-image>
-        <div style = "width:47.5%; margin-left:5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">서브 프로세스</h3>
-          <div style="font-size:20px;">
-            서브프로세스를 활용한 멀티 인스턴스 처리
-            <br> - 멀티플 인스턴스(MI)는 실행 중에 어떠한 실행 구간의 개수가 정해지는 특성의 복잡한 프로세스 실행 기능입니다. 
-            MI를 지정하기 위해서는 MI 실행구간의 범위를 지정해 주는 SubProcess가 지원되고, SubProcess의 설정에 MI를 발생시키는 인자값(배열값) 에 해당하는 프로세스 변수를 지정해주면, 해당 변수에 입력된 값의 개수만큼을 Parallel 혹은 Loop 방식으로 반복하여 MI를 동적으로 발생시켜 줍니다.
-          </div>
-        </div>
-      </div>
-
-      <!-- 텍스트 왼쪽 -->
-      <div style="margin-top:50px;" class="flex">
-        <div style= "width:47.5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">조건 설정 분기</h3>
-          <div style="font-size:20px;">
-            게이트웨이를 활용한 프로세스 분기 처리
-            <br> - Gateway들을 이용하여 조건 분개 모델링을 할 수 있고 규칙을 정의할 수 있습니다. 단순한 프로세스 변수 비교와 And / Or 조합의 복잡한 규칙을 정의할 수 있습니다.
-          </div>
-        </div>
-        <g-image style = "width:47.5%; margin-left:5%;"
-          src="../../uengine-image/condition.jpeg">
-        </g-image>
-      </div>
-
-      <!-- 텍스트 오른쪽 -->
-      <div style = "margin-top:50px;" class="flex">
-        <g-image style = "width:47.5%;"
-          src="../../uengine-image/mapping.jpeg">
-        </g-image>
-        <div style = "width:47.5%; margin-left:5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">폼 매핑</h3>
-          <div style="font-size:20px;">
-            Data Mapper를 사용한 액티비티간의 데이터 전달
-            <br> - 프로세스 실행 중에 다른 도구(i.e. Legacy Systems) 등과의 통합을 위하여 다른 스키마 간의 데이터를 연계, 트랜스포밍 할 수 있는 설정 도구
-          </div>
-        </div>
-      </div>
-
-      <!-- 텍스트 왼쪽 -->
-      <div style="margin-top:50px;" class="flex">
-        <div style= "width:47.5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">이벤트 기반 시스템 연동</h3>
-          <div style="font-size:20px;">
-            Message Broker를 사용한 uEngine6와 외부 어플리케이션 간 비동기식 연동 방법 
-            <!-- <br> - 모델링을 통하여 실제 이벤트를 발행할 수 있습니다. 이벤트는 REST / Web Services 등의 동기성(Synchronous) 호출과 Kafka Event 등의 non-blocking Event 호출 등을 선택할 수 있습니다. 따라서 분석단계의 모델링이 곧 구현체로 사용할 수 있도록 합니다 -->
-            <br><br><a href="https://bpm-intro.uengine.io/api-customizing/external-service" target="_blank">비동기식 연동 방법의 이점 자세히 보기</a>
-          </div>
-        </div>
-        <g-image style = "width:47.5%; margin-left:5%;"
-          src="../../uengine-image/event.jpeg">
-        </g-image>
-      </div>
-
-      <!-- 텍스트 오른쪽 -->
-      <div style = "margin-top:50px;" class="flex">
-        <g-image style = "width:47.5%;"
-          src="../../uengine-image/message.jpeg">
-        </g-image>
-        <div style = "width:47.5%; margin-left:5%;">
-          <h3 style = "font-size:30px; font-weight:500; margin-bottom:50px;">메시지 기반 시스템 연동</h3>
-          <div style="font-size:20px;">
-            BPMN의 2가지 Message Event Notation을 사용하여 uEngine6를 외부 시스템과 REST API로 연동하는 방법
-          </div>
-        </div>
-      </div>
-      <br><br><br>
-    </div>
-
-    <div class="col-lg-7 d-flex align-items-center">
-        <div class="wow fadeInUp"  data-wow-duration="1.2s" data-wow-offset="255">
-            
-            <h2 class="section-title mb-50 mb-sm-20">Other features</h2>
-        
-            <div class="call-action-2-text mb-50 mb-sm-40">
-                
-                <!-- Accordion -->
-                <dl class="accordion">
-
-                    <dt>
-                        <a href="#">01. AI Support - Process GPT</a>
-                    </dt>
-                    <dd class="text-gray">
-                        ✔ 공개형 혹은 폐쇄형 LLM을 이용하여 (ChatGPT4 or llama3) 프로세스 정의와 폼 정의, 조직도 정의를 챗이나 이미지 업로드를 통하여 자동 정의할 수 있습니다. 
-                        <br>✔ 이는 BPMN 초심자들도 쉽게 프로세스 정의와 업무 화면을 구성하고 빠르게 업무에 반영할 수 있도록 합니다. 
-                    </dd>
-                    <dt>
-                        <a href="#">02. Exposing Process as REST Services</a>
-                    </dt>
-                    <dd class="text-gray">
-                        ✔ 외부에서 마이크로 서비스들을 접근하는 경로에 대한 보안, 통합, 성능에 대한 제어를 할 수 있습니다. 새로운 비즈니스 요건에 필요한 API 를 기존 마이크로 서비스 자산들의 매시업을 통하여 생성할 수 도 있습니다.
-                        <br>✔ 생성한 프로세스를 바로 REST API 혹은 Kafka Event Consumer 형식으로 노출
-                        <br>✔ 서비스 Endpoint 의 지정을 통한 서비스 엔드포인트 생성
-                        <br>✔ 호출자와 프로세스 인스턴스간 상호연관(Correlation)
-                    </dd>
-                    <dt>
-                        <a href="#">03. Process Execution & Monitoring</a>
-                    </dt>
-                    <dd class="text-gray">
-                        ✔ 모델링한 프로세스를 시뮬레이션 & 디버깅
-                        <br>✔ 사람이 해당 역할인 경우 처리할 화면을 자동 생성
-                        <br>✔ 마이크로 서비스 호출인 경우 호출 Payload 와 결과를 표시
-                        <br>✔ 오류 발생시 로그를 프로세스 상에서 확인 & 오류 지점에서 재시작, 이전단계 복구
-                        <br>✔ 시뮬레이션 완료 후 프로덕션으로 반영
-                    </dd>
-                    <!-- <dt>
-                        <a href="#">03. Development</a>
-                    </dt>
-                    <dd class="text-gray">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.
-                    </dd>
-                    <dt>
-                        <a href="#">04. Production</a>
-                    </dt>
-                    <dd class="text-gray">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.
-                    </dd> -->
-                </dl>
-                <!-- End Accordion -->
-                
+        <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+        <h2 class = "sub-title">FEATURES</h2>
+        <!-- 텍스트 왼쪽 -->
+        <div v-for="(description, index) in mainDescriptions" :key="index" style="margin-top:50px;" class="flex">
+          <template v-if="index % 2 === 0">
+            <div style="width:47.5%;">
+              <h3 style="font-size:30px; font-weight:500; margin:20px 0px 50px 0px;">{{ description.title }}</h3>
+              <div style="font-size:20px;">
+                {{ description.content }}
+              </div>
             </div>
-            
-            <div class="local-scroll">
-            <!-- <a href="https://github.com/uengine-oss/uEngine6" class="btn btn-mod btn-w btn-large btn-round btn-hover-anim" target="_blank" style="border: 2px solid #111;"><span>Get a Demo</span></a> -->
-                <a href="https://github.com/uengine-oss/uEngine6" class="btn btn-mod btn-large btn-round btn-hover-anim" target="_blank"><span>github</span></a>
+            <g-image :src="description.image" style="width:47.5%; margin-left:5%;" />
+          </template>
+          <template v-else>
+            <g-image :src="description.image" style="width:47.5%;" />
+            <div style="width:47.5%; margin-left:5%;">
+              <h3 style="font-size:30px; font-weight:500; margin:20px 0px 50px 0px;">{{ description.title }}</h3>
+              <div style="font-size:20px;">{{ description.content }}</div>
             </div>
-        
-        </div>                                
-    </div>
+          </template>
+        </div>
+        <br><br><br>
+      </div>
 
-    <!-- 모바일 환경 style -->
-    <div class="is-mobile">
-      <div>
-        <div style = "width:100%;">
+      <!-- 모바일 환경 style -->
+      <div class="is-mobile">
+        <div style="width:100%;">
           <div class="flex flex-col items-left mb-2 text-ui-primary">
-            <!-- <Logo :width="80" /> -->
             <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
               uEngine6-BPM
             </h2>
-            <p class="text-left text-1xl">
-              급변하는 비즈니스 프로세스를 고착화된 코드에서 분리하십시오. 대기업에게는 기존 업무 베테랑들의 프로세스를 자산화하여 지속가능한 비즈니스의 기반을 구축하고, 중소기업에게는 우리기업만의 프로세스 혁신과 통제를 통한 생산성과 표준화된 품질을 확보하십시오. uEngine BPMS 는 OMG 국제표준인 BPMN 2.0 을 지원하여 기업의 프로세스를 관리하고 지속적인 개선을 수행할 수 있도록 하는 프로세스 혁신 기능과 소셜 네트워크 기반의 포털을 통하여 창의적인 프로세스 협업을 가능하게하는 두가지 통제와 혁신의 관점의 UI/UX 를 통합하는 UI를 제공합니다. 기업은행, LG 디스플레이, SK 텔레콤 등 굴지의 금융과 통신 기업에서 검증된 uEngine BPMS를 통한 혁신 사례를 만드시기 바랍니다.
-            </p>
+            <div v-for="(paragraph, index) in paragraphs" :key="index">
+              <p class="lead mt-0 mb-5" style="font-size: 18px;" v-html="paragraph.content"></p>
+            </div>
             <div class="flex">
               <g-link
+                v-for="(link, index) in links"
+                :key="index"
+                :to="link.to"
                 style="font-size:14px; font-weight:500;"
-                to="/getting-started/"
                 class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
               >
-                Getting Started
-              </g-link>
-              <g-link
-                style="font-size:14px; font-weight:500;"
-                to="https://github.com/uengine-oss/uEngine5-bpm"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Github
-              </g-link>
-
-              <g-link
-                style="font-size:14px; font-weight:500;"
-                to="https://www.facebook.com/groups/uenginebpm/"
-                class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
-              >
-                Facebook
+                {{ link.text }}
               </g-link>
             </div>
           </div>
-          <!-- <p class="text-xl font-medium text-center">
-            Perfect Lighthouse score out of the box. Easy to set-up. Dark mode included.
-            <br>
-            <strong class="text-ui-primary">Got a minute?</strong>
-          </p> -->
         </div>
         <div style = "width:100%;">
-            <iframe style ="width:100%; height:300px;"
-              src="https://www.youtube.com/embed/9RtGeyvZrJo"
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-            >
-            </iframe>
+          <iframe style ="width:100%; height:300px;"
+            src="https://www.youtube.com/embed/ZmytoLlvpMs"
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+          >
+          </iframe>
         </div>
+        <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+        <h2 class = "sub-title" style="font-size:30px;">FEATURES</h2>
+
+        <div v-for="(description, index) in mainDescriptions" :key="index" class="content-section">
+          <div class="content-text">
+            <h3 style="text-align: center;">{{ description.title }}</h3>
+            <div>{{ description.content }}</div>
+          </div>
+          <img :src="description.image" class="content-image" alt="Description Image">
+        </div>
+      </div>
+
+      <div class="col-lg-7 d-flex align-items-center">
+        <div class="wow fadeInUp"  data-wow-duration="1.2s" data-wow-offset="255">
+            <h2 class="sub-title is-mobile-sub-title mb-50 mb-sm-20">Other features</h2>
+            <div class="call-action-2-text mb-50 mb-sm-40">
+              <dl class="accordion">
+                <div v-for="(item, index) in accordionItems" :key="index"
+                   style="margin-bottom:30px;"
+                >
+                  <dt>
+                    <a href="#" style="font-size:20px; font-weight: 700;">{{ item.title }}</a>
+                  </dt>
+                  <dd class="text-gray" v-html="item.content"></dd>
+                </div>
+              </dl>
+            </div>
+            
+            <!-- <div class="local-scroll">
+                <a href="https://github.com/uengine-oss/uEngine6" class="btn btn-mod btn-large btn-round btn-hover-anim" target="_blank"><span>github</span></a>
+            </div> -->
+        </div>                                
       </div>
 
       <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
 
-      <h2 class = "sub-title" style="font-size:30px;">FEATURES</h2>
+      <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">Trusted by</h2>
+      <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
 
-
-      <div style="margin-top:50px;">
-        <div style= "width:100%;">
-          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Full Support of BPMN 2.0</h3>
-          <div style="font-size:16px;">
-            uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
-            세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
-            uEngine6 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
-          </div>
-        </div>
-        <g-image style = "width:100%; height:50%;"
-          src="https://user-images.githubusercontent.com/487999/36926534-c1f9c24a-1ebb-11e8-96e1-5d8e3b73391b.png">
-        </g-image>
-      </div>
-
-
-      <div style = "margin-top:50px;">
-        <div style = "width:100%;">
-          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">UML Class Modeling</h3>
-          <div style="font-size:16px;">
-            uEngine6 에 내장된 UML 클래스 모델러를 통하여 도메인 모델을 설계할 수 있습니다.
-            이렇게 설계된 도메인 모델은 프로세스 변수와 룰 편집기의 모델로 활용되며,
-            Open Cloud Engine PaaS 에 결합되어 곧바로 Java Spring Boot 애플리케이션의 형태 (마이크로 서비스) 로 생성-역공학 (Round-trip Engineering) 됩니다.
-            DDD (Domain Driven Design) 의 사상을 기반하여 마이크로 서비스 아키텍처 기반의 애플리케이션을 빠르게 생성하여 BPM 기반의 SOA 아키텍처를 이루고 싶다면 이 강력한 도구를 활용하지 않을 수 없을 것입니다.
-          </div>
-        </div>
-        <g-image style = "width:100%;"
-          src="https://user-images.githubusercontent.com/487999/36926642-39525302-1ebc-11e8-9004-7ccffd346546.png">
-        </g-image>
-      </div>
-
-
-      <div style="margin-top:50px;">
-        <div style= "width:100%;">
-          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">Social Workspace</h3>
-          <div style="font-size:16px;">
-            uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원합니다.
-            세계적으로 합의된 프로세스 자산화의 표준인 BPMN 은 역사상 가장 이해하기 쉽고 강력한 프로세스정의 언어입니다.
-            uEngine6 의 순수웹기반 프로세스 디자이너는 언제 어디서든 여러분의 프로세스 혁신을 위한 도구로 활용될 수 있습니다.
-          </div>
-        </div>
-        <g-image style = "width:100%;"
-          src="https://user-images.githubusercontent.com/487999/36926643-39936f54-1ebc-11e8-8419-d238f519a53d.png">
-        </g-image>
-      </div>
-
-      <div style = "margin-top:50px;">
-        <div style = "width:100%;">
-          <h3 style = "font-size:24px; font-weight:500; margin-bottom:20px;">프로세스 모니터링</h3>
-          <div style="font-size:16px;">
-            다양한 관점의 프로세스 실행과 조직 역량을 한곳에서 모니터링하세요
-          </div>
-        </div>
-        <g-image style = "width:100%;"
-          src="https://user-images.githubusercontent.com/487999/36926800-e81e2942-1ebc-11e8-9e02-0ba68fc1d40d.png">
-        </g-image>
-      </div>
-      <br><br><br>
-    </div>
-
-    <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
-
-    <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">Trusted by</h2>
-    <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
-
-    <!-- uEngine 제품 그룹 섹션 위치 -->
-
+      <!-- uEngine 제품 그룹 섹션 위치 -->
       <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
 
       <!-- <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h2>
@@ -378,39 +158,33 @@
         Zero Code & Extensible Vocalbulary 섹션 -->
 
         <section class="page-section bg-gray-light-1 bg-light-alpha-70 bg-scroll pb-0 mb-40 mb-md-20 mb-sm-10 z-index-1" style="background-image: url(../images/full-width-images/section-bg-9.jpg)">
-                    <div class="container position-relative">                    
-                        
-                        <div class="row">
-                            <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1 text-center">
-                                
-                                <h2 class="section-caption mb-xs-10 wow fadeInUp">Our Values</h2>
-                                
-                                <h3 class="section-title-small mb-60 mb-sm-40" style="line-height: 1.5;">
-                                    <span class="wow charsAnimIn" data-splitting="chars">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</span>
-                                </h3>
-                                
-                                <div class="overflow-hidden mb-md-n140 mb-sm-n80" style="margin-top: 50px; margin-left: 100px; margin-bottom: -100px;">
-                                    <img src="../../uengine-image/96.png" class="wow scaleOutIn" data-wow-offset="50" alt="Image Description" />
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </section>
+          <div class="container position-relative">                    
+              <div class="row">
+                  <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1 text-center">
+                      <h2 class="section-caption mb-xs-10 wow fadeInUp">Our Values</h2>
+                      <h3 class="section-title-small mb-60 mb-sm-40" style="line-height: 1.5;">
+                          <span class="wow charsAnimIn" data-splitting="chars">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</span>
+                      </h3>
+                      <div class="overflow-hidden mb-md-n140 mb-sm-n80" style="margin-top: 50px; margin-left: 100px; margin-bottom: -100px;">
+                          <img src="../../uengine-image/96.png" class="wow scaleOutIn" data-wow-offset="50" alt="Image Description" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
 
-                <section class="page-section">
-                    <div class="container position-relative">
-                        
-                        <div class="row col-lg-10 offset-lg-1">
-                            <p class="testimonials-6-author" style="line-height: 1.8;">
-                                유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고, 이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써, 컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성, 소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다. 
-                                BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있는가 입니다. 
-                                이러한 커스터마이저빌리티와 리스크 낮은 융합을 위해 유엔진BPMS의 아키텍처는 "객체지향 컴포넌트 프레임워크"의 접근방식인 IoC (제어권의 반전)과 "설계의 재사용"의 컨셉을 적용하고 있습니다. 
-                                이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여 BPM Hot-spot 서비스(고정부위)와 BPM 커스터마이징 빈발요소(가변부위)를 정제한 경계를 형성하며 고정부위의 서비스로서, 리플렉션을 통한 액티비티 컴포넌트 UI의 자동생성, 인스턴스 데이터의 관리, MQ처리, OLAP분석처리등의 기능을 기반 제공함으로서 개발자로 하여금 BPM 기반 개발에 있어 BPM하부 기술에 대한 어떠한 고민도 하지 않더라도 커스터마이징을 용이하게 하는 접근방식입니다. 
-                                이러한 접근방식은 이미 Spring Framework 등, 다양한 프레임워크에서의 접근방식을 BPM기반 시스템 개발의 영역에 대입한 것으로, 일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.                            </p>
-                        </div>
-                    </div>
-                </section>   
+        <section class="page-section">
+            <div class="container position-relative">
+                <div class="row col-lg-10 offset-lg-1">
+                    <p class="testimonials-6-author" style="line-height: 1.8;">
+                        유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고, 이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써, 컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성, 소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다. 
+                        BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있는가 입니다. 
+                        이러한 커스터마이저빌리티와 리스크 낮은 융합을 위해 유엔진BPMS의 아키텍처는 "객체지향 컴포넌트 프레임워크"의 접근방식인 IoC (제어권의 반전)과 "설계의 재사용"의 컨셉을 적용하고 있습니다. 
+                        이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여 BPM Hot-spot 서비스(고정부위)와 BPM 커스터마이징 빈발요소(가변부위)를 정제한 경계를 형성하며 고정부위의 서비스로서, 리플렉션을 통한 액티비티 컴포넌트 UI의 자동생성, 인스턴스 데이터의 관리, MQ처리, OLAP분석처리등의 기능을 기반 제공함으로서 개발자로 하여금 BPM 기반 개발에 있어 BPM하부 기술에 대한 어떠한 고민도 하지 않더라도 커스터마이징을 용이하게 하는 접근방식입니다. 
+                        이러한 접근방식은 이미 Spring Framework 등, 다양한 프레임워크에서의 접근방식을 BPM기반 시스템 개발의 영역에 대입한 것으로, 일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.                            </p>
+                </div>
+            </div>
+        </section>
 
         <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
 
@@ -488,44 +262,44 @@
         </div>
 
         <br>
-  </Layout>
+    </Layout>
 
-<!-- pc footer -->
-  <footer 
-    style = "width:100%;
-    height:300px;
-    background-color:#1E88E5;"
-    class="is-pc-footer"
-  >
-    <div class="flex logo-style">
-      <div>
-      <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+  <!-- pc footer -->
+    <footer 
+      style = "width:100%;
+      height:300px;
+      background-color:#1E88E5;"
+      class="is-pc-footer"
+    >
+      <div class="flex logo-style">
+        <div>
+        <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+        </div>
       </div>
-    </div>
-    <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:50px; padding-top:20px;">
-      <div>Copyright © 2017 uEngine &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; All Rights Reserved &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Designed By Sppark &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
-      <div>Email : help@uengine.org</div>
-    </div>
-  </footer>
+      <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:50px; padding-top:20px;">
+        <div>Copyright © 2017 uEngine &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; All Rights Reserved &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Designed By Sppark &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
+        <div>Email : help@uengine.org</div>
+      </div>
+    </footer>
 
-<!-- 모바일 footer -->
-  <footer 
-    style = "width:100%;
-    height:300px;
-    background-color:#1E88E5;"
-    class="is-mobile-footer"
-  >
-    <div class="flex logo-style">
-      <div>
-      <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+  <!-- 모바일 footer -->
+    <footer 
+      style = "width:100%;
+      height:300px;
+      background-color:#1E88E5;"
+      class="is-mobile-footer"
+    >
+      <div class="flex logo-style">
+        <div>
+        <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+        </div>
       </div>
-    </div>
-    <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:30px; padding-top:20px;">
-      <div>Copyright © 2017 uEngine <br> All Rights Reserved <br> Designed By Sppark <br> Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
-      <div>Email : help@uengine.org</div>
-    </div>
-  </footer>
-</div>
+      <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:30px; padding-top:20px;">
+        <div>Copyright © 2017 uEngine <br> All Rights Reserved <br> Designed By Sppark <br> Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
+        <div>Email : help@uengine.org</div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -540,6 +314,99 @@ export default {
     CodeIcon,
     MoonIcon,
     SearchIcon
+  },
+
+  data() {
+    return {
+      mainDescriptions: [
+        {
+          title: 'Full Support of BPMN 2.0',
+          content: 'uEngine6 는 OMG BPMN 2.0 스펙을 완전하게 지원하여 OCE 상에 운영되어 REST API들로 노출된 마이크로 서비스들을 효율적으로 매시업할 수 있는 프로세스 오케스트레이션 기능을 제공합니다. 또한 순수한 BPMN 기반만으로도 간단한 프로세스 기반 REST 마이크로 서비스를 생성할 수도 있습니다.',
+          image: require('../../uengine-image/full.jpeg') // require 사용
+        },
+        {
+          title: '서브 프로세스',
+          content: '서브프로세스를 활용한 멀티 인스턴스 처리 - 멀티플 인스턴스(MI)는 실행 중에 어떠한 실행 구간의 개수가 정해지는 특성의 복잡한 프로세스 실행 기능입니다. MI를 지정하기 위해서는 MI 실행구간의 범위를 지정해 주는 SubProcess가 지원되고, SubProcess의 설정에 MI를 발생시키는 인자값(배열값) 에 해당하는 프로세스 변수를 지정해주면, 해당 변수에 입력된 값의 개수만큼을 Parallel 혹은 Loop 방식으로 반복하여 MI를 동적으로 발생시켜 줍니다.',
+          image: require('../../uengine-image/sub.jpeg') // require 사용
+        },
+        {
+          title: '조건 설정 분기',
+          content: '게이트웨이를 활용한 프로세스 분기 처리 - Gateway들을 이용하여 조건 분개 모델링을 할 수 있고 규칙을 정의할 수 있습니다. 단순한 프로세스 변수 비교와 And / Or 조합의 복잡한 규칙을 정의할 수 있습니다.',
+          image: require('../../uengine-image/condition.jpeg') // require 사용
+        },
+        {
+          title: '폼 매핑',
+          content: 'Data Mapper를 사용한 액티비티간의 데이터 전달 - 프로세스 실행 중에 다른 도구(i.e. Legacy Systems) 등과의 통합을 위하여 다른 스키마 간의 데이터를 연계, 트랜스포밍 할 수 있는 설정 도구',
+          image: require('../../uengine-image/mapping.jpeg') // require 사용
+        },
+        {
+          title: '이벤트 기반 시스템 연동',
+          content: 'Message Broker를 사용한 uEngine6와 외부 어플리케이션 간 비동기식 연동 방법',
+          image: require('../../uengine-image/event.jpeg') // require 사용
+        },
+        {
+          title: '메시지 기반 시스템 연동',
+          content: 'BPMN의 2가지 Message Event Notation을 사용하여 uEngine6를 외부 시스템과 REST API로 연동하는 방법',
+          image: require('../../uengine-image/message.jpeg') // require 사용
+        }
+      ],
+      accordionItems: [
+        {
+          title: '01. AI Support - Process GPT',
+          content: `
+            ✔ 공개형 혹은 폐쇄형 LLM을 이용하여 (ChatGPT4 or llama3) 프로세스 정의와 폼 정의, 조직도 정의를 챗이나 이미지 업로드를 통하여 자동 정의할 수 있습니다.<br>
+            ✔ 이는 BPMN 초심자들도 쉽게 프로세스 정의와 업무 화면을 구성하고 빠르게 업무에 반영할 수 있도록 합니다.
+          `
+        },
+        {
+          title: '02. Exposing Process as REST Services',
+          content: `
+            ✔ 외부에서 마이크로 서비스들을 접근하는 경로에 대한 보안, 통합, 성능에 대한 제어를 할 수 있습니다. 새로운 비즈니스 요건에 필요한 API 를 기존 마이크로 서비스 자산들의 매시업을 통하여 생성할 수 도 있습니다.<br>
+            ✔ 생성한 프로세스를 바로 REST API 혹은 Kafka Event Consumer 형식으로 노출<br>
+            ✔ 서비스 Endpoint 의 지정을 통한 서비스 엔드포인트 생성<br>
+            ✔ 호출자와 프로세스 인스턴스간 상호연관(Correlation)
+          `
+        },
+        {
+          title: '03. Process Execution & Monitoring',
+          content: `
+            ✔ 모델링한 프로세스를 시뮬레이션 & 디버깅<br>
+            ✔ 사람이 해당 역할인 경우 처리할 화면을 자동 생성<br>
+            ✔ 마이크로 서비스 호출인 경우 호출 Payload 와 결과를 표시<br>
+            ✔ 오류 발생시 로그를 프로세스 상에서 확인 & 오류 지점에서 재시작, 이전단계 복구<br>
+            ✔ 시뮬레이션 완료 후 프로덕션으로 반영
+          `
+        }
+      ],
+      paragraphs: [
+        {
+          content: '<span style="font-size: 20px; font-weight: bold;">유엔진은</span> BPM 기반 아키텍처 분석에서 운영자동화까지 한번에 지원하는 SOA MM Level 7을 지원하는 플랫폼입니다'
+        },
+        {
+          content: '<span style="font-size: 20px; font-weight: bold;">uEngine6 BPM은</span> 최신 클라우드 네이티브 아키텍처를 기반으로 하는 비즈니스 프로세스 관리 시스템(BPMS)으로, Process GPT라는 uEngine의 AI 버전을 통해 프로세스 정의와 폼 생성, 그리고 애플리케이션 연동을 자동화하는 능력을 갖추었습니다. 이 AI 기능은 복잡한 프로세스들을 자동으로 처리하며, 사용자가 직접 개입하지 않아도 실행단계까지 완전히 자동화됩니다.'
+        },
+        {
+          content: '이벤트 기반 아키텍처(EDA)를 활용하여 서비스 간 의존성을 최소화하고, 애플리케이션의 진행 상태를 동기화하며 장애 전파 없이 관리합니다. 또한, 시스템 연동 시 자동화된 재시도(retry), 보상 처리(compensation), 타임아웃 등을 모델링을 통해 제공함으로써, 마이크로서비스 아키텍처에서 흔히 복잡하게 다루어지는 트랜잭션 처리를 안정적으로 수행합니다.'
+        },
+        {
+          content: 'LLM AI 기술을 기반으로 프로세스 모델링, 폼 생성 등을 자연어 처리를 통해 자동으로 수행하며, 이는 시스템 통합을 포함한 다양한 비즈니스 요구사항을 효과적으로 지원합니다. uEngine6 BPM은 기업이 클라우드 네이티브 및 마이크로서비스 아키텍처로의 전환을 모색하는데 있어 이상적인 솔루션을 제공합니다.'
+        }
+      ],
+      links: [
+        {
+          to: '/getting-started/',
+          text: 'Getting Started'
+        },
+        {
+          to: 'https://github.com/uengine-oss/uEngine5-bpm',
+          text: 'Github'
+        },
+        {
+          to: 'https://www.facebook.com/groups/uenginebpm/',
+          text: 'Facebook'
+        }
+      ]
+    };
   },
 
   metaInfo() {
@@ -573,7 +440,7 @@ export default {
           name: 'twitter:description',
           content: description,
         },
-      ]
+      ],
     }
   }
 }
@@ -604,6 +471,27 @@ export default {
       padding:5px !important;
   }
   .is-mobile{display:none;}
+
+  .content-section {
+  margin-top: 50px;
+}
+
+.content-text {
+  width: 100%;
+  font-size: 20px;
+  margin-top:20px;
+}
+
+.content-text h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.content-image {
+  width: 100%;
+  margin-top: 30px;
+}
 
   @media only screen and (max-width:1279px) {
     .is-pc{display:none;}
