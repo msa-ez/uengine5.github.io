@@ -1,11 +1,9 @@
 ---
 description: ''
-sidebar: 'api-customizing'
-prev: ''
-next: ''
+sidebar: 'getting-started'
 ---
 
-# uEngine6 API Reference
+# API Reference
 
 - **[uEngine6 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다](https://en.wikipedia.org/wiki/HATEOAS)**
 

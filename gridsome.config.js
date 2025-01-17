@@ -28,43 +28,80 @@ module.exports = {
         name: 'getting-started',
         sections: [
           {
-            title: 'Getting Started',
+            title: 'uEngine6 BPM',
             items: [
-              '/getting-started/',
-              '/getting-started/modeling-tools/',
-              '/getting-started/database-table/',
-              '/getting-started/form-definition/',
-              '/getting-started/form-mapping/',
-              '/getting-started/conditional-branch/',
-              '/getting-started/multiple-instance/',
-              '/getting-started/process-monitoring/',
-              '/getting-started/soa-architecture-event/',
-              '/getting-started/soa-architecture-message/',
+              '/bpm6-intro/',
+              '/bpm6-intro/business-process/',
+              '/bpm6-intro/example-video/',
+              // '/getting-started/bpm6-introduce/',
+              // '/getting-started/bpm6-modeling/',
+              // '/getting-started/modeling-tools/',
+              // '/getting-started/database-table/',
+              // '/getting-started/form-definition/',
+              // '/getting-started/form-mapping/',
+              // '/getting-started/conditional-branch/',
+              // '/getting-started/multiple-instance/',
+              // '/getting-started/process-monitoring/',
+              // '/getting-started/soa-architecture-event/',
+              // '/getting-started/soa-architecture-message/',
+              // '/getting-started/bpm6-admin/',
+              // '/getting-started/bpm6-data-management/',
             ]
           },
           {
-            title: 'API & CUSTOMIZING',
+            title: '모델링 및 실행',
             items: [
-              '/api-customizing/api-reference/',
-              '/api-customizing/message-listener/',
-              '/api-customizing/create-project/',
-              '/api-customizing/new-activity/',
-              '/api-customizing/migration/',
-              '/api-customizing/transaction-listener/',
-              '/api-customizing/script-task/',
+              '/bpm6-started/',
+              '/bpm6-started/bpm6-modeling/',
+              '/bpm6-started/form-definition/',
+              '/bpm6-started/form-mapping/',
+              '/bpm6-started/conditional-branch/',
+              '/bpm6-started/multiple-instance/',
+              // '/bpm6-started/script-task/',
+              '/bpm6-started/bpm6-external/',
+              '/bpm6-started/bpm6-execution/',
+              
+              // '/api-customizing/api-reference/',
+              // '/api-customizing/message-listener/',
+              // '/api-customizing/create-project/',
+              // '/api-customizing/new-activity/',
+              // '/api-customizing/migration/',
+              // '/api-customizing/transaction-listener/',
+              // '/api-customizing/script-task/',
+              // '/api-customizing/bpm6-system-integration/',
             ]
           },
           {
-            title: 'BPM 개념 학습',
+            title: '운영 및 데이터관리',
             items: [
-              '/bpm-concept/example-video/',
-              '/bpm-concept/business-process/',
-              '/bpm-concept/workflow/',
-              '/bpm-concept/workflow-management-system/',
-              '/bpm-concept/open-source/',
-              '/bpm-concept/facebook/',
+              '/bpm6-admin/',
+              // '/bpm6-admin/bpm6-admin-instance/',
+              '/bpm6-admin/bpm6-file/',
+              '/bpm6-admin/bpm6-database/',
             ]
-          }
+          },
+          {
+            title: '프로세스 API',
+            items: [
+              '/bpm6-api/',
+              '/bpm6-api/bpm6-message-listener/',
+              '/bpm6-api/bpm6-transaction-listener/',
+            ]
+          },
+          {
+            title: '배포 및 설정 가이드',
+            items: [
+              '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/bpm6-deploy/',
+              '/bpm6-deploy-config/uengine3-migration/',
+            ]
+          },
+          {
+            title: '문의하기',
+            items: [
+              '/bpm6-contact/',
+            ]
+          },
         ]
       }
     ]

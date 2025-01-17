@@ -5,7 +5,7 @@ prev: ''
 next: ''
 ---
 
-# ScriptTask
+# [Modeling] ScriptTask
 
 Script Task 는 Javascript 나 Java 언어를 직접 액티비티에 설정하여 프로세스 설정만으로 처리하기 힘든 마이크로한 설정이나 액션을 실행가능하게 합니다.
 

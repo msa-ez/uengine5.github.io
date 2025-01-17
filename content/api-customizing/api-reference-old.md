@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'api-customizing'
 prev: ''
 next: ''
 ---
