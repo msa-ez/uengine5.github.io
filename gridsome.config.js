@@ -97,6 +97,14 @@ module.exports = {
             ]
           },
           {
+            title: '프로세스 자산 라이브러리(PAL)',
+            items: [
+              '/pal-edition/',
+              '/pal-edition/process-definition-map/',
+              '/pal-edition/process-definition-edit/',
+            ]
+          },
+          {
             title: '문의하기',
             items: [
               '/bpm6-contact/',
