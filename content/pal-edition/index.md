@@ -1,3 +1,7 @@
+---
+description: ''
+sidebar: 'getting-started'
+---
 
 ### PAL 개요 및 목적
 
