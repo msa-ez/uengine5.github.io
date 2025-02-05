@@ -273,7 +273,7 @@
     >
       <div class="flex logo-style">
         <div>
-        <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+        <g-image style="display:block;" src="../../uengine-image/logo-bpm.png"></g-image>
         </div>
       </div>
       <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:50px; padding-top:20px;">
@@ -291,7 +291,7 @@
     >
       <div class="flex logo-style">
         <div>
-        <g-image style="display:block;" src="../../uengine-image/logo.png"></g-image>
+        <g-image style="display:block;" src="../../uengine-image/logo-bpm.png"></g-image>
         </div>
       </div>
       <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:30px; padding-top:20px;">
