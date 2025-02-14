@@ -95,6 +95,13 @@ sidebar: 'getting-started'
 <div style = "height: 350px; object-fit: cover;">
 <iframe style = "width:100%; height:100%;" src="https://www.youtube.com/embed/zLWA2lzAZIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+<br><br>
+
+<h3>AI를 활용한 프로세스 자동생성</h3>
+<div style = "height: 350px; object-fit: cover;">
+<iframe style = "width:100%; height:100%;" src="https://www.youtube.com/embed/DI4vLwijsMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <br><br>
 
 <!-- ## 유엔진 아키텍처
