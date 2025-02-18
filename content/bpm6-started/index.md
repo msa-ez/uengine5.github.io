@@ -8,35 +8,35 @@ sidebar: 'getting-started'
 ## 프로세스 정의 생성
 아래 화면과 같이 좌측 프로세스 정의를 클릭하면 프로세스 디자이너 화면이 나타나며 프로세스 정의를 생성할 수 있습니다.
 
-![](../../uengine-image/프로세스정의_버튼.png)
+![](../../uengine-image/1-1-process-definition-button.png)
     
 ### 1.1 프로세스 디자이너 도구
     
 프로세스 디자니어 상단에는 모델링 생성에 필요한 다양한 Acitivity Type들이 존재하며 이 영역을 액티비티 타입 **팔레트**라고 합니다.
 
-![](../../uengine-image/1-2-액티비티팔레트.png)
+![](../../uengine-image/1-2-activity_pallete.png)
 
 
 Activity를 Drag & Drop하면 아래와 같이 선택한 Activity가 프로세스 플로우 차트에 추가된 것을 확인할 수 있습니다.
 
-![](../../uengine-image/1-3-액티비티추가.png)
+![](../../uengine-image/1-3-add-activity.png)
 
 추가된 Activity를 클릭하면 Activity에 대하여 세부 유형을 설정하거나 이후 진행될 Activity 설정, Activity 삭제 등을 진행할 수 있습니다.
 
 Activity를 더블클릭하면 아래 화면과 같이 우측 영역에 패널이 생성됩니다.
 
-![](../../uengine-image/1-4-패널.png)
+![](../../uengine-image/1-4-panel.png)
 
 해당 패널을 통해 Activity의 이름, 파라미터, 역할 등 Activity의 속성을 설정할 수 있습니다.
 
 ### 1.2 프로세스 데이터
 액티비티 타입 팔레트 좌측에 위치한 '(x)'버튼을 클릭하면 프로세스 데이터 화면이 나타나며, '+'버튼을 클릭하여 프로세스에서 사용할 변수의 이름과 유형 등을 설정할 수 있습니다.
 
-![](../../uengine-image/1-5-프로세스데이터.png)
+![](../../uengine-image/1-5-process-data.png)
 
 프로세스 데이터를 통해 추가한 변수는 Task Activity 패널 >  Add Mapping > Process Data에서 사용가능합니다.
 
-![](../../uengine-image/1-6-장애신고프로세스데이터추가.png)
+![](../../uengine-image/1-6-add-process-data.png)
 
 
 ## 예제 프로세스
@@ -58,7 +58,7 @@ Activity를 더블클릭하면 아래 화면과 같이 우측 영역에 패널�
 4. 처리 결과 내용을 사용자에게 전달<br>
 
 프로세스 시나리오를 통해 완성되는 모델은 아래와 같습니다.
-![](../../uengine-image/2-1-장애처리프로세스.png)
+![](../../uengine-image/2-1-trouble-ticket.png)
 
 
 ### 3. 프로세스 정의
@@ -75,7 +75,7 @@ Activity를 더블클릭하면 아래 화면과 같이 우측 영역에 패널�
   + 담당자: 부여받은 장애업무를 실제로 처리할 장애 처리자
 
 아래 화면과 같이 장애처리 프로세스의 역할을 등록하기 위해 다음의 단계를 진행합니다.
-![](../../uengine-image/2-2-레인설정.png)
+![](../../uengine-image/2-2-lane-set.png)
 
 1. Pool activity를 Drag&Drop으로 플로우 차트에 생성한다.
 
@@ -94,7 +94,7 @@ Activity를 더블클릭하면 아래 화면과 같이 우측 영역에 패널�
 | troubleResult | Text |
 | selectManager | Text |
 
-![](../../uengine-image/1-16-변수정의.png)
+![](../../uengine-image/1-16-variable-definition.png)
 
 #### 흐름 정의   
 
@@ -103,12 +103,12 @@ Activity를 더블클릭하면 아래 화면과 같이 우측 영역에 패널�
 1. Start Event와 Task Activity를 다음과 같이 lane에 drag&drop 후 패널을 통해 각 업무단계의 이름을 다음과 같이 수정한다. <br>
 이때, Start Event는 첫 프로세스가 진행되는 lane에 배치한다.
 
-![](../../uengine-image/1-9-이름설정.png)
+![](../../uengine-image/1-9-name-set.png)
 
 2. 각 단계별 task activity를 클릭하여 User task로 타입으로 지정 후, 단계별 프로세스 변수를 지정한다.
  - 장애 신고 task를 더블 클릭하여 패널을 열고 입력 받아야 할 프로세스 변수들인 장애 설명(troubleDescription)과 장애 유형(troubleType)을 각각 Parameter Context에 추가해 준다.
 
-![](../../uengine-image/1-10-장애신고매핑.png)
+![](../../uengine-image/1-10-trouble-ticket-mapping.png)
 
 <담당자 지정>
 

@@ -88,6 +88,22 @@ module.exports = {
               '/bpm6-api/bpm6-transaction-listener/',
             ]
           },
+          // {
+          //   title: 'AI를 활용한 프로세스 모델링 가이드',
+          //   items: [
+          //     '/ai-generating/',
+          //     '/ai-generating/process-definition/',
+          //     '/ai-generating/form-definition/',
+          //   ]
+          // },
+          {
+            title: 'BPMN 프로젝트 예제',
+            items: [
+              '/process-example/',
+              // '/process-example/sub-process/',
+              // '/process-example/call-activity/',
+            ]
+          },
           {
             title: '배포 및 설정 가이드',
             items: [
