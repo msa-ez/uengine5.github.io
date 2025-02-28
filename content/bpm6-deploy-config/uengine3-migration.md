@@ -72,19 +72,28 @@ java org.uengine.migrator.UEngine3Converter uengine3.process
 
 <h3>기존 uEngine 3.x 대의 프로세스 정의 모델 (블록 기반) 을 이해하고 싶다면 다음을 참고</h3>
 
-<div class="video-container">
-	<iframe src="https://www.youtube.com/embed/pjzQtRa7nNQ" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/pjzQtRa7nNQ" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
 </div>
 <br><br>
 
-<div class="video-container">
-	<iframe src="https://www.youtube.com/embed/mGJ8CAnzc6Q" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/mGJ8CAnzc6Q" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
 </div>
 <br><br>
 
 <h3>신규 uEngine6 의 프로세스 정의 모델 (그래프 기반) 을 이해하고 싶다면 다음을 참고</h3>
-<div class="video-container">
-	<iframe src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fwww.facebook.com%2F1401720840%2Fvideos%2F10204571371469880%2F&show_text=false&width=560&t=0" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fwww.facebook.com%2F1401720840%2Fvideos%2F10204571371469880%2F&show_text=false&width=560&t=0" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
 </div>
 
 

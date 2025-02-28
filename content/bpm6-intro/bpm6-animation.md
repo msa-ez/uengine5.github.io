@@ -7,8 +7,11 @@ sidebar: 'getting-started'
 
 uEngine6 BPM의 최신 업데이트에는 프로세스 디자이너의 테스트 작업을 간소화하고 효율성을 높여주는 **프로세스 애니메이션** 기능이 포함되어 프로세스 모델링 및 테스트 과정에서의 반복적이고 번거로운 작업을 개선합니다.
 
-<div class="video-container">
-	<iframe src="https://www.youtube.com/embed/KFjiHCRhxpo" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/KFjiHCRhxpo" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
 </div>
 <br><br>
 

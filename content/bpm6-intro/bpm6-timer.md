@@ -7,8 +7,11 @@ sidebar: 'getting-started'
 
 uEngine6 BPM의 최신 업데이트에는 Crontab 형식으로 시간을 설정해 두면 해당 시간에 연결된 태스크를 실행시키는 **타이머 이벤트** 기능이 포함되어 비즈니스 프로세스 관리(BPM)에서 효율성과 정확성을 높여줍니다.
 
-<div class="video-container">
-	<iframe src="https://www.youtube.com/embed/rvUB2aBK4HU" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/rvUB2aBK4HU" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
 </div>
 <br><br>
 
