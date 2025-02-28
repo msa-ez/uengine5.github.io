@@ -7,9 +7,10 @@ sidebar: 'getting-started'
 
 uEngine6 BPM의 최신 업데이트에는 프로세스 디자이너의 테스트 작업을 간소화하고 효율성을 높여주는 **프로세스 애니메이션** 기능이 포함되어 프로세스 모델링 및 테스트 과정에서의 반복적이고 번거로운 작업을 개선합니다.
 
-<div style = "height: 400px; object-fit: cover; margin-bottom: 10px;">
-<iframe style = "width:100%; height:100%;" src="https://www.youtube.com/embed/KFjiHCRhxpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div><br>
+<div class="video-container">
+	<iframe src="https://www.youtube.com/embed/KFjiHCRhxpo" frameborder="0" crolling="no" frameborder="none" allowfullscreen=""></iframe>
+</div>
+<br><br>
 
 **프로세스 디자이너**는 새로운 작업을 추가하거나 게이트웨이 조건을 수정하는 등 프로세스 모델을 변경할 때 반복적이고 지루한 작업에 직면하게 됩니다. 매번 테스트를 진행할 때마다 모든 단계에 대해 인자를 입력해야 하며, 이는 시간이 많이 걸릴 뿐 아니라 특정 변경 사항을 검증하는 데 집중하기 어렵게 만듭니다.
 
