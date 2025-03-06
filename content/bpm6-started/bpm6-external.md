@@ -14,7 +14,13 @@ uEngine6 BPM에서 외부 서비스 연동하여 프로세스를 실행하는 �
 - 외부 서비스와 이벤트로 전송및 수신을 하여 진행을 하는 방법입니다. 일반적으로 비동기 방식으로 진행되며 이벤트를 전송 후 진행되며, 외부 서비스의 업무지 진행되면 이벤트를 수신 받아서 진행됩니다. 비동기 방식은 동기 방식과는 다르게 결합도를 높이고, 장애 발생시 영향도가 낮은게 장점입니다.
 
 ### 예제 영상
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E-tjj20-xxI?si=nhcIxujlVzTPXOeh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/E-tjj20-xxI?si=nhcIxujlVzTPXOeh" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
+</div>
+<br>
 
 ### 1. 동기 방식의 App 연동 시 문제점
 ![IMAGE](../../uengine-image/115.png) 
@@ -293,7 +299,13 @@ App에서 발생한 이벤트의 정보를 수신하여, 수신된 정보를 사
 장애 발생 시, 담당자 지정, 오류 내용 확인 후, 작업내역서 작성(외부 시스템), 처리 확인 완료의 단계로 진행된다.
 
 ### 2. 예제 영상
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bxkB-pkOpTQ?si=YRmhriPf_I49H1tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
+	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        src="https://www.youtube.com/embed/bxkB-pkOpTQ?si=YRmhriPf_I49H1tw" 
+        frameborder="0" crolling="no" frameborder="none" allowfullscreen="">
+    </iframe>
+</div>
+<br>
 
 ### 3. 예제 BPMN
 <details>
