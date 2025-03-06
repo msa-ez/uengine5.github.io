@@ -121,6 +121,12 @@ module.exports = {
             ]
           },
           {
+            title: '프로세스 질의 응답 (Process-GPT)',
+            items: [
+              '/process-gpt/ai-chat-guide/',
+            ]
+          },
+          {
             title: '문의하기',
             items: [
               '/bpm6-contact/',
