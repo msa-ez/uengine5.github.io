@@ -14,26 +14,17 @@ jobs:
         uses: actions/checkout@v4
         # 저장소 코드 가져오기
 
-      - name: Setup Node.js 14.19.0
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.19.0
-          cache: 'npm'
-        # Node.js 14.19.0 버전 고정 및 npm 캐싱
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        # Jekyll로 빌드 진행 (_site 폴더에 결과물 생성)
 
-      - name: Install dependencies
-        run: npm install
-        # 프로젝트 의존성 설치
-
-      - name: Build project
-        run: |
-          npm run build
-          echo 'bpm-intro.uengine.io' > ./dist/CNAME
-        # Gridsome 빌드 및 CNAME 설정
+      - name: Set CNAME
+        run: echo 'bpm-intro.uengine.io' > ./_site/CNAME
+        # CNAME 파일 설정
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-        # 빌드된 파일을 GitHub Pages에 배포
+          publish_dir: ./_site
+        # 빌드된 Jekyll 사이트를 GitHub Pages에 배포
