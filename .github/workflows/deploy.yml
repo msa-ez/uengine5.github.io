@@ -1,33 +1,30 @@
-   name: Deploy
+name: Deploy
 
-   on:
-     push:
-       branches:
-         - main  # main 브랜치에 푸시될 때 트리거
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 push될 때마다 실행
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-       steps:
-       - name: Checkout repository
-         uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-       - name: Install dependencies
-         run: npm install
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Node.js 버전 설정
 
-       - name: Build with Gridsome
-         run: npx gridsome build  # npx를 사용하여 gridsome 실행
+      - name: Install dependencies
+        run: npm install
 
-       - name: Upload artifact
-         uses: actions/upload-artifact@v4
-         with:
-           name: build
-           path: dist
+      - name: Build project
+        run: npm run build
 
-       - name: Deploy to GitHub Pages
-         run: |
-           echo 'bpm-intro.uengine.io' > ./dist/CNAME
-           npx gh-pages -d dist
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub Actions에서 제공하는 기본 토큰
