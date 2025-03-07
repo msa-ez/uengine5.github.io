@@ -6,7 +6,7 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "predeploy": "npm run build",
-    "deploy": "gridsome build && gh-pages -d dist"
+    "deploy": "gridsome build && echo 'bpm-intro.uengine.io' > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
     "clipboard": "^2.0.11",

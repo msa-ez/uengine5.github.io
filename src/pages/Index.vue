@@ -394,7 +394,7 @@ export default {
       ],
       links: [
         {
-          to: '/getting-started/',
+          to: '/bpm6-intro/',
           text: 'Getting Started'
         },
         {
