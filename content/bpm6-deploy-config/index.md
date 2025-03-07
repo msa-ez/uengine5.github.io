@@ -57,3 +57,14 @@ docker compose up
 ```sh
 docker compose down
 ```
+
+## 실행 화면 확인하기
+
+uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL로 접속하여 실행 화면을 확인할 수 있습니다.
+
+
+- 프로세스 실행 화면
+http://localhost:8088/
+
+
+![](../../uengine-image/installation-2.png)

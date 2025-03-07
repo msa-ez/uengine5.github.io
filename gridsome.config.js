@@ -49,6 +49,15 @@ module.exports = {
             ]
           },
           {
+            title: '배포 및 설정 가이드',
+            items: [
+              '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/bpm6-account/',
+              '/bpm6-deploy-config/bpm6-deploy/',
+              '/bpm6-deploy-config/uengine3-migration/',
+            ]
+          },          
+          {
             title: '모델링 및 실행',
             items: [
               '/bpm6-started/',
@@ -105,19 +114,13 @@ module.exports = {
             ]
           },
           {
-            title: '배포 및 설정 가이드',
-            items: [
-              '/bpm6-deploy-config/',
-              '/bpm6-deploy-config/bpm6-deploy/',
-              '/bpm6-deploy-config/uengine3-migration/',
-            ]
-          },
-          {
             title: '프로세스 자산 라이브러리(PAL)',
             items: [
               '/pal-edition/',
               '/pal-edition/process-definition-map/',
               '/pal-edition/process-definition-edit/',
+              // '/pal-edition/phase/',
+              // '/pal-edition/save-image/',
             ]
           },
           {
