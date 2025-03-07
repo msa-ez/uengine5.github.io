@@ -118,6 +118,8 @@ module.exports = {
               '/pal-edition/',
               '/pal-edition/process-definition-map/',
               '/pal-edition/process-definition-edit/',
+              // '/pal-edition/phase/',
+              // '/pal-edition/save-image/',
             ]
           },
           {
