@@ -18,12 +18,6 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         # Jekyll로 빌드 진행 (_site 폴더에 결과물 생성)
 
-      - name: Fix permissions and set CNAME
-        run: |
-          chmod -R u+w ./_site
-          echo 'bpm-intro.uengine.io' > ./_site/CNAME
-        # 권한 수정 후 CNAME 파일 생성
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
