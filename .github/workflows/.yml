@@ -1,27 +1,27 @@
-   name: Deploy
+name: Deploy
 
-   on:
-     push:
-       branches:
-         - main  # main 브랜치에 푸시될 때 트리거
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때 트리거
 
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-       steps:
-       - name: Checkout repository
-         uses: actions/checkout@v2
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-       - name: Set up Node.js
-         uses: actions/setup-node@v2
-         with:
-           node-version: '14'  # 필요한 Node.js 버전
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # 필요한 Node.js 버전
 
-       - name: Install dependencies
-         run: npm install
+    - name: Install dependencies
+      run: npm install
 
-       - name: Build and Deploy
-         run: npm run deploy
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and Deploy
+      run: npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
