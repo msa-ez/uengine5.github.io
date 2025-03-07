@@ -24,9 +24,3 @@ jobs:
           name: site
           path: ./_site
         # 빌드된 사이트 아티팩트 업로드
-
-    post:
-      - name: Post job cleanup
-        run: |
-          git version
-          # 기타 정리 작업 수행
