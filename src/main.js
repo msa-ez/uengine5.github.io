@@ -9,11 +9,15 @@ export default function (Vue, { router, head, isClient }) {
   require('../content/global-style.css');
 
   router.beforeEach((to, _from, next) => {
-    head.meta.push({
-      key: 'og:url',
-      name: 'og:url',
-      content: process.env.GRIDSOME_BASE_PATH + to.path,
-    })
-    next()
+    if (to.path === '/') {
+      next('/bpm6-intro/')
+    } else {
+      head.meta.push({
+        key: 'og:url',
+        name: 'og:url',
+        content: process.env.GRIDSOME_BASE_PATH + to.path,
+      })
+      next()
+    }
   })
 }
