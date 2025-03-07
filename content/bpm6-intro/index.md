@@ -39,7 +39,7 @@ LLM AI 기술을 기반으로 프로세스 모델링, 폼 생성 등을 자연�
   + Apache Maven 3.6.1 버전
   + Spring Boot 2.3.1.RELEASE 버전
 - uEngine6 Frontend은 해당 버전이 권장되고 지원됩니다.
-  + NodeJS 16 버전 이상
+  + NodeJS 16 버전 이상 사용
 
 
 
