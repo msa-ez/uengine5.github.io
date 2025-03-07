@@ -108,6 +108,7 @@ module.exports = {
             title: '배포 및 설정 가이드',
             items: [
               '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/bpn6-account/',
               '/bpm6-deploy-config/bpm6-deploy/',
               '/bpm6-deploy-config/uengine3-migration/',
             ]
