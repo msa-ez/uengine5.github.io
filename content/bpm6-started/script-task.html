@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Modeling] ScriptTask | uengine5.github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="[Modeling] ScriptTask" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bpm-intro.uengine.io/content/bpm6-started/script-task.html" />
+<meta property="og:url" content="https://bpm-intro.uengine.io/content/bpm6-started/script-task.html" />
+<meta property="og:site_name" content="uengine5.github.io" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Modeling] ScriptTask" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"[Modeling] ScriptTask","url":"https://bpm-intro.uengine.io/content/bpm6-started/script-task.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=15dc6e5f312a952815ebd692d6710d39de6f8d12">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bpm-intro.uengine.io/">uengine5.github.io</a></h1>
+      
+
+      <h1 id="modeling-scripttask">[Modeling] ScriptTask</h1>
+
+<p>Script Task 는 Javascript 나 Java 언어를 직접 액티비티에 설정하여 프로세스 설정만으로 처리하기 힘든 마이크로한 설정이나 액션을 실행가능하게 합니다.</p>
+
+<p>[Warn] Script Task 에 의존하여 너무 많은 로직을 작성하지 마십시오! 이후, 프로세스가 비대해지며 관리하기 힘들어지므로, 프로세스 정의로 가능한 설계하되 그것이 어려운 경우, 별도의 서비스로 개발하여 형상 관리하시기 바랍니다.</p>
+
+<h2 id="설정">설정</h2>
+
+<p><img src="/uengine-image/13-1.png" alt="" /></p>
+
+<p><img src="/uengine-image/14-1.png" alt="" /></p>
+
+<p><img src="/uengine-image/15-1.png" alt="" /></p>
+
+<h2 id="예제-프로세스-json">예제 프로세스 (json)</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span><span class="s">"definition"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.ProcessDefinition"</span><span class="o">,</span><span class="s">"name"</span><span class="o">:{</span><span class="s">"text"</span><span class="o">:</span><span class="s">"script test"</span><span class="o">},</span><span class="s">"retryDelay"</span><span class="o">:</span><span class="mi">60</span><span class="o">,</span><span class="s">"isDynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"childActivities"</span><span class="o">:[</span><span class="s">"java.util.ArrayList"</span><span class="o">,[{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.ScriptActivity"</span><span class="o">,</span><span class="s">"name"</span><span class="o">:{</span><span class="s">"text"</span><span class="o">:</span><span class="s">"스크립트 실행"</span><span class="o">},</span><span class="s">"tracingTag"</span><span class="o">:</span><span class="s">"2"</span><span class="o">,</span><span class="s">"retryDelay"</span><span class="o">:</span><span class="mi">60</span><span class="o">,</span><span class="s">"isDynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"elementView"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.view.DefaultActivityView"</span><span class="o">,</span><span class="s">"id"</span><span class="o">:</span><span class="s">"2"</span><span class="o">,</span><span class="s">"shapeId"</span><span class="o">:</span><span class="s">"OG.shape.bpmn.A_Task"</span><span class="o">,</span><span class="s">"x"</span><span class="o">:</span><span class="mf">452.0</span><span class="o">,</span><span class="s">"y"</span><span class="o">:</span><span class="mf">136.0</span><span class="o">,</span><span class="s">"width"</span><span class="o">:</span><span class="mf">100.0</span><span class="o">,</span><span class="s">"height"</span><span class="o">:</span><span class="mf">100.0</span><span class="o">,</span><span class="s">"style"</span><span class="o">:</span><span class="s">"{\"stroke\":\"black\",\"fill-r\":1,\"fill-cx\":0.1,\"fill-cy\":0.1,\"fill\":\"#FFFFFF\",\"fill-opacity\":0,\"label-position\":\"center\",\"stroke-width\":1.2,\"r\":\"10\",\"cursor\":\"move\"}"</span><span class="o">},</span><span class="s">"script"</span><span class="o">:</span><span class="s">"return 1*5"</span><span class="o">,</span><span class="s">"out"</span><span class="o">:{</span><span class="s">"name"</span><span class="o">:</span><span class="s">"test"</span><span class="o">,</span><span class="s">"displayName"</span><span class="o">:{},</span><span class="s">"defaultValue"</span><span class="o">:</span><span class="s">""</span><span class="o">},</span><span class="s">"dynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">},{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.bpmn.StartEvent"</span><span class="o">,</span><span class="s">"name"</span><span class="o">:{},</span><span class="s">"tracingTag"</span><span class="o">:</span><span class="s">"3"</span><span class="o">,</span><span class="s">"retryDelay"</span><span class="o">:</span><span class="mi">60</span><span class="o">,</span><span class="s">"isDynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"elementView"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.view.DefaultActivityView"</span><span class="o">,</span><span class="s">"id"</span><span class="o">:</span><span class="s">"3"</span><span class="o">,</span><span class="s">"shapeId"</span><span class="o">:</span><span class="s">"OG.shape.bpmn.A_Task"</span><span class="o">,</span><span class="s">"x"</span><span class="o">:</span><span class="mf">309.0</span><span class="o">,</span><span class="s">"y"</span><span class="o">:</span><span class="mf">136.0</span><span class="o">,</span><span class="s">"width"</span><span class="o">:</span><span class="mf">30.0</span><span class="o">,</span><span class="s">"height"</span><span class="o">:</span><span class="mf">30.0</span><span class="o">,</span><span class="s">"style"</span><span class="o">:</span><span class="s">"{\"stroke\":\"black\",\"fill-r\":\".5\",\"fill-cx\":\".5\",\"fill-cy\":\".5\",\"fill\":\"white\",\"fill-opacity\":0,\"label-position\":\"bottom\",\"stroke-width\":1.5,\"cursor\":\"move\"}"</span><span class="o">},</span><span class="s">"dynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">},{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.ScriptActivity"</span><span class="o">,</span><span class="s">"name"</span><span class="o">:{</span><span class="s">"text"</span><span class="o">:</span><span class="s">"multiply"</span><span class="o">},</span><span class="s">"tracingTag"</span><span class="o">:</span><span class="s">"4"</span><span class="o">,</span><span class="s">"retryDelay"</span><span class="o">:</span><span class="mi">60</span><span class="o">,</span><span class="s">"isDynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"elementView"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.view.DefaultActivityView"</span><span class="o">,</span><span class="s">"id"</span><span class="o">:</span><span class="s">"4"</span><span class="o">,</span><span class="s">"shapeId"</span><span class="o">:</span><span class="s">"OG.shape.bpmn.A_Task"</span><span class="o">,</span><span class="s">"x"</span><span class="o">:</span><span class="mf">621.0</span><span class="o">,</span><span class="s">"y"</span><span class="o">:</span><span class="mf">136.0</span><span class="o">,</span><span class="s">"width"</span><span class="o">:</span><span class="mf">100.0</span><span class="o">,</span><span class="s">"height"</span><span class="o">:</span><span class="mf">100.0</span><span class="o">,</span><span class="s">"style"</span><span class="o">:</span><span class="s">"{\"stroke\":\"black\",\"fill-r\":1,\"fill-cx\":0.1,\"fill-cy\":0.1,\"fill\":\"#FFFFFF\",\"fill-opacity\":0,\"label-position\":\"center\",\"stroke-width\":1.2,\"r\":\"10\"}"</span><span class="o">},</span><span class="s">"script"</span><span class="o">:</span><span class="s">"return instance.get(\"test\") * 10"</span><span class="o">,</span><span class="s">"out"</span><span class="o">:{</span><span class="s">"name"</span><span class="o">:</span><span class="s">"multi"</span><span class="o">,</span><span class="s">"displayName"</span><span class="o">:{},</span><span class="s">"defaultValue"</span><span class="o">:</span><span class="s">""</span><span class="o">},</span><span class="s">"dynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">}]],</span><span class="s">"sequenceFlows"</span><span class="o">:[{</span><span class="s">"relationView"</span><span class="o">:{</span><span class="s">"TERMINAL_IN_OUT"</span><span class="o">:</span><span class="s">"_TERMINAL_C_INOUT_0"</span><span class="o">,</span><span class="s">"shapeId"</span><span class="o">:</span><span class="s">"OG.shape.bpmn.C_Flow"</span><span class="o">,</span><span class="s">"value"</span><span class="o">:</span><span class="s">"[[324,136],[402,136]]"</span><span class="o">,</span><span class="s">"style"</span><span class="o">:</span><span class="s">"{\"stroke\":\"black\",\"fill-r\":\".5\",\"fill-cx\":\".5\",\"fill-cy\":\".5\",\"fill\":\"none\",\"fill-opacity\":0,\"label-position\":\"center\",\"stroke-width\":1.5,\"stroke-opacity\":1,\"edge-type\":\"plain\",\"arrow-start\":\"none\",\"arrow-end\":\"block\",\"stroke-dasharray\":\"\",\"stroke-linejoin\":\"round\",\"cursor\":\"pointer\"}"</span><span class="o">},</span><span class="s">"sourceRef"</span><span class="o">:</span><span class="s">"3"</span><span class="o">,</span><span class="s">"targetRef"</span><span class="o">:</span><span class="s">"2"</span><span class="o">,</span><span class="s">"condition"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.Evaluate"</span><span class="o">,</span><span class="s">"description"</span><span class="o">:{},</span><span class="s">"pv"</span><span class="o">:{</span><span class="s">"displayName"</span><span class="o">:{},</span><span class="s">"defaultValue"</span><span class="o">:</span><span class="s">""</span><span class="o">},</span><span class="s">"val"</span><span class="o">:</span><span class="s">""</span><span class="o">,</span><span class="s">"condition"</span><span class="o">:</span><span class="s">"=="</span><span class="o">}},{</span><span class="s">"relationView"</span><span class="o">:{</span><span class="s">"TERMINAL_IN_OUT"</span><span class="o">:</span><span class="s">"_TERMINAL_C_INOUT_0"</span><span class="o">,</span><span class="s">"shapeId"</span><span class="o">:</span><span class="s">"OG.shape.bpmn.C_Flow"</span><span class="o">,</span><span class="s">"value"</span><span class="o">:</span><span class="s">"[[502,136],[571,136]]"</span><span class="o">,</span><span class="s">"style"</span><span class="o">:</span><span class="s">"{\"stroke\":\"black\",\"fill-r\":\".5\",\"fill-cx\":\".5\",\"fill-cy\":\".5\",\"fill\":\"none\",\"fill-opacity\":0,\"label-position\":\"center\",\"stroke-width\":1.5,\"stroke-opacity\":1,\"edge-type\":\"plain\",\"arrow-start\":\"none\",\"arrow-end\":\"block\",\"stroke-dasharray\":\"\",\"stroke-linejoin\":\"round\",\"cursor\":\"pointer\"}"</span><span class="o">},</span><span class="s">"sourceRef"</span><span class="o">:</span><span class="s">"2"</span><span class="o">,</span><span class="s">"targetRef"</span><span class="o">:</span><span class="s">"4"</span><span class="o">,</span><span class="s">"condition"</span><span class="o">:{</span><span class="s">"_type"</span><span class="o">:</span><span class="s">"org.uengine.kernel.Evaluate"</span><span class="o">,</span><span class="s">"description"</span><span class="o">:{},</span><span class="s">"pv"</span><span class="o">:{</span><span class="s">"displayName"</span><span class="o">:{},</span><span class="s">"defaultValue"</span><span class="o">:</span><span class="s">""</span><span class="o">},</span><span class="s">"val"</span><span class="o">:</span><span class="s">""</span><span class="o">,</span><span class="s">"condition"</span><span class="o">:</span><span class="s">"=="</span><span class="o">}}],</span><span class="s">"defaultFlowchartViewType"</span><span class="o">:</span><span class="s">"swimlane"</span><span class="o">,</span><span class="s">"defaultFlowchartViewOption"</span><span class="o">:</span><span class="s">"vertical"</span><span class="o">,</span><span class="s">"duration"</span><span class="o">:</span><span class="mi">10</span><span class="o">,</span><span class="s">"simulationInstanceCount"</span><span class="o">:</span><span class="mi">10</span><span class="o">,</span><span class="s">"simulationInputFrequency"</span><span class="o">:</span><span class="mi">10</span><span class="o">,</span><span class="s">"archive"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"id"</span><span class="o">:</span><span class="s">"script test.xml"</span><span class="o">,</span><span class="s">"isAdhoc"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"shortDescription"</span><span class="o">:{},</span><span class="s">"initiateByFirstWorkitem"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"adhoc"</span><span class="o">:</span><span class="kc">true</span><span class="o">,</span><span class="s">"dynamicChangeAllowed"</span><span class="o">:</span><span class="kc">true</span><span class="o">}}</span>
+</code></pre></div></div>
+
+<h2 id="프로세스-배포">프로세스 배포</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span> <span class="no">POST</span> <span class="nl">localhost:</span><span class="mi">8080</span><span class="o">/</span><span class="n">definition</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">script</span><span class="o">.</span><span class="na">json</span> <span class="o">&lt;</span> <span class="n">scriptTest</span><span class="o">.</span><span class="na">json</span>
+</code></pre></div></div>
+
+<h2 id="프로세스-실행">프로세스 실행</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span> <span class="no">POST</span> <span class="nl">http:</span><span class="c1">//localhost:8080/instance?defPath=script.xml</span>
+</code></pre></div></div>
+
+<h2 id="실행-확인">실행 확인</h2>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span> <span class="nl">http:</span><span class="c1">//localhost:8080/instance/{인스턴스ID}/variables</span>
+</code></pre></div></div>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/msa-ez/uengine5.github.io/edit/gh-pages/content/bpm6-started/script-task.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

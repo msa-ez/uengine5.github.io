@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>실행하기 | uengine5.github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="실행하기" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://bpm-intro.uengine.io/content/bpm6-deploy-config/" />
+<meta property="og:url" content="https://bpm-intro.uengine.io/content/bpm6-deploy-config/" />
+<meta property="og:site_name" content="uengine5.github.io" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="실행하기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"실행하기","url":"https://bpm-intro.uengine.io/content/bpm6-deploy-config/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=15dc6e5f312a952815ebd692d6710d39de6f8d12">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://bpm-intro.uengine.io/">uengine5.github.io</a></h1>
+      
+
+      <h1 id="실행하기">실행하기</h1>
+
+<h2 id="프로젝트-준비">프로젝트 준비</h2>
+<ul>
+  <li><strong>프로젝트 클론</strong>: GitHub에서 uEngine 프로젝트를 클론합니다.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/uengine-oss/uEngine6.git
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="local-실행하기">Local 실행하기</h2>
+<p>로컬 uEngine 실행하려면 기본적으로 비동기 통신을 위한 Kafka 서버가 필요합니다. 따라서 먼저 카프카 서버를 실행해야 합니다.</p>
+<ul>
+  <li>kafka 서버 설치및 실행
+    <ul>
+      <li>https://kafka.apache.org/ 접속하여 설치및 실행.</li>
+    </ul>
+  </li>
+  <li>uEngine 실행
+```sh
+    <h1 id="process-service-실행포트-9094-프로세스-실행-서비스">Process Service 실행(포트 9094)-프로세스 실행 서비스</h1>
+    <p>cd /process-service
+mvn spring-boot:run</p>
+  </li>
+</ul>
+
+<h1 id="definition-service-실행포트-9093-프로세스-정의-서비스">Definition Service 실행(포트 9093)-프로세스 정의 서비스</h1>
+<p>cd /definition-service
+mvn spring-boot:run</p>
+
+<h1 id="gateway-service-실행포트-8088-api-게이트웨이">Gateway Service 실행(포트 8088)-API 게이트웨이</h1>
+<p>cd /gateway
+mvn spring-boot:run</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+## Docker 실행하기
+
+Docker에 uEngine을 올려서 실행하려면 다음 단계를 따르세요:
+
+1. **디렉토리 이동**: 클론한 프로젝트의 루트 디렉토리로 이동합니다.
+```sh
+cd uengine
+</code></pre></div></div>
+<ol>
+  <li><strong>Docker Compose 실행</strong>: Docker Compose를 사용하여 uEngine을 실행합니다. 이때, <code class="language-plaintext highlighter-rouge">infra</code> 폴더에 있는 Docker Compose 파일을 사용합니다.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Docker Compose</span>
+<span class="nb">cd </span>infra
+docker compose up
+</code></pre></div>    </div>
+    <p>이 명령어는 <code class="language-plaintext highlighter-rouge">infra</code> 폴더에 정의된 모든 서비스를 시작합니다.</p>
+  </li>
+  <li><strong>실행 확인</strong>:
+실행이 완료되면 다음 이미지와 같이 uEngine과 관련된 docker image가 실행됩니다.</li>
+</ol>
+
+<p><img src="/uengine-image/installation-1.png" alt="" /></p>
+
+<ol>
+  <li><strong>uEngine 종료</strong>: uEngine을 종료하려면 다음 명령어를 사용합니다.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose down
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="실행-화면-확인하기">실행 화면 확인하기</h2>
+
+<p>uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL로 접속하여 실행 화면을 확인할 수 있습니다.</p>
+
+<ul>
+  <li>프로세스 실행 화면
+http://localhost:8088/</li>
+</ul>
+
+<p><img src="/uengine-image/installation-2.png" alt="" /></p>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/msa-ez/uengine5.github.io/edit/gh-pages/content/bpm6-deploy-config/index.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
