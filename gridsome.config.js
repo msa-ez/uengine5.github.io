@@ -49,6 +49,15 @@ module.exports = {
             ]
           },
           {
+            title: '배포 및 설정 가이드',
+            items: [
+              '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/bpm6-account/',
+              '/bpm6-deploy-config/bpm6-deploy/',
+              '/bpm6-deploy-config/uengine3-migration/',
+            ]
+          },          
+          {
             title: '모델링 및 실행',
             items: [
               '/bpm6-started/',
@@ -102,15 +111,6 @@ module.exports = {
               '/process-example/',
               // '/process-example/sub-process/',
               // '/process-example/call-activity/',
-            ]
-          },
-          {
-            title: '배포 및 설정 가이드',
-            items: [
-              '/bpm6-deploy-config/',
-              '/bpm6-deploy-config/bpn6-account/',
-              '/bpm6-deploy-config/bpm6-deploy/',
-              '/bpm6-deploy-config/uengine3-migration/',
             ]
           },
           {
