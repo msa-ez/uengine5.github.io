@@ -16,26 +16,32 @@ sidebar: 'getting-started'
 
 1. **AI 음성 채팅**
    - 채팅 화면의 하단에서 + 버튼을 클릭하고 채팅 기능 더보기에서 헤드셋 버튼을 클릭하여 음성 채팅을 시작합니다.
-   - **[이미지-1]**: + 버튼튼
+   - **[이미지-1]**: + 버튼
    
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat2.png)
+   
    - **[이미지-2]**: 헤드셋 버튼
-   ![](../../uengine-image/process-gpt/process_gpt_ai_chat3.png)
+
+      ![](../../uengine-image/process-gpt/process_gpt_ai_chat3.png)
 
    - 음성 채팅 화면에서 사용자는 하단의 오디오 버튼을 클릭하여 프로세스에 대한 질의를 합니다.
    - **[이미지-3]**: 오디오 버튼
+   
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat5.png)
 
    - 질의가 끝나면 멈춤 버튼을 클릭하고 응답을 기다립니다.
    - **[이미지-4]**: 멈춤 버튼
+
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat6.png)
 
    - AI 는 사용자의 질의를 바탕으로 프로세스에 대한 응답을 제공합니다.
    - **[이미지-5]**: 응답 중인 화면
+
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat7.png)
 
    - 응답 받은 내용은 텍스트로 채팅 기록에 저장되어 확인할 수 있습니다.
    - **[이미지-6]**: 채팅 기록
+   
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat8.png)
 
 

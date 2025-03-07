@@ -121,9 +121,11 @@ module.exports = {
             ]
           },
           {
-            title: '프로세스 질의 응답 (Process-GPT)',
+            title: 'AI를 활용한 프로세스 관리 (Process-GPT)',
             items: [
-              '/process-gpt/ai-chat-guide/',
+              '/process-gpt/',
+              '/process-gpt/admin-guide/',
+              '/process-gpt/user-guide/',
             ]
           },
           {
