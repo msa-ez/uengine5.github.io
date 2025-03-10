@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>새로운 액티비티 타입 만들기 | uengine5.github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="새로운 액티비티 타입 만들기" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://bpm-intro.uengine.io/content/api-customizing/new-activity.html" />
+<meta property="og:url" content="http://bpm-intro.uengine.io/content/api-customizing/new-activity.html" />
+<meta property="og:site_name" content="uengine5.github.io" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="새로운 액티비티 타입 만들기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"새로운 액티비티 타입 만들기","url":"http://bpm-intro.uengine.io/content/api-customizing/new-activity.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=fe839b2ea6d61d56e254c67fe58daf9c0e751005">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://bpm-intro.uengine.io/">uengine5.github.io</a></h1>
+      
+
+      <h1 id="새로운-액티비티-타입-만들기">새로운 액티비티 타입 만들기</h1>
+
+<h3>Creating New Activity Type</h3>
+
+<p>To create a new activity type, you need to implement activity class and vuejs component corresponding to the logic and configuration UI for that:</p>
+<ul>
+  <li>Activity class (extends org.uengine.kernel.DefaultActivity)</li>
+  <li>VueJS component</li>
+</ul>
+
+<p>And register that VueJS component to the list of the context menu of task.</p>
+
+<h2 id="example">Example</h2>
+<p><img src="/uengine-image/0-1.png" alt="" /></p>
+
+<ul>
+  <li><strong><a href="https://github.com/TheOpenCloudEngine/uEngine5-base/commit/a6a0339af75b5e2013a16f28fc7831d04d7ad529">Source</a></strong></li>
+</ul>
+
+<p><strong>ServiceTask.java</strong></p>
+
+<p>Activity class must extends org.uengine.kernel.Activity or DefaultActivity (if system activity) or HumanActivity (if the activity is done by human with some user interface). The class must be located at the project can be accessed by the uEngine6-base/definition and /process project for both or you can add the dependency to uEngine6-base/pom.xml to be accessed by the whole uEngine6-base sub projects)</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">uengine</span><span class="p">.</span><span class="nx">kernel</span><span class="p">.</span><span class="nx">bpmn</span><span class="p">;</span>
+
+<span class="p">...</span>
+
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">ServiceTask</span> <span class="kd">extends</span> <span class="nx">DefaultActivity</span> <span class="p">{</span>
+
+    <span class="p">@</span><span class="nd">Override</span>
+    <span class="kr">protected</span> <span class="k">void</span> <span class="nx">executeActivity</span><span class="p">(</span><span class="nx">ProcessInstance</span> <span class="nx">instance</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">Exception</span> <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="k">super</span><span class="p">.</span><span class="nx">executeActivity</span><span class="p">(</span><span class="nx">instance</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li><strong><a href="https://github.com/TheOpenCloudEngine/uengine-bpm/blob/master/uengine-core/src/main/java/org/uengine/kernel/bpmn/ServiceTask.java">here is whole source code</a></strong></li>
+</ul>
+
+<h2 id="servicetaskvue">ServiceTask.vue</h2>
+<p>The vue component that provides a user interface for the activity:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">geometry</span><span class="o">-</span><span class="n">element</span>
+<span class="o">...</span>    <span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">geometry</span><span class="o">-</span><span class="n">rect</span>
+<span class="o">...</span>      <span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">geometry</span><span class="o">-</span><span class="n">rect</span><span class="o">&gt;</span>
+
+      <span class="o">&lt;</span><span class="n">sub</span><span class="o">-</span><span class="n">elements</span><span class="o">&gt;</span>
+
+<span class="o">&lt;!-------------------</span>  <span class="mi">1</span><span class="o">.</span> <span class="n">activity</span> <span class="n">type</span> <span class="n">symbol</span> <span class="n">image</span> <span class="o">-----------------------&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">image</span><span class="o">-</span><span class="n">element</span>
+          <span class="o">:</span><span class="n">image</span><span class="o">=</span><span class="s">"'/static/image/symbol/Service.png'"</span>
+<span class="o">...</span>
+        <span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">image</span><span class="o">-</span><span class="n">element</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">bpmn</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">type</span> <span class="o">:</span><span class="n">loopType</span><span class="o">=</span><span class="s">"loopType"</span><span class="o">&gt;&lt;/</span><span class="n">bpmn</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">bpmn</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">animation</span> <span class="o">:</span><span class="n">status</span><span class="o">=</span><span class="s">"status"</span> <span class="o">:</span><span class="n">type</span><span class="o">=</span><span class="s">"type"</span><span class="o">&gt;&lt;/</span><span class="n">bpmn</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">animation</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">sub</span><span class="o">-</span><span class="n">elements</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">bpmn</span><span class="o">-</span><span class="n">sub</span><span class="o">-</span><span class="n">controller</span> <span class="o">:</span><span class="n">type</span><span class="o">=</span><span class="s">"type"</span><span class="o">&gt;&lt;/</span><span class="n">bpmn</span><span class="o">-</span><span class="n">sub</span><span class="o">-</span><span class="n">controller</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">geometry</span><span class="o">-</span><span class="n">element</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">bpmn</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">panel</span>
+      <span class="o">:</span><span class="n">drawer</span><span class="o">.</span><span class="na">sync</span><span class="o">=</span><span class="s">"drawer"</span>
+      <span class="o">:</span><span class="n">item</span><span class="o">.</span><span class="na">sync</span><span class="o">=</span><span class="s">"activity"</span>
+    <span class="o">&gt;</span>
+
+
+<span class="o">&lt;!-----------------</span> <span class="mi">2</span><span class="o">.</span> <span class="n">property</span> <span class="n">mappings</span> <span class="n">from</span> <span class="no">UI</span> <span class="n">and</span> <span class="n">activity</span> <span class="n">data</span> <span class="o">--------------------&gt;</span>
+
+
+      <span class="o">&lt;</span><span class="n">template</span> <span class="n">slot</span><span class="o">=</span><span class="s">"properties-contents"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">액티비티</span> <span class="n">명</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">"text"</span>
+                    <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">=</span><span class="s">"activity.name.text"</span><span class="o">&gt;&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">역할</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">select</span> <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">=</span><span class="s">"activity.role.name"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s">"role in definition.roles"</span>
+                       <span class="o">:</span><span class="n">key</span><span class="o">=</span><span class="s">"role.name"</span>
+                       <span class="o">:</span><span class="n">value</span><span class="o">=</span><span class="s">"role.name"</span><span class="o">&gt;</span>
+              
+            <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+          <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">select</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">호출</span> <span class="no">URI</span> <span class="n">패턴</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">"text"</span>
+                    <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">=</span><span class="s">"activity.uriTemplate"</span><span class="o">&gt;&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">호출</span> <span class="n">메서드</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">select</span> <span class="n">type</span><span class="o">=</span><span class="s">"text"</span>
+                     <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">=</span><span class="s">"activity.method"</span><span class="o">&gt;</span>
+
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s">"GET"</span><span class="o">&gt;</span><span class="no">GET</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s">"POST"</span><span class="o">&gt;</span><span class="no">POST</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s">"DELETE"</span><span class="o">&gt;</span><span class="no">DELETE</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s">"PUT"</span><span class="o">&gt;</span><span class="no">PUT</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">option</span> <span class="n">value</span><span class="o">=</span><span class="s">"PATCH"</span><span class="o">&gt;</span><span class="no">PATCH</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">option</span><span class="o">&gt;</span>
+
+          <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">select</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span> <span class="k">if</span><span class="o">=</span><span class="s">"'GET,DELETE'.indexOf(activity.method) == -1"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">입력</span> <span class="n">데이터</span> <span class="o">(</span><span class="no">JSON</span> <span class="n">template</span><span class="o">)&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">textarea</span> <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">=</span><span class="s">"activity.inputPayloadTemplate"</span><span class="o">&gt;&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">textarea</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">결과</span> <span class="n">데이터</span> <span class="n">매핑</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">bpmn</span><span class="o">-</span><span class="n">parameter</span><span class="o">-</span><span class="n">contexts</span>
+            <span class="o">:</span><span class="n">parameter</span><span class="o">-</span><span class="n">contexts</span><span class="o">=</span><span class="s">"activity.outputMapping"</span>
+            <span class="o">:</span><span class="n">definition</span><span class="o">=</span><span class="s">"definition"</span>
+          <span class="o">&gt;&lt;/</span><span class="n">bpmn</span><span class="o">-</span><span class="n">parameter</span><span class="o">-</span><span class="n">contexts</span><span class="o">&gt;</span>
+
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">checkbox</span>
+                    <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">.</span><span class="na">number</span><span class="o">=</span><span class="s">"activity.skipIfNotFound"</span><span class="o">&gt;</span><span class="n">리소스</span> <span class="n">없을</span> <span class="n">경우</span> <span class="o">(</span><span class="mi">404</span><span class="o">)</span> <span class="n">오류</span> <span class="n">처리</span> <span class="n">하지</span> <span class="n">않음</span><span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">checkbox</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">retryDelay</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">md</span><span class="o">-</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">"number"</span>
+                    <span class="n">v</span><span class="o">-</span><span class="n">model</span><span class="o">.</span><span class="na">number</span><span class="o">=</span><span class="s">"activity.retryDelay"</span><span class="o">&gt;&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">md</span><span class="o">-</span><span class="n">input</span><span class="o">-</span><span class="n">container</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">template</span> <span class="n">slot</span><span class="o">=</span><span class="s">"additional-tabs"</span><span class="o">&gt;</span>
+
+      <span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">bpmn</span><span class="o">-</span><span class="n">property</span><span class="o">-</span><span class="n">panel</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="kn">import</span> <span class="nn">IBpmn</span> <span class="n">from</span> <span class="err">'</span><span class="o">../</span><span class="nc">IBpmn</span><span class="err">'</span>
+  <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
+    <span class="nl">mixins:</span> <span class="o">[</span><span class="nc">IBpmn</span><span class="o">],</span>
+
+<span class="c1">/// -----------------   3:  name of the vue component ------------------- //</span>
+    <span class="nl">name:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>     
+    <span class="nl">props:</span> <span class="o">{},</span>
+    <span class="nl">created:</span> <span class="n">function</span><span class="o">(){</span>
+      <span class="k">if</span><span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">role</span><span class="o">)</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">role</span> <span class="o">=</span> <span class="o">{</span><span class="nl">name:</span><span class="err">''</span><span class="o">};</span>
+    <span class="o">},</span>
+    <span class="nl">computed:</span> <span class="o">{</span>
+      <span class="n">defaultStyle</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="o">{}</span>
+      <span class="o">},</span>
+      <span class="n">type</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="err">'</span><span class="nc">Task</span><span class="err">'</span>
+      <span class="o">},</span>
+<span class="c1">// ------------------  4. The actual class name of created activity above ----------------------//</span>
+      <span class="n">className</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">uengine</span><span class="o">.</span><span class="na">kernel</span><span class="o">.</span><span class="na">bpmn</span><span class="o">.</span><span class="na">ServiceTask</span><span class="err">'</span>       
+      <span class="o">},</span>
+
+<span class="c1">// ------------------  5. initialization for activity in javascript format which reflects the UI --------//</span>
+      <span class="n">createNew</span><span class="o">(</span><span class="n">newTracingTag</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">){</span>
+        <span class="k">return</span> <span class="o">{</span>
+          <span class="nl">_type:</span> <span class="k">this</span><span class="o">.</span><span class="na">className</span><span class="o">(),</span>
+          <span class="nl">name:</span> <span class="o">{</span>
+            <span class="nl">text:</span> <span class="err">''</span>
+          <span class="o">},</span>
+          <span class="nl">role:</span> <span class="o">{</span>
+            <span class="nl">name:</span> <span class="err">''</span>
+          <span class="o">},</span>
+          <span class="nl">outputMapping:</span> <span class="o">[],</span>
+          <span class="nl">tracingTag:</span> <span class="n">newTracingTag</span><span class="o">,</span>
+          <span class="nl">elementView:</span> <span class="o">{</span>
+            <span class="err">'</span><span class="n">_type</span><span class="err">'</span><span class="o">:</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">uengine</span><span class="o">.</span><span class="na">kernel</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">DefaultActivityView</span><span class="err">'</span><span class="o">,</span>
+            <span class="err">'</span><span class="n">id</span><span class="err">'</span><span class="o">:</span> <span class="n">newTracingTag</span><span class="o">,</span>
+            <span class="sc">'x'</span><span class="o">:</span> <span class="n">x</span><span class="o">,</span>
+            <span class="sc">'y'</span><span class="o">:</span> <span class="n">y</span><span class="o">,</span>
+            <span class="err">'</span><span class="n">width</span><span class="err">'</span><span class="o">:</span> <span class="n">width</span><span class="o">,</span>
+            <span class="err">'</span><span class="n">height</span><span class="err">'</span><span class="o">:</span> <span class="n">height</span><span class="o">,</span>
+            <span class="err">'</span><span class="n">style</span><span class="err">'</span><span class="o">:</span> <span class="no">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">({})</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">},</span>
+    <span class="nl">data:</span> <span class="n">function</span> <span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="o">{};</span>
+    <span class="o">},</span>
+    <span class="nl">watch:</span> <span class="o">{},</span>
+    <span class="nl">mounted:</span> <span class="n">function</span> <span class="o">()</span> <span class="o">{</span>
+
+    <span class="o">},</span>
+    <span class="nl">methods:</span> <span class="o">{}</span>
+  <span class="o">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+
+<span class="o">&lt;</span><span class="n">style</span> <span class="n">scoped</span> <span class="n">lang</span><span class="o">=</span><span class="s">"scss"</span> <span class="n">rel</span><span class="o">=</span><span class="s">"stylesheet/scss"</span><span class="o">&gt;</span>
+
+<span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
+</code></pre></div></div>
+<ul>
+  <li><strong><a href="https://github.com/TheOpenCloudEngine/uEngine5-base/blob/master/front-end/src/components/bpmn/task/ServiceTask.vue">full source code</a></strong></li>
+</ul>
+
+<p>There are several parts to be implemented:</p>
+
+<ul>
+  <li>Give the representative symbol image url for the activity.</li>
+  <li>Bind vueJS components to input the activity’s properties.</li>
+  <li>Give the html tag name of the vue component.</li>
+  <li>Give the activity class type name. it is used for adding ‘_type’ information so that the json object can be properly deserialized by the definition / process service.</li>
+  <li>Initialize the property UI by initializing the activity data in javascript.</li>
+</ul>
+
+<p>It must be located in the project - ‘front-end/src/components/bpmn/task’</p>
+
+<p><strong>Finally, add the component in the list of the configuration context menu</strong></p>
+
+<p><img src="/uengine-image/2-1.png" alt="" />
+<!-- ![](/uengine-image/3.png) --></p>
+
+<ul>
+  <li>
+    <p><strong><a href="https://github.com/TheOpenCloudEngine/uEngine5-base/blob/master/front-end/src/components/bpmn/BpmnComponentChanger.vue">The source code for launching the list of task types can be found at BpmnComponentChanger.vue</a></strong></p>
+  </li>
+  <li>
+    <p>You should edit the vue file directly for now. (If you don’t want to change the original file, copy the .vue file and locate it in your project and override the tag name by using Vue.component(‘bpmn-component-changer’, NewComponent))</p>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">bpmnComponent</span><span class="o">.</span><span class="na">type</span> <span class="o">==</span> <span class="err">'</span><span class="nc">Task</span><span class="err">'</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">items</span> <span class="o">=</span> <span class="o">[</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">task</span><span class="o">-</span><span class="n">none</span><span class="err">'</span>
+            <span class="o">},</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">send</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Send</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">send</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>
+            <span class="o">},</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">receive</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Receive</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">receive</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>
+            <span class="o">},</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">User</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>
+            <span class="o">},</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">manual</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Manual</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">manual</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>
+            <span class="o">},</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">business</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Business</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">business</span><span class="o">-</span><span class="n">rule</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>
+            <span class="o">},</span>
+<span class="c1">// ------------- append your new activity vue component here -----------------</span>
+            <span class="o">{</span>
+              <span class="nl">component:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">task</span><span class="err">'</span><span class="o">,</span>  <span class="c1">// the vue component name specified. we have marked with comment -</span>
+ <span class="s">"3:  name of the vue component"</span> <span class="n">above</span>
+              <span class="nl">label:</span> <span class="err">'</span><span class="nc">Service</span> <span class="nc">Task</span><span class="err">'</span><span class="o">,</span>     
+              <span class="nl">icon:</span> <span class="err">'</span><span class="n">bpmn</span><span class="o">-</span><span class="n">icon</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">task</span><span class="err">'</span>   <span class="c1">// the icon showed in the list</span>
+            <span class="o">},</span>
+
+<span class="o">...</span>
+          <span class="o">]</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+<p>That’s it.</p>
+
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/msa-ez/uengine5.github.io/edit/gh-pages/content/api-customizing/new-activity.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

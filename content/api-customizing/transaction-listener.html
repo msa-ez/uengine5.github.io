@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>uEngine6 트랜잭션 리스너 | uengine5.github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="uEngine6 트랜잭션 리스너" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://bpm-intro.uengine.io/content/api-customizing/transaction-listener.html" />
+<meta property="og:url" content="http://bpm-intro.uengine.io/content/api-customizing/transaction-listener.html" />
+<meta property="og:site_name" content="uengine5.github.io" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="uEngine6 트랜잭션 리스너" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"uEngine6 트랜잭션 리스너","url":"http://bpm-intro.uengine.io/content/api-customizing/transaction-listener.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=fe839b2ea6d61d56e254c67fe58daf9c0e751005">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://bpm-intro.uengine.io/">uengine5.github.io</a></h1>
+      
+
+      <h1 id="uengine6-트랜잭션-리스너">uEngine6 트랜잭션 리스너</h1>
+
+<p>Main interface of ProcessTransactionListener is as follows:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.uengine.five</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ProcessTransactionListener</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">beforeCommit</span><span class="o">(</span><span class="nc">ProcessTransactionContext</span> <span class="n">tx</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">beforeRollback</span><span class="o">(</span><span class="nc">ProcessTransactionContext</span> <span class="n">tx</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">afterCommit</span><span class="o">(</span><span class="nc">ProcessTransactionContext</span> <span class="n">tx</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">afterRollback</span><span class="o">(</span><span class="nc">ProcessTransactionContext</span> <span class="n">tx</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>하나의 트랜잭션 내에 여러개의 메인과 서브 프로세스 인스턴스, 그리고 심지어 멀티플 인스턴스가 생성되었다가 한번에 저장되어야 하기 때문에, 액티비티들을 실행하면서 발생하는 모든 프로세스 인스턴스의 상태나 프로세스 변수의 값을 JPA Repository 를 통하여 매번 읽고 쓰고가 생길때마다 SQL 을 DB 로 전송했다가는 성능 저하가 심각하게 발생하여 uEngine 은 전통적으로 DAO 에 대한 Caching 프레임워크를 자체적으로 개발하여 사용하고 있었다.</p>
+
+<p>uEngine6 에서는 대대적으로 기존 자체 기술을 Spring 기반의 가능한 표준 기술로 대체하기로 한바, JPA 기반으로 기존 동작을 구현하기로 하였다.</p>
+
+<p>해서 하나의 Request 에 유일한 완료시점에 변경된 프로세스 인스턴스들만 마지막 상태값을 저장할 수 있어야 한다.</p>
+
+<p>저자가 Spring 을 잘 몰라서 그런지 여러방법 (Application Event 등) 들을 써봤으나, 제대로 한번만 호출이 안되는 관계로, 결국 서비스단에서 다음과 같이 애노테이션을 주면, 이를 advice 가 걸러내어 시작시점과 완료시점에 수정된 인스턴스들만 걸러내어 저장 시켜주는 프레임워크를 만들게 되었다:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/work-item/{taskId}"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+<span class="nd">@Transactional</span>
+<span class="nd">@ProcessTransactional</span> <span class="c1">//important!</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">putWorkItem</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">"taskId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">taskId</span><span class="o">,</span> <span class="nd">@RequestBody</span> <span class="nc">WorkItem</span> <span class="n">workItem</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{....}</span>
+</code></pre></div></div>
+
+<p>결론적으로, 기존에 트랜잭션을 걸기위해서 스프링에서 @Transactional 을 선언한다고 하면, 거기에 보태어 @ProcessTransactional 하나만 더 선언해주기만 하면 된다. 위와 같이 선언해주면, 다음의 Advice 가 등록된 TransactionListener 들 각자에 beforeCommit, beforeRollback 을 콜백받을 기회를 주게된다:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.uengine.five</span><span class="o">;</span>
+<span class="o">...</span>
+
+<span class="nd">@Aspect</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProcessTransactionAdvice</span> <span class="o">{</span>
+
+    <span class="nd">@Before</span><span class="o">(</span><span class="s">"@annotation(org.uengine.five.ProcessTransactional)"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initiateTransaction</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"start tx"</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">ProcessTransactionContext</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterReturning</span><span class="o">(</span><span class="s">"@annotation(org.uengine.five.ProcessTransactional)"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">commitTransaction</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"commit"</span><span class="o">);</span>
+        <span class="nc">ProcessTransactionContext</span><span class="o">.</span><span class="na">getThreadLocalInstance</span><span class="o">().</span><span class="na">commit</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterThrowing</span><span class="o">(</span><span class="s">"@annotation(org.uengine.five.ProcessTransactional)"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rollbackTransaction</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"rollback"</span><span class="o">);</span>
+        <span class="nc">ProcessTransactionContext</span><span class="o">.</span><span class="na">getThreadLocalInstance</span><span class="o">().</span><span class="na">rollback</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>JPAProcessInstance 는 자기 자신이 생성되는 순간, ThreadLocal 객체로 존재하는 ProcessTransactionContext 에 자신을 등록하고, beforeCommit() 에서 자신을 최종으로 한번만 저장하는 로직을 응집도 있게 구현하고 있다:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">org.uengine.five</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JPAProcessInstance</span> <span class="kd">extends</span> <span class="nc">DefaultProcessInstance</span> <span class="kd">implements</span> <span class="nc">ProcessTransactionListener</span> <span class="o">{</span> <span class="c1">// JPAProcessInstance 는 ProcessTransactionListener 이다.</span>
+
+   <span class="o">...</span>
+
+    <span class="kd">public</span> <span class="nf">JPAProcessInstance</span><span class="o">(</span><span class="nc">ProcessDefinition</span> <span class="n">procDefinition</span><span class="o">,</span> <span class="nc">String</span> <span class="n">instanceId</span><span class="o">,</span> <span class="nc">Map</span> <span class="n">options</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">procDefinition</span><span class="o">,</span> <span class="n">instanceId</span><span class="o">,</span> <span class="n">options</span><span class="o">);</span>
+<span class="o">...</span>
+
+        <span class="c1">//Add this instance as transaction listener and register this so that it can be cached.</span>
+        <span class="c1">// JPAProcessInstance 가 어떻게든 생성되면, 자신을 ProcessTransactionContext 에 등록한다.</span>
+        <span class="nc">ProcessTransactionContext</span><span class="o">.</span><span class="na">getThreadLocalInstance</span><span class="o">().</span><span class="na">addTransactionListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="nc">ProcessTransactionContext</span><span class="o">.</span><span class="na">getThreadLocalInstance</span><span class="o">().</span><span class="na">registerProcessInstance</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="o">....</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">...</span>
+
+<span class="c1">//   자신이 커밋되기 직전에 자신의 수정된 사항들을 한번에 저장한다. 파일과 DB 를 저장하고 있다.</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeCommit</span><span class="o">(</span><span class="nc">ProcessTransactionContext</span> <span class="n">tx</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+
+        <span class="n">processInstanceRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">getProcessInstanceEntity</span><span class="o">());</span>
+
+        <span class="nc">IResource</span> <span class="n">resource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultResource</span><span class="o">(</span><span class="s">"instances/"</span> <span class="o">+</span> <span class="n">getInstanceId</span><span class="o">());</span>
+        <span class="n">resourceManager</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">resource</span><span class="o">,</span> <span class="n">getVariables</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h2 id="사용-확장">사용 확장</h2>
+<p>만약, JPAProcessInstance 와 같이 애플리케이션 로직에서 구현한 것들도 한번에 이벤트를 받아 캐시된 정보를 최종적으로 한번만 저장해야 하는 필요성이 있다면 아래와 같이 구현하면 될 것이다:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">executeActivity</span><span class="o">(....){</span>
+   <span class="nc">ProcessTransactionContext</span><span class="o">.</span><span class="na">getThreadLocalInstance</span><span class="o">().</span><span class="na">addTransactionListener</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">ProcessTransactionListener</span><span class="o">(){</span>
+             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeCommit</span><span class="o">(...){</span>
+                  <span class="n">flushSomething</span><span class="o">();</span>
+             <span class="o">}</span>
+
+              <span class="o">...</span>
+        <span class="o">}</span>
+   <span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/msa-ez/uengine5.github.io/edit/gh-pages/content/api-customizing/transaction-listener.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
