@@ -263,7 +263,7 @@ Gateways는 프로세스의 흐름을 분기하거나 병합하는 데 사용됩
   + 수신: 연결된 경로중 1개 수신시 다음 경로로 진행합니다.
 - **예시**
   + 조건에 일치하는 **1개 이상**의 부서에 진행하는 예시 프로세스 입니다.
-  ![](../../uengine-image/modeling/gateways/gateway-inclusive.png)
+  ![](../../uengine-image/modeling/gateways/gateway-Inclusive.png)
 
 ## 5. Pool & Lane
 프로세스에서 Pool과 Lane을 사용하여 역할과 조직을 시각적으로 구분 하는데 사용됩니다. 또한 순서의 흐름을 통해서 책임과 역할을 이해 할 수 있습니다.
