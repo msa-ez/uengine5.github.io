@@ -373,7 +373,7 @@ export default {
       ],
       paragraphs: [
         {
-          content: '<span style="font-size: 20px; font-weight: bold;">유엔진은</span> BPM 기반 아키텍처 분석에서 운영자동화까지 한번에 지원하는 SOA MM Level 7을 지원하는 플랫폼입니다'
+          content: '<span style="font-size: 20px; font-weight: bold;">유엔진은</span> BPM 기반 아키텍처 분석에서 운영자동화까지 한번에 지원하는 SOA MM Level 7을 지원하는 플랫폼입니다.'
         },
         {
           content: '<span style="font-size: 20px; font-weight: bold;">uEngine6 BPM은</span> 최신 클라우드 네이티브 아키텍처를 기반으로 하는 비즈니스 프로세스 관리 시스템(BPMS)으로, Process GPT라는 uEngine의 AI 버전을 통해 프로세스 정의와 폼 생성, 그리고 애플리케이션 연동을 자동화하는 능력을 갖추었습니다. 이 AI 기능은 복잡한 프로세스들을 자동으로 처리하며, 사용자가 직접 개입하지 않아도 실행단계까지 완전히 자동화됩니다.'
