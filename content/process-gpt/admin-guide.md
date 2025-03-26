@@ -7,7 +7,7 @@ sidebar: 'getting-started'
 
 #### 프로세스 정의 및 폼 생성
 
-<span style="color: #fff;">
+<span style="color: #fff; display:block; margin-top: -50px;">
 
 ##### 프로세스 정의 화면
 </span>
@@ -17,7 +17,7 @@ sidebar: 'getting-started'
 
    ![](../../uengine-image/PAL_processDefinitionChat_sub1.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display:block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 프로세스 정의 생성
 </span>
@@ -31,7 +31,7 @@ sidebar: 'getting-started'
    - **[이미지-2]**: 생성된 프로세스스 BPMN 다이어그램
    ![](../../uengine-image/process-gpt/process_definition_chat2.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display:block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 사용자 업무 폼 생성
 </span>
@@ -45,7 +45,7 @@ sidebar: 'getting-started'
    - **[이미지-4]**: 사용자 업무 폼 수정
    ![](../../uengine-image/process-gpt/process_definition_chat4.png)
 
-<span style="color: #fff; display:block; margin-top: -100px; margin-bottom: 50px;">
+<span style="color: #fff; display:block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 스크립트 업무 코드 생성
 </span>
