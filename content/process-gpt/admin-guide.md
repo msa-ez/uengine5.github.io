@@ -7,10 +7,20 @@ sidebar: 'getting-started'
 
 #### 프로세스 정의 및 폼 생성
 
+<span style="color: #fff; display:block; margin-top: -100px;">
+
+##### 프로세스 정의 화면
+</span>
+
 1. **프로세스 정의 화면**  
    - 프로세스 정의는 좌측 프로세스 모델링 편집 화면과 우측 프로세스 정의 채팅 화면을 통해 관리합니다.
 
    ![](../../uengine-image/PAL_processDefinitionChat_sub1.png)
+
+<span style="color: #fff;">
+
+##### 프로세스 정의 생성
+</span>
 
 2. **프로세스 정의 생성**  
    - 채팅에 생성하고자 하는 프로세스 정의를 입력합니다.
@@ -21,6 +31,11 @@ sidebar: 'getting-started'
    - **[이미지-2]**: 생성된 프로세스스 BPMN 다이어그램
    ![](../../uengine-image/process-gpt/process_definition_chat2.png)
 
+<span style="color: #fff;">
+
+##### 사용자 업무 폼 생성
+</span>
+
 3. **사용자 업무 폼 생성**  
    - 각 단계별 업무에 따라 폼이 필요한 경우 AI 가 폼을 자동 생성합니다.
    - **[이미지-3]**: 사용자 업무 폼 생성
@@ -30,7 +45,10 @@ sidebar: 'getting-started'
    - **[이미지-4]**: 사용자 업무 폼 수정
    ![](../../uengine-image/process-gpt/process_definition_chat4.png)
 
-##### 프로세스 스크립트 업무 실행
+<span style="color: #fff;">
+
+##### 스크립트 업무 코드 생성
+</span>
 
 4. **스크립트 업무 코드 생성**  
    - 코드 실행이 필요한 스크립트 업무가 있는 경우 업무 패널에서 실행할 스크립트 입력이 가능합니다.

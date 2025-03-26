@@ -28,7 +28,7 @@ sidebar: 'getting-started'
 
    ![](../../uengine-image/PAL_processDefinitionMap_task_edit.png)
 
-   ![](../../uengine-image/PAL_processDefinitionMap_task_description.png)
+   <!-- ![](../../uengine-image/PAL_processDefinitionMap_task_description.png) -->
 
    ![](../../uengine-image/PAL_processDefinitionMap_task_description_1.png)
 

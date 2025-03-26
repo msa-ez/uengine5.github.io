@@ -45,6 +45,7 @@ sidebar: 'getting-started'
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat8.png)
 
 
+
 #### 프로세스 인스턴스 실행
 
 1. **프로세스 인스턴스 실행**
@@ -55,12 +56,22 @@ sidebar: 'getting-started'
    - **[이미지-7]**: 프로세스 인스턴스 실행 화면
 
       ![](../../uengine-image/process-gpt/process_instance_execute.png)
-      
+
+<span style="color: #fff;">
+
+##### 프로세스 인스턴스 조회
+</span>
+
 2. **프로세스 인스턴스 조회**
    - 사용자는 인스턴스 목록에서 현재 진행 중인 프로세스 인스턴스를 조회할 수 있습니다.
    - **[이미지-8]**: 실행 중인 프로세스 인스턴스 목록
 
       ![](../../uengine-image/process-gpt/process_instance_list.png)
+
+<span style="color: #fff;">
+
+##### 진행 상황
+</span>
 
 3. **프로세스 인스턴스 - 진행 상황**
    - 사용자는 인스턴스의 진행 상황 탭에서 현재까지의 프로세스 진행 상황을 모니터링을 할 수 있습니다.
@@ -68,6 +79,11 @@ sidebar: 'getting-started'
    - **[이미지-9]**: 프로세스 인스턴스 진행 상황 화면
 
       ![](../../uengine-image/process-gpt/workitem_progress.png)
+
+<span style="color: #fff;">
+
+##### 워크아이템
+</span>
 
 4. **프로세스 인스턴스 - 워크아이템**
    - 사용자는 전체 워크아이템 목록과 진행 상태를 확인할 수 있습니다.
@@ -77,11 +93,21 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_list.png)
 
+<span style="color: #fff;">
+
+##### 워크 히스토리
+</span>
+
 5. **프로세스 인스턴스 - 워크 히스토리**
    - 사용자는 대화형 히스토리 형태로 인스턴스의 워크 히스토리를 확인할 수 있습니다.
    - **[이미지-11]**: 프로세스 인스턴스 워크 히스토리 화면
 
       ![](../../uengine-image/process-gpt/workitem_history.png)
+
+<span style="color: #fff;">
+
+##### 간트 차트
+</span>
 
 6. **프로세스 인스턴스 - 간트 차트**
    - 사용자는 간트 차트를 통해 워크아이템의 일정과 진행 상황을 시각적으로 확인할 수 있습니다.
