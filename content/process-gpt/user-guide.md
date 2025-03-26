@@ -57,7 +57,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/process_instance_execute.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 프로세스 인스턴스 조회
 </span>
@@ -68,7 +68,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/process_instance_list.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 진행 상황
 </span>
@@ -80,7 +80,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_progress.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 워크아이템
 </span>
@@ -93,7 +93,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_list.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 워크 히스토리
 </span>
@@ -104,7 +104,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_history.png)
 
-<span style="color: #fff;">
+<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
 
 ##### 간트 차트
 </span>
