@@ -16,19 +16,4 @@ export default function (Vue, { router, head, isClient }) {
     })
     next()
   })
-
-  // 앵커 링크 스크롤 위치 보정
-  router.afterEach((to) => {
-    if (to.hash) {
-      Vue.nextTick(() => {
-        // 약간의 시간 후에 이동 (콘텐츠 로딩 고려)
-        setTimeout(() => {
-          const el = document.querySelector(to.hash);
-          if (el) {
-            el.scrollIntoView({ behavior: 'auto', block: 'start' });
-          }
-        }, 300); // 필요 시 시간 조정 가능
-      });
-    }
-  });  
 }
