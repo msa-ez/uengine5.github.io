@@ -3,9 +3,9 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-### 일반 기능
+# 일반 기능
 
-#### AI 기반 채팅
+## AI 기반 채팅
 
 상단의 채팅 아이콘을 통해 채팅 화면에 접속합니다.
 
@@ -13,8 +13,9 @@ sidebar: 'getting-started'
 
 1. **일반 채팅**
    - 사용자는 채팅 중 GPT 활성화 기능을 통해 수행해야 할 업무를 추천받을 수 있습니다.
+<br><br>
 
-1. **AI 음성 채팅**
+2. **AI 음성 채팅**
    - 채팅 화면의 하단에서 + 버튼을 클릭하고 채팅 기능 더보기에서 헤드셋 버튼을 클릭하여 음성 채팅을 시작합니다.
    - **[이미지-1]**: + 버튼
    
@@ -45,8 +46,7 @@ sidebar: 'getting-started'
       ![](../../uengine-image/process-gpt/process_gpt_ai_chat8.png)
 
 
-
-#### 프로세스 인스턴스 실행
+## 프로세스 인스턴스 실행
 
 1. **프로세스 인스턴스 실행**
    - 사용자는 프로세스 정의 체계도에서 실행하고자 하는 프로세스를 선택합니다.
@@ -57,10 +57,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/process_instance_execute.png)
 
-<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
-
-##### 프로세스 인스턴스 조회
-</span>
+<br>
 
 2. **프로세스 인스턴스 조회**
    - 사용자는 인스턴스 목록에서 현재 진행 중인 프로세스 인스턴스를 조회할 수 있습니다.
@@ -68,10 +65,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/process_instance_list.png)
 
-<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
-
-##### 진행 상황
-</span>
+<br>
 
 3. **프로세스 인스턴스 - 진행 상황**
    - 사용자는 인스턴스의 진행 상황 탭에서 현재까지의 프로세스 진행 상황을 모니터링을 할 수 있습니다.
@@ -80,10 +74,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_progress.png)
 
-<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
-
-##### 워크아이템
-</span>
+<br>
 
 4. **프로세스 인스턴스 - 워크아이템**
    - 사용자는 전체 워크아이템 목록과 진행 상태를 확인할 수 있습니다.
@@ -93,10 +84,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_list.png)
 
-<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
-
-##### 워크 히스토리
-</span>
+<br>
 
 5. **프로세스 인스턴스 - 워크 히스토리**
    - 사용자는 대화형 히스토리 형태로 인스턴스의 워크 히스토리를 확인할 수 있습니다.
@@ -104,10 +92,10 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_history.png)
 
-<span style="color: #fff; display: block; margin-top: -100px; margin-bottom: 100px;">
+<br>
 
-##### 간트 차트
-</span>
+<span id="gantt-chart">&nbsp;</span>
+<br><br>
 
 6. **프로세스 인스턴스 - 간트 차트**
    - 사용자는 간트 차트를 통해 워크아이템의 일정과 진행 상황을 시각적으로 확인할 수 있습니다.
@@ -116,8 +104,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/workitem_gantt_chart.png)
 
-
-#### 할 일 목록
+## 할 일 목록
 
 1. **할 일 목록 조회**
    - 사용자는 할 일 목록에서 사용자에게 할당된 업무 목록을 조회할 수 있습니다.
@@ -130,6 +117,8 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/todolist.png)
 
+<br>
+
 2. **할 일 등록**
    - 사용자는 새로운 업무를 추가할 수 있습니다.
       - 우측 상단 + 버튼을 통해 새로운 할 일 등록 화면을 호출합니다.
@@ -138,6 +127,8 @@ sidebar: 'getting-started'
    - **[이미지-14]**: 할 일 등록 화면
 
       ![](../../uengine-image/process-gpt/todolist_add.png)
+
+<br>
 
 3. **할 일 수정**
    - 사용자는 등록한 업무의 진행 상태나 일정을 수정할 수 있습니다.
@@ -152,6 +143,7 @@ sidebar: 'getting-started'
 
       ![](../../uengine-image/process-gpt/todolist_edit.png)
 
+<br>
 
 4. **할 일 삭제**
    - 업무의 더보기 버튼을 클릭하면 삭제 버튼을 확인할 수 있습니다.

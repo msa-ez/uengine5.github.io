@@ -2,11 +2,11 @@
 description: ''
 sidebar: 'getting-started'
 ---
-### Process-GPT 개요 및 목적
+# Process-GPT 개요 및 목적
 
 Process-GPT 는 자연어 기반 AI 채팅을 통해 사용자가 비지니스 프로세스를 손쉽게 설계하고 생성하고 관리하기 위한 도구입니다.
 
-**Process-GPT의 주요 목적:**
+### Process-GPT의 주요 목적
 
 - 자연어 기반의 프로세스 이해 및 분석
 - 사용자 맞춤형 프로세스 추천 및 개선 제안
@@ -15,7 +15,6 @@ Process-GPT 는 자연어 기반 AI 채팅을 통해 사용자가 비지니스 �
 Process-GPT 는 AI 채팅을 통해 사용자의 입력을 분석하여 비지니스 프로세스 정의를 BPMN 다이어그램으로 자동 생성합니다.
 이를 통해 사용자는 간편하게 프로세스를 설계하고 필요에 따라 수정 및 확장이 가능합니다.
 
----
 
 ### Process-GPT 기능
 

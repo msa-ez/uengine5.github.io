@@ -3,7 +3,7 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-### PAL 개요 및 목적
+# PAL 개요 및 목적
 
 PAL (Process Asset Library)은 조직 내 프로세스 자산을 체계적으로 관리하고 공유하기 위한 도구입니다. PAL은 BPMN 체계도를 통해 복잡한 프로세스를 시각화하고, 조직 구성원들이 프로세스 구조와 세부 정보를 효율적으로 이해할 수 있도록 돕습니다.
 
