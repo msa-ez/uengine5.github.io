@@ -26,17 +26,41 @@ Docker Compose를 사용하면 모든 서비스(Kafka 포함)를 단일 명령�
 cd infra
 ```
 
-2. Docker Compose 실행:
+2. hosts 파일 수정:
+
+시스템의 hosts 파일에 다음 항목을 추가합니다:
+```
+127.0.0.1  keycloak
+```
+> **참고**: 이 설정은 브라우저가 'keycloak' 호스트명으로 로컬 서비스에 접근하기 위해 필요합니다.
+
+**Windows의 경우**:
+
+> 1. 메모장을 관리자 권한으로 실행합니다
+> 2. 파일 > 열기 > `C:\Windows\System32\drivers\etc\hosts` 파일을 엽니다
+> 3. 파일 끝에 `127.0.0.1  keycloak` 추가 후 저장합니다
+
+**Mac/Linux의 경우**:
+
+> 1. 터미널에서 아래 명령어를 실행합니다:
+```sh
+sudo nano /etc/hosts
+```
+> 2. 파일 끝에 `127.0.0.1  keycloak` 추가 후 저장합니다
+   - 저장: Ctrl+O, Enter
+   - 종료: Ctrl+X
+
+3. Docker Compose 실행:
 ```sh
 docker compose up -d
 ```
 
-3. 서비스 실행 확인:
+4. 서비스 실행 확인:
 아래 이미지와 같이 uEngine 관련 컨테이너들이 실행됩니다.
 
 ![Docker 컨테이너 목록](../../uengine-image/installation-1.png)
 
-4. uEngine 중지 (필요시):
+5. uEngine 중지 (필요시):
 ```sh
 docker compose down
 ```
@@ -85,6 +109,16 @@ uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL�
 - **uEngine BPM 포털**: http://localhost:8088/
 
 ![uEngine BPM 포털](../../uengine-image/installation-2.png)
+
+### 로그인 정보
+
+uEngine BPM 포털에 접속 시 다음 계정 정보로 로그인할 수 있습니다:
+
+| 사용자 유형 | 아이디 | 비밀번호 | 권한 |
+|------------|-------|---------|------|
+| 관리자 | admin | admin | 시스템 관리 및 모든 프로세스 접근 |
+| 일반 사용자 | tester | tester | 일반 프로세스 실행 및 조회 |
+
 
 ## 문제 해결
 
