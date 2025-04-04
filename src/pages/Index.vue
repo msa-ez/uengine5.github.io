@@ -347,7 +347,7 @@ export default {
         {
           title: '01. AI Support - Process GPT',
           content: `
-            ✔ 공개형 혹은 폐쇄형 LLM을 이용하여 (ChatGPT4 or llama3) 프로세스 정의와 폼 정의, 조직도 정의를 챗이나 이미지 업로드를 통하여 자동 정의할 수 있습니다.<br>
+            ✔ 공개형 혹은 폐쇄형 LLM을 이용하여 (ChatGPT4 or llama3) 프로세스 정의와 폼 정의, 조직도 정의를 챗이나 이미지 업로드를 통하여 자동 생성할 수 있습니다.<br>
             ✔ 이는 BPMN 초심자들도 쉽게 프로세스 정의와 업무 화면을 구성하고 빠르게 업무에 반영할 수 있도록 합니다.
           `
         },

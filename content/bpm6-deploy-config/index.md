@@ -3,68 +3,264 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 실행하기
+# 배포하기
 
-## 프로젝트 준비
-- **프로젝트 클론**: GitHub에서 uEngine 프로젝트를 클론합니다.
-```sh
-git clone https://github.com/uengine-oss/uEngine6.git
-```
+## Docker
+Docker 컨테이너 환경에서 uEngine6 BPM를 배포하는 설정 방법입니다. 기본적으로 kafka를 통해서 비동기식 통신방식으로 통신하는 방식으로 설정 합니다. 
 
-## Local 실행하기
-로컬 uEngine 실행하려면 기본적으로 비동기 통신을 위한 Kafka 서버가 필요합니다. 따라서 먼저 카프카 서버를 실행해야 합니다. 
-- kafka 서버 설치및 실행
-  - https://kafka.apache.org/ 접속하여 설치및 실행.
-
-- uEngine 실행
-```sh
-# Process Service 실행(포트 9094)-프로세스 실행 서비스
+### 서비스 빌드 및 설치
+```bash
 cd /process-service
-mvn spring-boot:run
+mvn install -DskipTests
 
-# Definition Service 실행(포트 9093)-프로세스 정의 서비스
 cd /definition-service
-mvn spring-boot:run
+mvn install -DskipTests
+```
 
-# Gateway Service 실행(포트 8088)-API 게이트웨이
-cd /gateway
-mvn spring-boot:run
+### 서비스 docker image 빌드 및 배포
+```bash
+docker build -t process-service:latest .
+docker tag process:latest {userId}/process-service:1.0.0
+docker push {userId}/process-service:1.0.0
+
+docker build -t definition-service:latest .
+docker tag definition:latest {userId}/definition-service:1.0.0
+docker push {userId}/definition-service:1.0.0
+```
+
+### docker compose 파일 작성
+```yaml
+version: '3.8'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+    networks:
+      - app-network
+ 
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_CREATE_TOPICS: "bpm-topic:1:1"
+    networks:
+      - app-network
+
+
+  process-service:
+    image: {userId}/process-service:1.0.0
+    depends_on:
+      - kafka
+    ports:
+      - 9094:9094
+    volumes:
+      - ../archive:/app/archive
+      - ../definitions:/app/definitions
+      - ../instances:/app/instances
+      - ../payloads:/app/payloads
+      - ../test:/app/test
+    networks:
+    - app-network
+
+
+  definition-service:
+    image: {userId}/definition-service:1.0.0
+    depends_on:
+      - kafka
+    ports:
+      - 9093:9093
+    volumes:
+      - ../archive:/app/archive
+      - ../definitions:/app/definitions
+      - ../instances:/app/instances
+      - ../payloads:/app/payloads
+      - ../test:/app/test
+    networks:
+    - app-network
+
+
+volumes:
+  archive:
+  definitions:
+  instances:
+  payloads:
+  logs:
+ 
+networks:
+  app-network:
+    driver: bridge
+```
+
+### docker compose 실행 및 중지
+```bash
+docker-compose up #실행
+docker-compose down #중지
 ```
 
 
-## Docker 실행하기
 
-Docker에 uEngine을 올려서 실행하려면 다음 단계를 따르세요:
+## JEUS 8
+JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요합니다.
 
-1. **디렉토리 이동**: 클론한 프로젝트의 루트 디렉토리로 이동합니다.
-```sh
-cd uengine
-```
-2. **Docker Compose 실행**: Docker Compose를 사용하여 uEngine을 실행합니다. 이때, `infra` 폴더에 있는 Docker Compose 파일을 사용합니다.
-```sh
-# Docker Compose
-cd infra
-docker compose up
-```
-    이 명령어는 `infra` 폴더에 정의된 모든 서비스를 시작합니다.
+- JEUS 8 호환성: JEUS 8은 Java EE7과 호환되며, JDK 7 및 JDK 8을 지원합니다. 그러나 JDK 8 사용을 권장합니다.
 
-3. **실행 확인**:
-실행이 완료되면 다음 이미지와 같이 uEngine과 관련된 docker image가 실행됩니다.
+- Spring Boot 버전: 현재 프론트엔드에서는 Spring Boot 2.3.1.RELEASE 버전을 사용하고 있습니다. 이 버전은 JDK 8 이상을 필요로 합니다.
 
-![](../../uengine-image/installation-1.png)
+이 설정을 통해 JEUS 8 환경에서 uEngine6 BPM를 효과적으로 배포할 수 있습니다. JDK 8을 사용하는 것이 최적의 성능과 호환성을 보장합니다.
 
-4. **uEngine 종료**: uEngine을 종료하려면 다음 명령어를 사용합니다.
-```sh
-docker compose down
+우선 WAS에 배포 하기 위해서 war 형식으로 패키징을 합니다. 
+
+### 서비스 war로 패키징 설정
+```xml
+<!-- /process-service/pom.xml -->
+<!-- /definition-service/pom.xml -->
+
+<project>
+  <!-- 기존 소스 코드... -->
+  <packaging>war</packaging>
+</project>
 ```
 
-## 실행 화면 확인하기
+### 서비스 JAVA8 빌드 설정 및 의존성 추가
+```xml
+<!-- /pom.xml -->
+<!-- /uengine-commons/pom.xml -->
+<!-- /uengine-core/pom.xml -->
+<!-- /uengine-five-api/pom.xml -->
+<!-- /uengine-resource-manager/pom.xml -->
+<!-- /process-service/pom.xml -->
+<!-- /definition-service/pom.xml -->
+<dependencies>
+    <!-- 기존 소스 코드... -->
+    <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>2.0.1.Final</version> <!-- 호환되는 버전을 사용 -->
+        <scope>provided</scope> <!-- 런타임 시 JEUS8의 버전을 사용 -->
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>6.0.13.Final</version> <!-- 호환되는 버전을 사용 -->
+        <scope>provided</scope> <!-- 런타임 시 JEUS8의 버전을 사용 -->
+    </dependency>
 
-uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL로 접속하여 실행 화면을 확인할 수 있습니다.
+    <!-- process-service/pom.xml, definition-service/pom.xml 추가 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <version>2.3.12.RELEASE</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
 
+<properties>
+    <!-- 기존 소스 코드... -->
+    <java.version>1.8</java.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
-- 프로세스 실행 화면
-http://localhost:8088/
+  <build>
+    <plugins>
+        <!-- 기존 소스 코드... -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+```
 
+### 서비스 web.xml 생성및 설정
+```xml
+<!-- /process-service/src/main/webapp/WEB-INF/web.xml -->
+<!-- /definition-service/src/main/webapp/WEB-INF/web.xml -->
 
-![](../../uengine-image/installation-2.png)
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!-- 서블릿 매핑 -->
+    <servlet-mapping>
+        <servlet-name>DefinitionServiceServlet</servlet-name>
+        <url-pattern>/definition-service/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- 환영 페이지 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>
+```
+
+### 서비스 서블릿 설정
+```java
+// /process-service/src/main/java/com/uengine/process/ProcessServiceApplication.java
+// /definition-service/src/main/java/com/uengine/definition/DefinitionServiceApplication.java
+
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan(basePackages = "org.uengine.five") // 명시적 컴포넌트 스캔 추가
+public class ServiceApplication extends SpringBootServletInitializer implements ApplicationContextAware {
+
+    public static ApplicationContext applicationContext;
+
+    public static ObjectMapper objectMapper = createTypedJsonObjectMapper();
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext context) {
+        applicationContext = context;
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {        
+        SpringApplicationBuilder builder = application.sources(ServiceApplication.class);
+        super.configure(builder);
+        GlobalContext.setComponentFactory(new SpringComponentFactory());
+        return builder;
+    }
+    
+    public static void main(String[] args) {
+        applicationContext = SpringApplication.run(ServiceApplication.class, args);
+        GlobalContext.setComponentFactory(new SpringComponentFactory());
+    }
+```

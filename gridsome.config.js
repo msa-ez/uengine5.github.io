@@ -32,7 +32,7 @@ module.exports = {
             items: [
               '/bpm6-intro/',
               '/bpm6-intro/business-process/',
-              '/bpm6-intro/example-video/',
+              // '/bpm6-intro/example-video/',
               // '/getting-started/bpm6-introduce/',
               // '/getting-started/bpm6-modeling/',
               // '/getting-started/modeling-tools/',
@@ -49,17 +49,16 @@ module.exports = {
             ]
           },
           {
-            title: '배포 및 설정 가이드',
+            title: '설치 및 접속 설정',
             items: [
-              '/bpm6-deploy-config/',
-              '/bpm6-deploy-config/bpm6-account/',
-              '/bpm6-deploy-config/bpm6-deploy/',
-              '/bpm6-deploy-config/uengine3-migration/',
+              '/bpm6-install/',
+              '/bpm6-install/bpm6-account/',
             ]
           },          
           {
             title: '모델링 및 실행',
             items: [
+              '/bpm6-intro/example-video/',
               '/bpm6-started/',
               '/bpm6-started/bpm6-modeling/',
               '/bpm6-started/form-definition/',
@@ -95,6 +94,13 @@ module.exports = {
               '/bpm6-api/',
               '/bpm6-api/bpm6-message-listener/',
               '/bpm6-api/bpm6-transaction-listener/',
+            ]
+          },
+          {
+            title: '배포및 설정 가이드',
+            items: [
+              '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/uengine3-migration/',
             ]
           },
           // {
