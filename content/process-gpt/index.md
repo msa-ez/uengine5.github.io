@@ -2,7 +2,7 @@
 description: ''
 sidebar: 'getting-started'
 ---
-# Process-GPT 개요 및 목적
+# Process-GPT
 
 Process-GPT 는 자연어 기반 AI 채팅을 통해 사용자가 비지니스 프로세스를 손쉽게 설계하고 생성하고 관리하기 위한 도구입니다.
 
