@@ -3,7 +3,51 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 관리자 기능 - 정의 관리
+# 프로세스 컨설팅 AI 및 관리
+
+
+## 프로세스 컨설팅 AI
+
+1. **프로세스 컨설팅 AI 화면**
+   - 프로세스 컨설팅 AI 는 프로세스 정의 체계도에서 ***프로세스 컨설팅 시작하기*** 버튼을 클릭하여 사용 가능합니다.
+   - **[이미지-11]**: 프로세스 컨설팅 시작하기 버튼
+   ![](../../uengine-image/process-gpt/process_consulting_button.png)
+
+   - 프로세스 컨설팅 AI 채팅 화면에 접속합니다.
+   - **[이미지-12]**: 프로세스 컨설팅 AI 채팅 화면
+   ![](../../uengine-image/process-gpt/process_consulting_ai_chat1.png)
+
+<br>
+
+2. **프로세스 컨설팅 AI 생성**  
+   - 채팅창을 통해 원하는 비지니스 프로세스 내용을 입력합니다.
+   - 개선하거나 추가하고 싶은 내용이 있는 경우 더 자세한 내용을 입력합니다.
+   - 더 이상 반영할 내용이 없는 경우 입력한 채팅 내용을 바탕으로 비지니스 프로세스 정의에 따라 다이어그램이 생성됩니다.
+
+   - **[이미지-13]**: 프로세스 컨설팅 AI 채팅 화면
+   ![](../../uengine-image/process-gpt/process_consulting_ai_chat2.png)
+
+   - **[이미지-14]**: 생성된 비지니스 프로세스 BPMN 다이어그램
+   ![](../../uengine-image/process-gpt/process_consulting_ai_chat3.png)
+
+<br>
+
+3. **프로세스 컨설팅 AI 저장**  
+   - 생성된 다이어그램을 저장하고 싶은 경우 우측 채팅 화면 상단의 해제된 자물쇠 버튼을 클릭하여 저장합니다.
+   - **[이미지-15]**: 해제된 자물쇠 버튼
+   
+      ![](../../uengine-image/process-gpt/process_consulting_ai_chat4.png)
+
+   - **[이미지-16]**: 프로세스 저장 화면
+   ![](../../uengine-image/process-gpt/process_consulting_ai_chat5.png)
+
+   - 저장된 비지니스 프로세스 정의는 프로세스 정의 체계도에서 확인할 수 있습니다.
+   - **[이미지-17]**: 프로세스 정의 체계도
+   ![](../../uengine-image/process-gpt/process_definition_map1.png)
+   - **[이미지-18]**:   저장된 비지니스 프로세스 정의
+   ![](../../uengine-image/process-gpt/process_definition_map2.png)
+
+<br>   
 
 ## 프로세스 정의 및 폼 생성
 
@@ -87,45 +131,3 @@ sidebar: 'getting-started'
 
 <br>
 
-
-## 프로세스 컨설팅 AI
-
-1. **프로세스 컨설팅 AI 화면**
-   - 프로세스 컨설팅 AI 는 프로세스 정의 체계도에서 ***프로세스 컨설팅 시작하기*** 버튼을 클릭하여 사용 가능합니다.
-   - **[이미지-11]**: 프로세스 컨설팅 시작하기 버튼
-   ![](../../uengine-image/process-gpt/process_consulting_button.png)
-
-   - 프로세스 컨설팅 AI 채팅 화면에 접속합니다.
-   - **[이미지-12]**: 프로세스 컨설팅 AI 채팅 화면
-   ![](../../uengine-image/process-gpt/process_consulting_ai_chat1.png)
-
-<br>
-
-2. **프로세스 컨설팅 AI 생성**  
-   - 채팅창을 통해 원하는 비지니스 프로세스 내용을 입력합니다.
-   - 개선하거나 추가하고 싶은 내용이 있는 경우 더 자세한 내용을 입력합니다.
-   - 더 이상 반영할 내용이 없는 경우 입력한 채팅 내용을 바탕으로 비지니스 프로세스 정의에 따라 다이어그램이 생성됩니다.
-
-   - **[이미지-13]**: 프로세스 컨설팅 AI 채팅 화면
-   ![](../../uengine-image/process-gpt/process_consulting_ai_chat2.png)
-
-   - **[이미지-14]**: 생성된 비지니스 프로세스 BPMN 다이어그램
-   ![](../../uengine-image/process-gpt/process_consulting_ai_chat3.png)
-
-<br>
-
-3. **프로세스 컨설팅 AI 저장**  
-   - 생성된 다이어그램을 저장하고 싶은 경우 우측 채팅 화면 상단의 해제된 자물쇠 버튼을 클릭하여 저장합니다.
-   - **[이미지-15]**: 해제된 자물쇠 버튼
-   
-      ![](../../uengine-image/process-gpt/process_consulting_ai_chat4.png)
-
-   - **[이미지-16]**: 프로세스 저장 화면
-   ![](../../uengine-image/process-gpt/process_consulting_ai_chat5.png)
-
-   - 저장된 비지니스 프로세스 정의는 프로세스 정의 체계도에서 확인할 수 있습니다.
-   - **[이미지-17]**: 프로세스 정의 체계도
-   ![](../../uengine-image/process-gpt/process_definition_map1.png)
-   - **[이미지-18]**:   저장된 비지니스 프로세스 정의
-   ![](../../uengine-image/process-gpt/process_definition_map2.png)
-   

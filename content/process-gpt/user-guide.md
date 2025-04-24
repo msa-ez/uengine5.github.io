@@ -3,7 +3,7 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 일반 기능
+# Process-GPT 주요 기능
 
 ## AI 기반 채팅
 
