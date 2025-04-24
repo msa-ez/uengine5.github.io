@@ -63,6 +63,11 @@ export default {
       expanded: []
     };
   },
+  created() {
+    this.$nextTick(() => {
+      this.scrollToActiveLink();
+    });
+  },
   computed: {
     pages() {
       return this.$page.allMarkdownPage.edges.map(edge => edge.node);
@@ -89,6 +94,16 @@ export default {
     },
     findPages(links) {
       return links.map(link => this.pages.find(page => page.path === link));
+    },
+    scrollToActiveLink() {
+      if (this.currentPage.path && this.currentPage.path.includes('/process-gpt/')) {
+        this.$nextTick(() => {
+          const activeElement = document.getElementById(this.currentPage.path);
+          if (activeElement) {
+            activeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      }
     }
   },  
 };
