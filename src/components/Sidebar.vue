@@ -96,7 +96,7 @@ export default {
       return links.map(link => this.pages.find(page => page.path === link));
     },
     scrollToActiveLink() {
-      if (this.currentPage.path && this.currentPage.path.includes('/process-gpt/')) {
+      if (this.currentPage.path) {
         this.$nextTick(() => {
           const activeElement = document.getElementById(this.currentPage.path);
           if (activeElement) {
