@@ -135,6 +135,8 @@ module.exports = {
               '/process-gpt/',
               '/process-gpt/admin-guide/',
               '/process-gpt/user-guide/',
+              '/process-gpt/process-marketplace/',
+              '/process-gpt/simulation/',
             ]
           },
           {
