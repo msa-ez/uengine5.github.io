@@ -137,6 +137,9 @@ module.exports = {
               '/process-gpt/user-guide/',
               '/process-gpt/process-marketplace/',
               '/process-gpt/simulation/',
+              '/process-gpt/multi-agent/',
+              '/process-gpt/agent-knowledge/',
+              '/process-gpt/a2a-system/',
             ]
           },
           {
