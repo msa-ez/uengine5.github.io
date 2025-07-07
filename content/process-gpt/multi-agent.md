@@ -29,7 +29,7 @@ sidebar: 'getting-started'
 ![](../../uengine-image/process-gpt/multi-agent/4.칸반보드.png)
 
 제안서 초안 작성 task 에서 Agent 모니터링을 클릭하면 영업관리 프로세스의 요구사항에 따른 전문화된 AI 에이전트들이 각자 필요한 제안서 초안 작성을 시작합니다. <br>
-![](../../uengine-image/process-gpt/multi-agent/5.Agent%20모니터링.png)
+![](../../uengine-image/process-gpt/multi-agent/5.Agent-모니터링.png)
 
 에이전트에 의해 작성된 영업활동 리포트에 대한 초안중 하나를 '채택'을 클릭하여 등록하면 아래와 같이 Proposal Draft Entity 항목에 채택한 리포트가 생성됩니다. <br>
 ![](../../uengine-image/process-gpt/multi-agent/7.에이전트-업무-채택.png)
