@@ -44,7 +44,7 @@ sidebar: 'getting-started'
 <요구사항에 따른 리포트 수정 결과>
 
 동일한 방식으로 아래와 같이 '영업활동_슬라이드'에 대하여 선택한 후, '제출완료'를 클릭하여 제안서 초안 작성 task를 마무리합니다.
-![](../../uengine-image/process-gpt/multi-agent/11.%20에이전트%20최종%20선택.png)
+![](../../uengine-image/process-gpt/multi-agent/11.%20에이전트-최종-선택.png)
 
 이후, 다시 진행 상황을 확인하면 진행 중이던 제안서 초안 작성 task가 AI 에이전트가 생성해준 제안서를 기반으로 완료된 것을 확인할 수 있습니다.
-![](../../uengine-image/process-gpt/multi-agent/12.%20제안서%20초안%20작성%20끝.png)
+![](../../uengine-image/process-gpt/multi-agent/12.%20제안서-초안-작성-끝.png)
