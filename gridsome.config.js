@@ -140,6 +140,8 @@ module.exports = {
               '/process-gpt/multi-agent/',
               '/process-gpt/agent-knowledge/',
               '/process-gpt/a2a-system/',
+              '/process-gpt/voice-chat/',
+              '/process-gpt/browser-use/',
             ]
           },
           {
