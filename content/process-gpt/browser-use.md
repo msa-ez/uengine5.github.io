@@ -3,7 +3,9 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# Browser Use 에이전트 시스템
+# Browser Use 에이전트
+
+## Browser Use 에이전트를 활용한 웹 도구 연동
 Browser Use 에이전트 시스템은 프로세스의 Task를 처리하는데 있어 필요한 웹 기반 업무를 자동으로 감지하고 처리하는 기응입니다.
 
 제안서 작업에 필요한 PPT제작에 있어 AI 기반 PPT 제작 도구 GenSpark나 검색 사이트 Google 등 Browser Use를 통해 웹 기반 도구에 접근하여 프로세스에 적합한 업무를 처리할 수 있습니다.

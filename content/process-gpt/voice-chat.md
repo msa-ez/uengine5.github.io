@@ -5,7 +5,7 @@ sidebar: 'getting-started'
 
 # 음성 기반 ProcessGPT
 
-## 시뮬레이션 모드
+## 음성 채팅 기반 ProcessGPT
 
 **음성 기반 ProcessGPT**는 테넌트에 생성된 정보를 기반으로 웹소켓을 활용한 인터페이스 지연 시간 단축을 통해 실제 채팅을 주고받듯이 빠른 속도로 요구사항 기반 답변을 제공하는 기능입니다.<br>
 
