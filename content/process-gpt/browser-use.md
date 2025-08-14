@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'process-gpt'
 ---
 
 # Browser Use 에이전트

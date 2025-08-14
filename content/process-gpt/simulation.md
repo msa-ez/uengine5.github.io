@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'process-gpt'
 ---
 
 # 프로세스 시뮬레이션 & 피드백 수정

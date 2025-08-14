@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'process-gpt'
 ---
 
 ### AI 기반 음성 채팅

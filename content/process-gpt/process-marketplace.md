@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'process-gpt'
 ---
 
 # 마켓플레이스

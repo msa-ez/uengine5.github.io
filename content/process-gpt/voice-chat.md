@@ -1,6 +1,6 @@
 ---
 description: ''
-sidebar: 'getting-started'
+sidebar: 'process-gpt'
 ---
 
 # 음성 기반 ProcessGPT

@@ -20,7 +20,8 @@ module.exports = {
     github: process.env.URL_GITHUB || false,
     nav: {
       links: [
-        { path: '/getting-started/', title: 'Docs' }
+        { path: '/getting-started/', title: 'Docs' },
+        { path: '/process-gpt/', title: 'Process-GPT' }
       ]
     },
     sidebar: [
@@ -129,6 +130,18 @@ module.exports = {
               // '/pal-edition/save-image/',
             ]
           },
+
+          {
+            title: '문의하기',
+            items: [
+              '/bpm6-contact/',
+            ]
+          },
+        ]
+      },
+      {
+        name: 'process-gpt',
+        sections: [
           {
             title: 'AI를 활용한 프로세스 관리 (Process-GPT)',
             items: [
@@ -143,13 +156,7 @@ module.exports = {
               '/process-gpt/voice-chat/',
               '/process-gpt/browser-use/',
             ]
-          },
-          {
-            title: '문의하기',
-            items: [
-              '/bpm6-contact/',
-            ]
-          },
+          }
         ]
       }
     ]
