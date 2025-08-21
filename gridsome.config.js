@@ -143,9 +143,16 @@ module.exports = {
         name: 'process-gpt',
         sections: [
           {
-            title: 'AI를 활용한 프로세스 관리 (Process-GPT)',
+            title: '가이드',
             items: [
               '/process-gpt/',
+              '/process-gpt/tutorial-lv1/',
+              '/process-gpt/tutorial-lv2/',
+            ]
+          },
+          {
+            title: 'AI를 활용한 프로세스 관리 (Process-GPT)',
+            items: [
               '/process-gpt/admin-guide/',
               '/process-gpt/user-guide/',
               '/process-gpt/process-marketplace/',
