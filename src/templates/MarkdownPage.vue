@@ -74,13 +74,21 @@ export default {
     // 라우터 변경 감지하여 파비콘 업데이트
     '$route'() {
       this.$nextTick(() => {
-        this.updateFavicon()
+        // 페이지 데이터가 로드된 후에만 파비콘 업데이트
+        if (this.$page && this.$page.markdownPage && this.$page.markdownPage.path) {
+          this.updateFavicon()
+        }
       })
     }
   },
 
   methods: {
     updateFavicon() {
+      // 페이지 데이터 존재 여부 확인
+      if (!this.$page || !this.$page.markdownPage || !this.$page.markdownPage.path) {
+        return;
+      }
+      
       const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
       const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
       
