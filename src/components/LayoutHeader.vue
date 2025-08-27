@@ -4,7 +4,13 @@
 
       <div class="flex items-center justify-between -mx-2 sm:-mx-4">
         <div class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row">
+          <!-- Process-GPT 페이지에서는 클릭 불가능한 로고 -->
+          <div v-if="isProcessGptPage" class="flex items-center">
+            <g-image style="width:200px;" src="./logo-dark.svg"></g-image>
+          </div>
+          <!-- 일반 페이지에서는 클릭 가능한 로고 -->
           <g-link
+            v-else
             to="/"
             class="flex items-center"
             title="Home"
@@ -101,6 +107,10 @@ export default {
     },
     settings() {
       return this.meta.settings;
+    },
+    isProcessGptPage() {
+      // 현재 경로가 Process-GPT 페이지인지 확인
+      return this.$route && this.$route.path && this.$route.path.startsWith('/process-gpt/');
     }
   }
 };

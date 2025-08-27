@@ -16,7 +16,7 @@
         :value="query"
         class="block w-full py-2 pl-10 pr-4 border-2 rounded-lg bg-ui-sidebar border-ui-sidebar focus:bg-ui-background"
         :class="{'rounded-b-none': showResult,}"
-        placeholder="Search Documentation..."
+        placeholder="문서 검색"
         @focus="focused = true"
         @blur="focused = false"
         @input="focusIndex = -1; query = $event.target.value"
@@ -30,11 +30,10 @@
     >
       <ul class="px-4 py-2 m-0">
         <li v-if="results.length === 0" class="px-2">
-          No results for <span class="font-bold">{{ query }}</span>.
+          <span class="font-bold">{{ query }}</span>에 대한 검색 결과가 없습니다.
         </li>
-
+      <template v-else>
         <li
-          v-else
           v-for="(result, index) in results"
           :key="result.path + result.anchor"
           @mouseenter="focusIndex = index"
@@ -64,6 +63,7 @@
 
           </g-link>
         </li>
+      </template>
       </ul>
     </div>
   </div>
@@ -107,12 +107,47 @@ export default {
   },
   computed: {
     results() {
-      const fuse = new Fuse(this.headings, {
+      const fuse = new Fuse(this.filteredHeadings, {
         keys: ['value'],
         threshold: .25
       });
 
       return fuse.search(this.query).slice(0, 15);
+    },
+    currentSidebar() {
+      // 현재 페이지의 사이드바 타입 확인
+      if (this.$route && this.$route.path) {
+        if (this.$route.path.startsWith('/process-gpt/')) {
+          return 'process-gpt';
+        }
+      }
+      return 'getting-started';
+    },
+    filteredHeadings() {
+      let result = [];
+      const allPages = this.$static.allMarkdownPage.edges.map(edge => edge.node);
+
+      // 현재 사이드바에 해당하는 페이지들만 필터링
+      const filteredPages = allPages.filter(page => {
+        if (this.currentSidebar === 'process-gpt') {
+          return page.path.startsWith('/process-gpt/');
+        } else {
+          return !page.path.startsWith('/process-gpt/');
+        }
+      });
+
+      // 필터링된 페이지들의 헤딩만 포함
+      filteredPages.forEach(page => {
+        page.headings.forEach(heading => {
+          result.push({
+            ...heading,
+            path: page.path,
+            title: page.title
+          });
+        });
+      });
+
+      return result;
     },
     headings() {
       let result = [];
@@ -134,7 +169,7 @@ export default {
     showResult() {
       // Show results, if the input is focused and the query is not empty.
       return this.focused && this.query.length > 0;
-    }
+    },
   },
   methods: {
     increment() {

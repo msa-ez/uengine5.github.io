@@ -60,6 +60,7 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.instructionCodeBlockClipBoard()
+      this.updateFavicon()
     })
   },
   updated() {
@@ -70,6 +71,41 @@ export default {
   },
 
   methods: {
+    updateFavicon() {
+      const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
+      const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
+      
+      // 모든 파비콘 관련 링크 제거
+      const allFaviconLinks = document.querySelectorAll('link[rel*="icon"]');
+      allFaviconLinks.forEach(link => link.remove());
+      
+      // 캐시 방지용 타임스탬프
+      const timestamp = Date.now();
+      
+      // 여러 타입의 파비콘 링크 추가
+      const faviconTypes = [
+        { rel: 'icon', type: 'image/png' },
+        { rel: 'shortcut icon', type: 'image/png' },
+        { rel: 'apple-touch-icon', type: 'image/png' }
+      ];
+      
+      faviconTypes.forEach(favicon => {
+        const link = document.createElement('link');
+        link.rel = favicon.rel;
+        link.type = favicon.type;
+        link.href = `${faviconPath}?v=${timestamp}`;
+        document.head.appendChild(link);
+      });
+      
+      // 브라우저가 파비콘을 즉시 새로고침하도록 강제
+      setTimeout(() => {
+        const currentFavicon = document.querySelector('link[rel="icon"]');
+        if (currentFavicon) {
+          const newHref = currentFavicon.href.split('?')[0] + '?v=' + (Date.now() + 1000);
+          currentFavicon.href = newHref;
+        }
+      }, 100);
+    },
     instructionCodeBlockClipBoard() {
       // al pre tags on the page
       const pres = document.getElementsByTagName("pre")
@@ -108,9 +144,21 @@ export default {
   metaInfo() {
     const title = this.$page.markdownPage.title;
     const description = this.$page.markdownPage.description || this.$page.markdownPage.excerpt;
+    const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
+    
+    const baseTitle = isProcessGpt ? 'Process-GPT' : 'uEngine6 BPM';
+    const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
 
     return {
       title: title,
+      titleTemplate: `%s | ${baseTitle}`,
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: faviconPath
+        }
+      ],
       meta: [
         {
           name: 'description',

@@ -5,14 +5,13 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: '',
-  // 주석 부분 : uengine6 뒤에 각 리스트의 타이틀을 출력하고 싶을때 사용
+  siteName: '',// 주석 부분 : uengine6 뒤에 각 리스트의 타이틀을 출력하고 싶을때 사용
   // titleTemplate: 'uengine6 - %s',
-  titleTemplate: 'uengine6',
-  icon: {
-    favicon: './src/assets/favicon.png',
-    touchicon: './src/assets/favicon.png'
-  },
+  // titleTemplate: 'uengine6',
+  // icon: {
+  //   favicon: './src/assets/favicon.png',
+  //   touchicon: './src/assets/favicon.png'
+  // },
   siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.bpm-getting-started5.io'),
   settings: {
     web: process.env.URL_WEB || false,
