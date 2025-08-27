@@ -60,26 +60,29 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.instructionCodeBlockClipBoard()
-      this.updateFaviconDirectly()
+      this.changeFavicon()
     })
   },
   updated() {
     this.$nextTick(function () {
       // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
       this.instructionCodeBlockClipBoard()
-      this.updateFaviconDirectly()
+      this.changeFavicon()
     })
   },
   watch: {
     '$route'() {
       this.$nextTick(() => {
-        this.updateFaviconDirectly()
+        this.changeFavicon()
       })
     }
   },
 
     methods: {
-    updateFaviconDirectly() {
+    changeFavicon() {
+      // browser환경이 아니면 return 합니다.
+      if (typeof window === 'undefined') return;
+      
       if (!this.$page || !this.$page.markdownPage || !this.$page.markdownPage.path) {
         return;
       }
@@ -87,26 +90,24 @@ export default {
       const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
       const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
       
-      console.log('=== DOM 직접 파비콘 업데이트 ===');
+      console.log('=== 파비콘 동적 변경 (문서 방식) ===');
       console.log('현재 페이지:', this.$page.markdownPage.path);
       console.log('Process-GPT 여부:', isProcessGpt);
       console.log('파비콘 경로:', faviconPath);
       
-      // ID로 파비콘 찾기
-      let faviconElement = document.getElementById('favicon');
+      // rel*=icon으로 사용하고 있는 파비콘이 이미 있다면 해당 link를 선택하고,
+      // 그렇지 않다면 link 태그를 생성합니다.
+      const link = window.document.querySelector("link[rel*='icon']") || window.document.createElement("link");
       
-      // ID로 찾지 못하면 querySelector 사용
-      if (!faviconElement) {
-        faviconElement = document.querySelector('link[rel="icon"]');
-      }
+      link.type = "image/png";
+      link.rel = "shortcut icon";
+      // 캐시 방지를 위한 타임스탬프 추가
+      link.href = `${faviconPath}?v=${Date.now()}`;
       
-      if (faviconElement) {
-        const timestamp = Date.now();
-        faviconElement.href = `${faviconPath}?v=${timestamp}`;
-        console.log('파비콘 href 직접 변경:', faviconElement.href);
-      } else {
-        console.log('파비콘 엘리먼트를 찾을 수 없습니다.');
-      }
+      // head태그에 appendChild 합니다.
+      document.head.appendChild(link);
+      
+      console.log('파비콘 변경 완료:', link.href);
     },
     instructionCodeBlockClipBoard() {
       // al pre tags on the page
