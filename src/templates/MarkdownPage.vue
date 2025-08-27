@@ -80,17 +80,44 @@ export default {
 
     methods: {
     changeFavicon(faviconPath) {
-      // Ensure we have access to the document, i.e. we are in the browser.
       if (typeof window === 'undefined') return;
 
-      const link = window.document.querySelector("link[rel*='icon']") || window.document.createElement("link");
-      link.type = "image/png";
-      link.rel = "shortcut icon";
-      link.href = faviconPath;
-
-      window.document.getElementsByTagName("head")[0].appendChild(link);
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
       
-      console.log('파비콘 변경 완료:', faviconPath);
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+        
+        ctx.drawImage(img, 0, 0, 32, 32);
+        const dataURL = canvas.toDataURL('image/png');
+        
+        const existingLinks = document.querySelectorAll("link[rel*='icon']");
+        existingLinks.forEach(link => link.remove());
+        
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = dataURL;
+        
+        document.head.appendChild(link);
+      };
+      
+      img.onerror = () => {
+        const existingLinks = document.querySelectorAll("link[rel*='icon']");
+        existingLinks.forEach(link => link.remove());
+        
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = faviconPath + '?v=' + Date.now();
+        
+        document.head.appendChild(link);
+      };
+      
+      img.src = faviconPath;
     },
     updateFaviconDirectly() {
       if (!this.$page || !this.$page.markdownPage || !this.$page.markdownPage.path) {
@@ -100,13 +127,7 @@ export default {
       const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
       const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
       
-      console.log('=== 파비콘 동적 변경 ===');
-      console.log('현재 페이지:', this.$page.markdownPage.path);
-      console.log('Process-GPT 여부:', isProcessGpt);
-      console.log('파비콘 경로:', faviconPath);
-      
-      // 원본 코드 방식으로 파비콘 변경
-      this.changeFavicon(`${faviconPath}?v=${Date.now()}`);
+      this.changeFavicon(faviconPath);
     },
     instructionCodeBlockClipBoard() {
       // al pre tags on the page
@@ -150,13 +171,6 @@ export default {
     
     const baseTitle = isProcessGpt ? 'Process-GPT' : 'uEngine6 BPM';
     const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
-    
-    // 정상 동작 확인용 콘솔
-    console.log('=== metaInfo 실행 ===');
-    console.log('현재 페이지:', this.$page.markdownPage.path);
-    console.log('Process-GPT 페이지 여부:', isProcessGpt);
-    console.log('설정될 타이틀:', `${title} | ${baseTitle}`);
-    console.log('설정될 파비콘:', faviconPath);
 
     return {
       title: title,
