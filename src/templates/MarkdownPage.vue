@@ -60,31 +60,26 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.instructionCodeBlockClipBoard()
-      this.updateFavicon()
+      this.updateFaviconDirectly()
     })
   },
   updated() {
     this.$nextTick(function () {
       // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
       this.instructionCodeBlockClipBoard()
-      this.updateFavicon() // 페이지 업데이트 시에도 파비콘 업데이트
+      this.updateFaviconDirectly()
     })
   },
   watch: {
-    // 라우터 변경 감지하여 파비콘 업데이트
     '$route'() {
       this.$nextTick(() => {
-        // 페이지 데이터가 로드된 후에만 파비콘 업데이트
-        if (this.$page && this.$page.markdownPage && this.$page.markdownPage.path) {
-          this.updateFavicon()
-        }
+        this.updateFaviconDirectly()
       })
     }
   },
 
-  methods: {
-    updateFavicon() {
-      // 페이지 데이터 존재 여부 확인
+    methods: {
+    updateFaviconDirectly() {
       if (!this.$page || !this.$page.markdownPage || !this.$page.markdownPage.path) {
         return;
       }
@@ -92,36 +87,26 @@ export default {
       const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
       const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
       
-      // 모든 파비콘 관련 링크 제거
-      const allFaviconLinks = document.querySelectorAll('link[rel*="icon"]');
-      allFaviconLinks.forEach(link => link.remove());
+      console.log('=== DOM 직접 파비콘 업데이트 ===');
+      console.log('현재 페이지:', this.$page.markdownPage.path);
+      console.log('Process-GPT 여부:', isProcessGpt);
+      console.log('파비콘 경로:', faviconPath);
       
-      // 캐시 방지용 타임스탬프
-      const timestamp = Date.now();
+      // ID로 파비콘 찾기
+      let faviconElement = document.getElementById('favicon');
       
-      // 여러 타입의 파비콘 링크 추가
-      const faviconTypes = [
-        { rel: 'icon', type: 'image/png' },
-        { rel: 'shortcut icon', type: 'image/png' },
-        { rel: 'apple-touch-icon', type: 'image/png' }
-      ];
+      // ID로 찾지 못하면 querySelector 사용
+      if (!faviconElement) {
+        faviconElement = document.querySelector('link[rel="icon"]');
+      }
       
-      faviconTypes.forEach(favicon => {
-        const link = document.createElement('link');
-        link.rel = favicon.rel;
-        link.type = favicon.type;
-        link.href = `${faviconPath}?v=${timestamp}`;
-        document.head.appendChild(link);
-      });
-      
-      // 브라우저가 파비콘을 즉시 새로고침하도록 강제
-      setTimeout(() => {
-        const currentFavicon = document.querySelector('link[rel="icon"]');
-        if (currentFavicon) {
-          const newHref = currentFavicon.href.split('?')[0] + '?v=' + (Date.now() + 1000);
-          currentFavicon.href = newHref;
-        }
-      }, 100);
+      if (faviconElement) {
+        const timestamp = Date.now();
+        faviconElement.href = `${faviconPath}?v=${timestamp}`;
+        console.log('파비콘 href 직접 변경:', faviconElement.href);
+      } else {
+        console.log('파비콘 엘리먼트를 찾을 수 없습니다.');
+      }
     },
     instructionCodeBlockClipBoard() {
       // al pre tags on the page
@@ -165,6 +150,13 @@ export default {
     
     const baseTitle = isProcessGpt ? 'Process-GPT' : 'uEngine6 BPM';
     const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
+    
+    // 정상 동작 확인용 콘솔
+    console.log('=== metaInfo 실행 ===');
+    console.log('현재 페이지:', this.$page.markdownPage.path);
+    console.log('Process-GPT 페이지 여부:', isProcessGpt);
+    console.log('설정될 타이틀:', `${title} | ${baseTitle}`);
+    console.log('설정될 파비콘:', faviconPath);
 
     return {
       title: title,
@@ -173,7 +165,15 @@ export default {
         {
           rel: 'icon',
           type: 'image/png',
-          href: faviconPath
+          href: faviconPath,
+          id: 'favicon',
+          key: 'icon'
+        },
+        {
+          rel: 'shortcut icon',
+          type: 'image/png',
+          href: faviconPath,
+          key: 'shortcut-icon'
         }
       ],
       meta: [
