@@ -60,29 +60,39 @@ export default {
   mounted() {
     this.$nextTick(function () {
       this.instructionCodeBlockClipBoard()
-      this.changeFavicon()
+      this.updateFaviconDirectly()
     })
   },
   updated() {
     this.$nextTick(function () {
       // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
       this.instructionCodeBlockClipBoard()
-      this.changeFavicon()
+      this.updateFaviconDirectly()
     })
   },
   watch: {
     '$route'() {
       this.$nextTick(() => {
-        this.changeFavicon()
+        this.updateFaviconDirectly()
       })
     }
   },
 
     methods: {
-    changeFavicon() {
-      // browser환경이 아니면 return 합니다.
+    changeFavicon(faviconPath) {
+      // Ensure we have access to the document, i.e. we are in the browser.
       if (typeof window === 'undefined') return;
+
+      const link = window.document.querySelector("link[rel*='icon']") || window.document.createElement("link");
+      link.type = "image/png";
+      link.rel = "shortcut icon";
+      link.href = faviconPath;
+
+      window.document.getElementsByTagName("head")[0].appendChild(link);
       
+      console.log('파비콘 변경 완료:', faviconPath);
+    },
+    updateFaviconDirectly() {
       if (!this.$page || !this.$page.markdownPage || !this.$page.markdownPage.path) {
         return;
       }
@@ -90,24 +100,13 @@ export default {
       const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
       const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
       
-      console.log('=== 파비콘 동적 변경 (문서 방식) ===');
+      console.log('=== 파비콘 동적 변경 ===');
       console.log('현재 페이지:', this.$page.markdownPage.path);
       console.log('Process-GPT 여부:', isProcessGpt);
       console.log('파비콘 경로:', faviconPath);
       
-      // rel*=icon으로 사용하고 있는 파비콘이 이미 있다면 해당 link를 선택하고,
-      // 그렇지 않다면 link 태그를 생성합니다.
-      const link = window.document.querySelector("link[rel*='icon']") || window.document.createElement("link");
-      
-      link.type = "image/png";
-      link.rel = "shortcut icon";
-      // 캐시 방지를 위한 타임스탬프 추가
-      link.href = `${faviconPath}?v=${Date.now()}`;
-      
-      // head태그에 appendChild 합니다.
-      document.head.appendChild(link);
-      
-      console.log('파비콘 변경 완료:', link.href);
+      // 원본 코드 방식으로 파비콘 변경
+      this.changeFavicon(`${faviconPath}?v=${Date.now()}`);
     },
     instructionCodeBlockClipBoard() {
       // al pre tags on the page
