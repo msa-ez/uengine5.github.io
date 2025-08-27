@@ -67,7 +67,16 @@ export default {
     this.$nextTick(function () {
       // 전체 화면내용이 다시 렌더링된 후에 아래의 코드가 실행됩니다. 
       this.instructionCodeBlockClipBoard()
+      this.updateFavicon() // 페이지 업데이트 시에도 파비콘 업데이트
     })
+  },
+  watch: {
+    // 라우터 변경 감지하여 파비콘 업데이트
+    '$route'() {
+      this.$nextTick(() => {
+        this.updateFavicon()
+      })
+    }
   },
 
   methods: {
