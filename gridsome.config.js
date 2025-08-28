@@ -145,12 +145,12 @@ module.exports = {
             title: '시작하기',
             items: [
               '/process-gpt/',
+              '/process-gpt/process-gpt-install/',
             ]
           },
           {
             title: '튜토리얼',
             items: [
-              '/process-gpt/process-gpt-install/',
               '/process-gpt/tutorial-lv1/',
               '/process-gpt/tutorial-lv2/',
               '/process-gpt/tutorial-lv3/',

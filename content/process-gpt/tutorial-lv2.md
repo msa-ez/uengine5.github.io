@@ -3,7 +3,7 @@ description: ''
 sidebar: 'process-gpt'
 ---
 
-# AI 에이전트를 활용한 영업제안서 작성
+# AI 에이전트를 활용한 제안서 작성
 
 ## 영업활동프로세스로 따라하는 ProcessGPT 튜토리얼 Lv.2
 

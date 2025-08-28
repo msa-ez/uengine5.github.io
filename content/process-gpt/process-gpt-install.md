@@ -14,6 +14,14 @@ sidebar: 'process-gpt'
 - kind
 
 
+## 프로젝트 준비
+[GitHub](https://github.com/uengine-oss/process-gpt)에서 Process-GPT 프로젝트를 클론합니다:
+```sh
+git clone https://github.com/uengine-oss/process-gpt.git
+cd process-gpt
+```
+
+
 ## 설치 및 실행
 
 **1. 필요한 도구 설치**
