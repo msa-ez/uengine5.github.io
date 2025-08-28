@@ -3,7 +3,7 @@ description: ''
 sidebar: 'process-gpt'
 ---
 
-# 튜토리얼 Lv.1
+# 프로세스 생성과 실행
 
 ## 영업활동프로세스로 따라하는 ProcessGPT 튜토리얼 Lv.1
 
