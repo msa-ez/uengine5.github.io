@@ -17,11 +17,11 @@ Agent Boss가 각 에이전트에 설정된 페르소나, 스킬, 도구(MCP)를
 에이전트 지식 훈련을 통해 세무사 Agent에게 세율 감면혜택에 대한 내용을 학습시키는 방법은 다음과 같습니다.
 
 정의 관리 하단에 위치한 '조직도 관리' 메뉴를 클릭하여 조직도에 진입 및 아래화면과 같이 조직도를 구성합니다.<br>
-![](../../uengine-image/process-gpt/knowledge/1.조직도정의.png)
+![](../../uengine-image/process-gpt/knowledge/1.png)
 
 관리팀에 '+' 버튼을 클릭하여 조직원 추가를 진행하며, 이때 '신규 에이전트 추가' 탭으로 이동하여 아래 화면과 같이 다음의 항목에 수정합니다.<br>
 
-![](../../uengine-image/process-gpt/knowledge/2.에이전트생성1.png)<br>
+![](../../uengine-image/process-gpt/knowledge/2.png)<br>
 
 | 항목 | 내용 |
 |------|------|
@@ -30,25 +30,25 @@ Agent Boss가 각 에이전트에 설정된 페르소나, 스킬, 도구(MCP)를
 | 이름 | <에이전트의 직업> |
 | 역할 | <에이전트의 직업> |
 
-![](../../uengine-image/process-gpt/knowledge/3.에이전트생성2.png)<br>
+![](../../uengine-image/process-gpt/knowledge/3.png)<br>
 
 | 항목 | 내용 |
 |------|------|
 | 목표 | <에이전트 활용에 대한 목표> |
 | 페르소나 | <에이전트의 페르소나> |
 
-![](../../uengine-image/process-gpt/knowledge/4.에이전트생성3.png)<br>
+![](../../uengine-image/process-gpt/knowledge/4.png)<br>
 | 항목 | 내용 |
 |------|------|
 | 도구 | <에이전트가 활용할 도구(MCP)> |
 
 생성이 완료되면 상단 메뉴 '채팅' > '유저'를 클릭하여 이전 단계에서 생성한 에이전트가 채팅목록에 표시되며, 아래 화면과 같이 '채팅'을 클릭하여 대화화면을 생성합니다.<br>
-![](../../uengine-image/process-gpt/knowledge/5-1.에이전트채팅생성.png)
+![](../../uengine-image/process-gpt/knowledge/5-1.png)
 
 채팅화면에서 세무사 Agent에게 아래와 같이 회사와 관련된 지식을 주입하여 훈련을 진행하면 아래와 같이 세무사 Agent가 사용자의 대화내용을 기반으로 사내 지식을 학습합니다.<br>
-![](../../uengine-image/process-gpt/knowledge/6.훈련지식주입.png)
+![](../../uengine-image/process-gpt/knowledge/6.png)
 
 이후, 에이전트에게 훈련 시킨 내용을 기반으로 사내 관련 질문을 하면 Agent가 학습한 내용을 기반으로 관련된 최적의 답변을 제공합니다.<br>
-![](../../uengine-image/process-gpt/knowledge/7.훈련결과확인.png)
+![](../../uengine-image/process-gpt/knowledge/7.png)
 
 이를 통해 특정 업무에 필요한 사전 지식을 Agent에게 학습하여 지식을 축적시키고 필요한 상황에 질문하여 업무의 효율성을 증대시킬 수 있습니다.

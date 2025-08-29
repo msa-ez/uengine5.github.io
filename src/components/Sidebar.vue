@@ -16,24 +16,35 @@
 
       <ul class="max-w-full pl-2 mb-0">
         <li
-          v-for="page in findPages(section.items)"
-          :id="page.path"
-          :key="page.path"
-          :class="getClassesForAnchor(page)"
+          v-for="item in processItems(section.items)"
+          :id="item.path || item.url"
+          :key="item.path || item.url"
+          :class="getClassesForAnchor(item)"
           @mousedown="$emit('navigate')"
         >
           <g-link
-            :to="`${page.path}`"
+            v-if="!item.isExternal"
+            :to="`${item.path}`"
             class="flex items-center py-1 font-semibold"
           >
            <span
               class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"
               :class="{
-                'opacity-100 scale-100': currentPage.path === page.path
+                'opacity-100 scale-100': currentPage.path === item.path
               }"
             ></span>
-            {{ page.title }}
+            {{ item.title }}
           </g-link>
+          <a
+            v-else
+            :href="item.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center py-1 font-semibold"
+          >
+            {{ item.title }}
+            <!-- <span class="ml-1 text-xs opacity-60">↗</span> -->
+          </a>
         </li>
       </ul>
     </div>
@@ -86,14 +97,37 @@ export default {
     }
   },
   methods: {
-    getClassesForAnchor({ path }) {
+    getClassesForAnchor(item) {
+      const path = item.path || item.url;
       return {
         "text-ui-primary": this.currentPage.path === path,
-        "transition transform hover:translate-x-1 hover:text-ui-primary": ! this.currentPage.path === path
+        "transition transform hover:translate-x-1 hover:text-ui-primary": this.currentPage.path !== path
       };
     },
-    findPages(links) {
-      return links.map(link => this.pages.find(page => page.path === link));
+    processItems(items) {
+      return items.map(item => {
+        // 문자열인 경우
+        if (typeof item === 'string') {
+          // HTTP(S) URL인지 확인
+          if (item.startsWith('http://') || item.startsWith('https://')) {
+            return {
+              title: '교육 페이지',
+              url: item,
+              isExternal: true
+            };
+          }
+          // 내부 페이지 경로인 경우
+          else {
+            const page = this.pages.find(page => page.path === item);
+            return page;
+          }
+        }
+        // 객체인 경우 (이미 처리된 데이터)
+        else if (item && typeof item === 'object') {
+          return item;
+        }
+        return null;
+      }).filter(item => item); // null/undefined 제거
     },
     scrollToActiveLink() {
       if (this.currentPage.path) {
