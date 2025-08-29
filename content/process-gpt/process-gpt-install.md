@@ -3,7 +3,7 @@ description: ''
 sidebar: 'process-gpt'
 ---
 
-# Process-GPT 로컬 설치 가이드
+# 로컬 설치 가이드
 
 ## 개요
 이는 로컬 Kubernetes/Kind cluster에서 Process-GPT를 실행하는 방법에 대한 간단한 가이드입니다.

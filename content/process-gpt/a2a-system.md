@@ -3,7 +3,7 @@ description: ''
 sidebar: 'process-gpt'
 ---
 
-# A2A 자동화 시스템
+# A2A
 
 ## Agent-to-Agent 자동화 시스템
 

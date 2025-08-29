@@ -3,7 +3,7 @@ description: ''
 sidebar: 'process-gpt'
 ---
 
-# Process-GPT 주요 기능
+# 주요 기능
 
 ## AI 기반 채팅
 

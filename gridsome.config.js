@@ -160,8 +160,8 @@ module.exports = {
           {
             title: '세부기능',
             items: [
-              '/process-gpt/admin-guide/',
               '/process-gpt/user-guide/',
+              '/process-gpt/admin-guide/',
               '/process-gpt/process-marketplace/',
               '/process-gpt/simulation/',
               '/process-gpt/multi-agent/',
