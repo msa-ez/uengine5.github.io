@@ -111,9 +111,6 @@ export default {
           // HTTP(S) URL인지 확인
           if (item.startsWith('http://') || item.startsWith('https://')) {
             return {
-              title: '교육 페이지',
-              url: item,
-              isExternal: true
             };
           }
           // 내부 페이지 경로인 경우

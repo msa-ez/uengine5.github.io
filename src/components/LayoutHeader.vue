@@ -50,6 +50,12 @@
             <GithubIcon size="1.5x" />
           </a>
 
+          <v-btn class="main-top-btn"
+            @click="openTrainingLink"
+          >
+            <span style="color:white;">교육 신청</span>
+          </v-btn>
+
           <ToggleDarkMode class="ml-2 sm:ml-8">
             <template slot="default" slot-scope="{ dark }">
               <MoonIcon v-if="dark" size="1.5x" />
@@ -111,6 +117,12 @@ export default {
     isProcessGptPage() {
       // 현재 경로가 Process-GPT 페이지인지 확인
       return this.$route && this.$route.path && this.$route.path.startsWith('/process-gpt/');
+    }
+  },
+
+  methods: {
+    openTrainingLink() {
+      window.open('https://www.gkn.co.kr/_training/detail.php?sn=1602', '_blank');
     }
   }
 };

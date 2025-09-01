@@ -85,6 +85,19 @@ code{padding:.0rem}
 .token.entity {
 	cursor: help;
 }
+
+.main-top-btn {
+    background-color:#5a67d8 !important;
+    border-radius: 4px;
+    height: 33px;
+    width: 120px;
+    text-align: center;
+    line-height: 33px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 /*instruction codeblock*/
 .markdown-body pre[class*="language-"] {
     position: relative;

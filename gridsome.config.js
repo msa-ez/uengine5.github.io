@@ -155,7 +155,7 @@ module.exports = {
               '/process-gpt/tutorial-lv2/',
               '/process-gpt/tutorial-lv3/',
               '/process-gpt/tutorial-lv4/',
-              'https://www.gkn.co.kr/_training/detail.php?sn=1602',
+              // 'https://www.gkn.co.kr/_training/detail.php?sn=1602',
             ]
           },
           {
