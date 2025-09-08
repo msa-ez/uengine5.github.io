@@ -21,11 +21,12 @@ sidebar: 'process-gpt'
 
 ### Supabase 연동
 
-1. 우측 상단 설정 > 데이터소스 > 접속 정보 추가를 선택하고 ERP 데이터 소스 정보를 입력합니다.
+1. 우측 상단 설정 > 데이터소스 > 접속 정보 추가를 선택하고 사용할 ERP 데이터 소스 정보를 입력합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-2.png)
 <br>
-
+![](../../uengine-image/process-gpt/tutorial/lv4-17.JPG)
+<br>
 2. Supabase API Docs의 Read rows에 있는 curl 예시와 API 키를 활용하여 연동합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-3.png)
