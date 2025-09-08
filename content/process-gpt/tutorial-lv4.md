@@ -25,7 +25,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-2.png)
 <br>
-![](../../uengine-image/process-gpt/tutorial/lv4-17.JPG)
+![](../../uengine-image/process-gpt/tutorial/lv4-18.JPG)
 <br>
 2. Supabase API Docs의 Read rows에 있는 curl 예시와 API 키를 활용하여 연동합니다.
 
