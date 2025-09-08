@@ -3,7 +3,7 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 계정 관리 및 접속 방법
+# 계정 관리
 
 ## Keycloak 설정
 
@@ -14,9 +14,12 @@ Keycloak은 uEngine6의 인증 및 권한 관리를 위한 오픈 소스 솔루�
 Keycloak 관리자 페이지에 접속하려면 다음 URL을 사용합니다:
 
 ```
-http://localhost:9090
+http://keycloak:8080
 ```
 
+![](../../uengine-image/account_1-1.png)
+
+여기서 Administration Console을 클릭하면 로그인 화면이 나옵니다.
 
 ![](../../uengine-image/account_1.png)
 
@@ -97,9 +100,9 @@ Credentials 탭에서 비밀번호를 설정하고 reset password 버튼을 클�
 Role Mappings 탭에서 사용자에게 역할을 부여합니다.
 Available Roles에서 사용자에게 부여할 역할을 선택하고 Add Selected 버튼을 클릭하여 사용자에게 역할을 부여합니다.
 
-### 사용자 접속 확인
+### 접속 테스트
 
-사용자 접속 확인을 위해서는 사용자 이름과 비밀번호를 사용하여 접속합니다.
+접속 테스트를 위해서는 전 단계에서 추가한 사용자 이름과 비밀번호를 사용하여 접속합니다.
 
 ![](../../uengine-image/account_15.png)
 
