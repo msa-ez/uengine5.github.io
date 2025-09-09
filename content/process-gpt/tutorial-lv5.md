@@ -19,7 +19,7 @@ sidebar: 'process-gpt'
 1. 조직도에 마케팅팀을 등록 후, 고객관리 에이전트를 등록합니다. 에이전트의 역할, 목표, 정의하고, 필요한 도구를 부여후, 고객관리에 필요한 지식을 교육합니다
 ![](../../uengine-image/process-gpt/tutorial/lv5-1.png)
 <br>
-![](../../uengine-image/process-gpt/tutorial/lv5-2-1.png)
+![](../../uengine-image/process-gpt/tutorial/lv5-2-2.png)
 <br>
 
 ### Supabase 연동
