@@ -15,6 +15,7 @@ sidebar: 'process-gpt'
 <br>
 
 
+
 ### 고객관리 에이전트 선언 및 교육
 
 1. 조직도에 마케팅팀을 등록 후, 고객관리 에이전트를 등록합니다. 에이전트의 역할, 목표, 정의하고, 필요한 도구를 부여후, 고객관리에 필요한 지식을 교육합니다
@@ -24,6 +25,8 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-2-2.png)
 <br>
+
+
 
 ### Supabase 연동
 
@@ -39,6 +42,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-3.png)
 <br>
+
 
 
 ### 프로세스 생성 및 폼 수정
@@ -63,6 +67,7 @@ sidebar: 'process-gpt'
 <br>
 
 
+
 ### 에이전트의 고객 맞춤형 뉴스레터 작성
 
 1. 프로세스를 실행하여 뉴스레터 초안을 작성합니다. 좌측 하단 소스에 파일을 추가하여 작성에 참고할 필요한 내용을 넣을 수 있습니다.
@@ -81,6 +86,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-13.png)
 <br>
+
 
 
 ### 리뷰
@@ -103,6 +109,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-18.png)
 <br>
+
 
 
 ### 피드백 검증 및 조건 기반 승인
