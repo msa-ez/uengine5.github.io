@@ -28,7 +28,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-2.png)
 <br>
-![](../../uengine-image/process-gpt/tutorial/lv5-3.JPG)
+![](../../uengine-image/process-gpt/tutorial/lv5-3.png)
 <br>
 2. Supabase API Docs의 Read rows에 있는 curl 예시와 API 키를 활용하여 연동합니다.
 
@@ -43,7 +43,7 @@ sidebar: 'process-gpt'
 ![](../../uengine-image/process-gpt/tutorial/lv5-4.png)
 <br>
 
-2. 프로세스 생성 후, 각 워크아이템의 폼을 용도에 맞게 수정합니다. 워크아이템의 설정과 사용할 에이전트에 대한 설정, Superbase와의 연동을 아래와 같이 진행합니다.
+2. 프로세스 생성 후, 각 워크아이템의 폼을 용도에 맞게 수정합니다. 워크아이템의 설정과 사용할 에이전트에 대한 설정, Supabase와의 연동을 아래와 같이 진행합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-5.png)
 <br>
