@@ -64,10 +64,13 @@ sidebar: 'process-gpt'
 <br>
 
 2. 생성된 초안을 바탕으로 에이전트는 ERP에 연동된 고객의 관심사를 기반으로 각각의 고객 맞춤형 뉴스레터를 생성합니다
+
 ![](../../uengine-image/process-gpt/tutorial/lv5-11.png)
 <br>
+
 ![](../../uengine-image/process-gpt/tutorial/lv5-12.png)
 <br>
+
 ![](../../uengine-image/process-gpt/tutorial/lv5-13.png)
 <br>
 
