@@ -18,6 +18,7 @@ sidebar: 'process-gpt'
 ### 고객관리 에이전트 선언 및 교육
 
 1. 조직도에 마케팅팀을 등록 후, 고객관리 에이전트를 등록합니다. 에이전트의 역할, 목표, 정의하고, 필요한 도구를 부여후, 고객관리에 필요한 지식을 교육합니다
+
 ![](../../uengine-image/process-gpt/tutorial/lv5-1.png)
 <br>
 
@@ -33,6 +34,7 @@ sidebar: 'process-gpt'
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-3.png)
 <br>
+
 2. Supabase API Docs의 Read rows에 있는 curl 예시와 API 키를 활용하여 연동합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-3.png)
@@ -82,6 +84,7 @@ sidebar: 'process-gpt'
 
 
 ### 리뷰
+
 1. 유저인 결정권자는 에이전트가 작성한 초안을 검토합니다. 에이전트의 결과물에 따라 결제 완료와 재작성을 에이전트에게 지시할 수 있습니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-14.png)
@@ -103,6 +106,7 @@ sidebar: 'process-gpt'
 
 
 ### 피드백 검증 및 조건 기반 승인
+
 1. 에이전트가 작성한 초안에 대해 결정권자가 재작성 의견과 피드백을 에이전트에게 전달하고, 에이전트는 리뷰 내용을 반영하여 재작성합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv5-19.png)
