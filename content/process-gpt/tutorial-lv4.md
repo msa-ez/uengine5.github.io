@@ -19,35 +19,42 @@ sidebar: 'process-gpt'
 <br>
 
 
-### Supabase 연동
+### ERP 데이터 연동 (Supabase 활용)
 
-1. 우측 상단 설정 > 데이터소스 > 접속 정보 추가를 선택하고 사용할 ERP 데이터 소스 정보를 입력합니다.
+1. 우측 상단 설정 > 데이터소스 > 접속 정보 추가를 선택하고 ERP 데이터 소스 정보를 입력합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-2.png)
 <br>
-![](../../uengine-image/process-gpt/tutorial/lv4-18.JPG)
-<br>
+
 2. Supabase API Docs의 Read rows에 있는 curl 예시와 API 키를 활용하여 연동합니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-3.png)
 <br>
 
+![](../../uengine-image/process-gpt/tutorial/lv4-17.JPG)
+<br>
+
+
 
 ### 프로세스 생성 및 폼 수정
 
-1. 프로세스를 생성하면, 고객 요청사항 입력 시 MRP 에이전트가 ERP 데이터를 조회합니다.
+1. 프로세스를 아래와 같이 생성합니다. 
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-4.png)
 - 재고가 충분할 경우 → 즉시 출고 진행
 - 재고가 부족할 경우 → 생산 요청 후, 입고 완료된 제품을 출고
 <br><br>
 
-2. 워크 아이템을 선택한 뒤 채팅창에 *“supabase에 연동해줘”*라고 입력하면 ERP 데이터와 연결됩니다.
+2. 각 task의 폼을 용도에 맞게 수정합니다. task의 설정과 사용할 에이전트에 대한 설정, Supabase와의 연동을 아래와 같이 진행합니다.
 
-![](../../uengine-image/process-gpt/tutorial/lv4-5.png)
+![](../../uengine-image/process-gpt/tutorial/lv4-19.JPG)
 <br>
 
-3. 생성된 프로세스의 폼은 실제 ERP 데이터와 연동되어, 프로세스의 물품명과 단가가 Supabase의 **product name, unit price**와 연결됩니다.
+![](../../uengine-image/process-gpt/tutorial/lv4-20.png)
+<br>
+
+
+3. 생성된 프로세스의 폼은 실제 ERP 데이터와 연동되어, 프로세스의 물품명, 단가, 재고가 Supabase의 **product name, unit price, stock quantity**와 연결됩니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-6.png)
 <br>
@@ -67,7 +74,7 @@ sidebar: 'process-gpt'
 ![](../../uengine-image/process-gpt/tutorial/lv4-9.png)
 <br>
 
-3. 출고 후 남은 재고 수량도 mcp를 통해 확인할 수 있습니다.
+3. 에이전트는 출고 후 남은 재고 수량도 Supabase mcp를 통해 연동된 ERP 데이터를 확인할 수 있습니다.
 
 ![](../../uengine-image/process-gpt/tutorial/lv4-10.png)
 
