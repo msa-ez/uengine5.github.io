@@ -170,6 +170,8 @@ module.exports = {
               '/process-gpt/a2a-system/',
               '/process-gpt/voice-chat/',
               '/process-gpt/browser-use/',
+              '/process-gpt/feedback-system/',
+              '/process-gpt/multi-instance/',
             ]
           }
         ]
