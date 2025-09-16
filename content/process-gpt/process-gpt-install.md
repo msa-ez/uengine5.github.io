@@ -9,7 +9,7 @@ sidebar: 'process-gpt'
 이는 로컬 Kubernetes/Kind cluster에서 Process-GPT를 실행하는 방법에 대한 간단한 가이드입니다.
 
 ## 필수 조건
-- Docker
+- Docker 
 - kubectl
 - kind
 

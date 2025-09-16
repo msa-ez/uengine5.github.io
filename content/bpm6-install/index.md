@@ -3,7 +3,7 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 설치 가이드
+# 설치 및 접속 방법
 
 ## 개요
 uEngine6는 비즈니스 프로세스 관리(BPM) 솔루션으로, 프로세스 정의, 실행, 모니터링을 위한 여러 마이크로서비스로 구성되어 있습니다. 이 문서에서는 두 가지 설치 방법을 안내합니다:
@@ -52,7 +52,7 @@ sudo nano /etc/hosts
 
 3. Docker Compose 실행:
 ```sh
-docker compose up -d
+docker-compose up -d
 ```
 
 4. 서비스 실행 확인:
@@ -62,7 +62,7 @@ docker compose up -d
 
 5. uEngine 중지 (필요시):
 ```sh
-docker compose down
+docker-compose down
 ```
 
 ### 방법 2: 로컬 환경에서 설치 및 실행
@@ -104,21 +104,26 @@ mvn spring-boot:run
 
 ## uEngine 접속 및 확인
 
-uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL로 접속하여 실행 화면을 확인할 수 있습니다:
+uEngine이 정상적으로 실행되면, 웹 브라우저를 열고 다음 URL로 최초 접속 시에는 keycloak 인증 화면이 나옵니다.
+- **keycloak 인증 화면**: http://keycloak:8080/
+![keycloak 인증 화면](../../uengine-image/installation-3.png)
+
+keycloak 인증 화면에서 다음 계정 정보로 로그인할 수 있습니다:
+
+| 사용자 유형 | 아이디 | 비밀번호 | 권한 |
+|------------|-------|---------|------|
+| 관리자 | admin | admin | 시스템 관리 및 모든 프로세스 접근 권한 |
+| 일반 사용자 | tester | tester | 일반 프로세스 실행 및 조회 권한 |
+
+일반 사용자 계정으로 로그인을 하게 되면 다음 URL로 자동으로 이동하게 됩니다.
 
 - **uEngine BPM 포털**: http://localhost:8088/
 
 ![uEngine BPM 포털](../../uengine-image/installation-2.png)
 
-### 로그인 정보
+접속 후 시작하기 버튼을 눌러 대시보드로 들어가면 다음과 같이 사용자 접속 확인 화면을 확인할 수 있습니다.
 
-uEngine BPM 포털에 접속 시 다음 계정 정보로 로그인할 수 있습니다:
-
-| 사용자 유형 | 아이디 | 비밀번호 | 권한 |
-|------------|-------|---------|------|
-| 관리자 | admin | admin | 시스템 관리 및 모든 프로세스 접근 |
-| 일반 사용자 | tester | tester | 일반 프로세스 실행 및 조회 |
-
+![](../../uengine-image/account_17.png)
 
 ## 문제 해결
 
@@ -135,3 +140,4 @@ uEngine BPM 포털에 접속 시 다음 계정 정보로 로그인할 수 있습
    - 각 서비스의 데이터베이스 설정을 확인하세요.
 
 문제가 지속될 경우 help@uengine.org를 통해 문의해 주세요.
+
