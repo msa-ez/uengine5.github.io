@@ -51,22 +51,6 @@
   </div>
 </template>
 
-<static-query>
-query Sidebar {
-  metadata {
-    settings {
-      sidebar {
-        name
-        sections {
-          title
-          items
-        }
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
 export default {
   data() {
@@ -83,14 +67,38 @@ export default {
     pages() {
       return this.$page.allMarkdownPage.edges.map(edge => edge.node);
     },
+    currentLanguage() {
+      // 현재 페이지 경로를 기반으로 언어 감지
+      const path = this.$page.markdownPage ? this.$page.markdownPage.path : '/';
+      const sidebarSettings = this.$siteSettings.sidebar || {};
+      
+      // 설정된 모든 언어에 대해 경로 확인
+      for (const langCode of Object.keys(sidebarSettings)) {
+        if (path.startsWith(`/${langCode}/`)) {
+          return langCode;
+        }
+      }
+      
+      // 기본 언어 반환
+      return this.$siteSettings.defaultLanguage || 'ko';
+    },
     sidebar() {
-      return this.$static.metadata.settings.sidebar.find(
-        sidebar => sidebar.name === this.$page.markdownPage.sidebar
+      const language = this.currentLanguage;
+      const sidebarSettings = this.$siteSettings.sidebar || {};
+      const sidebarLangData = sidebarSettings[language];
+      
+      if (!sidebarLangData || !sidebarLangData.navigation || !Array.isArray(sidebarLangData.navigation)) {
+        return null;
+      }
+      
+      const currentPageSidebar = this.$page.markdownPage ? this.$page.markdownPage.sidebar : 'getting-started';
+      return sidebarLangData.navigation.find(
+        sidebar => sidebar.name === currentPageSidebar
       );
     },
     showSidebar() {
-      return this.$page.markdownPage.sidebar
-        && this.sidebar;
+      const markdownPage = this.$page.markdownPage;
+      return markdownPage && markdownPage.sidebar && this.sidebar;
     },
     currentPage() {
       return this.$page.markdownPage;
@@ -115,7 +123,10 @@ export default {
           }
           // 내부 페이지 경로인 경우
           else {
-            const page = this.pages.find(page => page.path === item);
+            // 상대 경로를 현재 언어에 맞는 절대 경로로 변환
+            const language = this.currentLanguage;
+            const fullPath = `/${language}/${item}`;
+            const page = this.pages.find(page => page.path === fullPath);
             return page;
           }
         }

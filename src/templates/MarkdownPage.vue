@@ -124,8 +124,7 @@ export default {
         return;
       }
       
-      const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
-      const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
+      const faviconPath = '/favicon.png';
       
       this.changeFavicon(faviconPath);
     },
@@ -167,10 +166,9 @@ export default {
   metaInfo() {
     const title = this.$page.markdownPage.title;
     const description = this.$page.markdownPage.description || this.$page.markdownPage.excerpt;
-    const isProcessGpt = this.$page.markdownPage.path.startsWith('/process-gpt/');
     
-    const baseTitle = isProcessGpt ? 'Process-GPT' : 'uEngine6 BPM';
-    const faviconPath = isProcessGpt ? '/process-gpt-favicon.png' : '/favicon.png';
+    const baseTitle = 'uEngine6 BPM';
+    const faviconPath = '/favicon.png';
 
     return {
       title: title,

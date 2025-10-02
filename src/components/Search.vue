@@ -115,29 +115,14 @@ export default {
       return fuse.search(this.query).slice(0, 15);
     },
     currentSidebar() {
-      // 현재 페이지의 사이드바 타입 확인
-      if (this.$route && this.$route.path) {
-        if (this.$route.path.startsWith('/process-gpt/')) {
-          return 'process-gpt';
-        }
-      }
       return 'getting-started';
     },
     filteredHeadings() {
       let result = [];
       const allPages = this.$static.allMarkdownPage.edges.map(edge => edge.node);
 
-      // 현재 사이드바에 해당하는 페이지들만 필터링
-      const filteredPages = allPages.filter(page => {
-        if (this.currentSidebar === 'process-gpt') {
-          return page.path.startsWith('/process-gpt/');
-        } else {
-          return !page.path.startsWith('/process-gpt/');
-        }
-      });
-
-      // 필터링된 페이지들의 헤딩만 포함
-      filteredPages.forEach(page => {
+      // 모든 페이지들의 헤딩 포함
+      allPages.forEach(page => {
         page.headings.forEach(heading => {
           result.push({
             ...heading,

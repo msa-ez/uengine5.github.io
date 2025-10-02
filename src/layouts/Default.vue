@@ -18,7 +18,7 @@
           :class="{ 'open': sidebarOpen }"
           :style="sidebarStyle"
         >
-          <div class="w-full pb-16 bg-ui-background">
+          <div class="w-full pb-8 bg-ui-background">
             <Sidebar @navigate="sidebarOpen = false" />
           </div>
         </aside>
@@ -43,18 +43,14 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <script>
 import Sidebar from "@/components/Sidebar";
 import LayoutHeader from "@/components/LayoutHeader";
 import { MenuIcon, XIcon } from 'vue-feather-icons';
+
+// gridsome.config.js에서 설정 직접 import
+const gridsomeConfig = require('../../gridsome.config.js');
+const siteSettings = gridsomeConfig.settings;
 
 export default {
   components: {
@@ -77,8 +73,138 @@ export default {
   methods: {
     setHeaderHeight() {
       this.$nextTick(() => {
-        this.headerHeight = this.$refs.header.offsetHeight;
+        if (this.$refs.header) {
+          this.headerHeight = this.$refs.header.offsetHeight;
+        }
       });
+    },
+    async detectUserLocationAndRedirect() {
+      const currentPath = this.$route.path;
+      const currentLanguage = this.getCurrentLanguage(currentPath);
+
+      // 1순위: 사용자가 직접 선택한 언어 (최우선)
+      const userPreferredLanguage = this.getUserPreferredLanguage();
+      if (userPreferredLanguage) {
+        if (currentLanguage !== userPreferredLanguage) {
+          const newPath = this.buildNewPath(currentPath, currentLanguage, userPreferredLanguage);
+          if (newPath !== currentPath) {
+            this.$router.push(newPath);
+          }
+        }
+        return;
+      }
+
+      // 2순위: IP로 감지된 언어 (localStorage에 영구 저장)
+      const detectedLanguage = this.getDetectedLanguage();
+      if (detectedLanguage) {
+        if (currentLanguage !== detectedLanguage) {
+          const newPath = this.buildNewPath(currentPath, currentLanguage, detectedLanguage);
+          if (newPath !== currentPath) {
+            this.$router.push(newPath);
+          }
+        }
+        return;
+      }
+
+      // 3순위: IP 기반 국가 감지 (최초 1회만 실행)
+      try {
+        let countryCode = null;
+        
+        try {
+          const response = await fetch('https://api.country.is/');
+          const data = await response.json();
+          if (data.country) {
+            countryCode = data.country;
+          }
+        } catch (e) {
+          // API 실패 시 조용히 처리
+        }
+        
+        if (countryCode) {
+          const targetLanguage = this.getLanguageByCountry(countryCode);
+          console.log('접속 국가:', countryCode, '→ 설정된 언어:', targetLanguage);
+          
+          // localStorage에 감지 결과 영구 저장
+          this.saveDetectedLanguage(targetLanguage);
+          
+          if (currentLanguage !== targetLanguage) {
+            const newPath = this.buildNewPath(currentPath, currentLanguage, targetLanguage);
+            if (newPath !== currentPath) {
+              this.$router.push(newPath);
+            }
+          }
+        }
+      } catch (error) {
+        // API 실패 시 조용히 처리
+      }
+    },
+    getCurrentLanguage(path) {
+      // 직접 import한 설정 사용
+      const sidebarSettings = siteSettings.sidebar || {};
+      
+      // 설정된 모든 언어에 대해 경로 확인
+      for (const langCode of Object.keys(sidebarSettings)) {
+        if (path.startsWith(`/${langCode}/`)) {
+          return langCode;
+        }
+      }
+      
+      // 기본 언어 반환
+      const defaultLang = siteSettings.defaultLanguage || 'ko';
+      return defaultLang;
+    },
+    buildNewPath(currentPath, currentLang, targetLang) {
+      // 루트 경로(/)인 경우 리다이렉트하지 않음 (Index.vue가 처리)
+      if (currentPath === '/') {
+        return currentPath;
+      }
+      
+      const langPattern = `/${currentLang}/`;
+      const targetPattern = `/${targetLang}/`;
+      
+      if (currentPath.startsWith(langPattern)) {
+        const newPath = currentPath.replace(langPattern, targetPattern);
+        return newPath;
+      }
+      
+      // 언어 경로가 없는 경우 기본 페이지로 이동
+      const defaultPath = `/${targetLang}/bpm6-intro/`;
+      return defaultPath;
+    },
+    getUserPreferredLanguage() {
+      // localStorage에서 사용자가 직접 선택한 언어 가져오기
+      if (typeof window !== 'undefined') {
+        return localStorage.getItem('preferredLanguage');
+      }
+      return null;
+    },
+    getDetectedLanguage() {
+      // localStorage에서 IP로 감지된 언어 가져오기
+      if (typeof window !== 'undefined') {
+        return localStorage.getItem('detectedLanguage');
+      }
+      return null;
+    },
+    saveDetectedLanguage(language) {
+      // localStorage에 IP로 감지된 언어 영구 저장
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('detectedLanguage', language);
+      }
+    },
+    getLanguageByCountry(countryCode) {
+      // 직접 import한 설정 사용
+      const sidebarSettings = siteSettings.sidebar || {};
+      
+      // 각 언어의 지원 국가 코드 확인
+      for (const [langCode, langConfig] of Object.entries(sidebarSettings)) {
+        if (langConfig.meta && langConfig.meta.countries && langConfig.meta.countries.includes(countryCode)) {
+          return langCode;
+        }
+      }
+      
+      // 매칭되지 않으면 fallback 언어 사용
+      const fallbackLang = siteSettings.fallbackLanguage || 'en';
+      return fallbackLang;
     }
   },
   computed: {
@@ -94,6 +220,7 @@ export default {
   },
   mounted() {
     this.setHeaderHeight();
+    this.detectUserLocationAndRedirect();
   },
   metaInfo() {
     return {

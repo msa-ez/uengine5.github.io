@@ -385,9 +385,16 @@ export default {
           content: 'LLM AI 기술을 기반으로 프로세스 모델링, 폼 생성 등을 자연어 처리를 통해 자동으로 수행하며, 이는 시스템 통합을 포함한 다양한 비즈니스 요구사항을 효과적으로 지원합니다. uEngine6 BPM은 기업이 클라우드 네이티브 및 마이크로서비스 아키텍처로의 전환을 모색하는데 있어 이상적인 솔루션을 제공합니다.'
         }
       ],
-      links: [
+      detectedLanguage: 'ko' // 감지된 언어 (기본값: ko)
+    };
+  },
+
+  computed: {
+    links() {
+      // 외부 링크는 그대로, 내부 링크는 언어 prefix 추가
+      return [
         {
-          to: '/bpm6-intro/',
+          to: `/${this.detectedLanguage}/bpm6-intro/`,
           text: 'Getting Started'
         },
         {
@@ -398,8 +405,91 @@ export default {
           to: 'https://www.facebook.com/groups/uenginebpm/',
           text: 'Facebook'
         }
-      ]
-    };
+      ];
+    }
+  },
+
+  mounted() {
+    this.detectUserLanguage();
+  },
+
+  methods: {
+    async detectUserLanguage() {
+      // 1순위: 사용자가 직접 선택한 언어 (최우선)
+      const userPreferredLanguage = this.getUserPreferredLanguage();
+      if (userPreferredLanguage) {
+        this.detectedLanguage = userPreferredLanguage;
+        return;
+      }
+
+      // 2순위: IP로 감지된 언어 (localStorage에 영구 저장)
+      const detectedLanguage = this.getDetectedLanguage();
+      if (detectedLanguage) {
+        this.detectedLanguage = detectedLanguage;
+        return;
+      }
+
+      // 3순위: IP 기반 국가 감지 (최초 1회만 실행)
+      try {
+        let countryCode = null;
+        
+        try {
+          const response = await fetch('https://api.country.is/');
+          const data = await response.json();
+          if (data.country) {
+            countryCode = data.country;
+          }
+        } catch (e) {
+          // API 실패 시 기본 언어 사용
+        }
+        
+        if (countryCode) {
+          const targetLanguage = this.getLanguageByCountry(countryCode);
+          console.log('접속 국가:', countryCode, '→ 설정된 언어:', targetLanguage);
+          this.detectedLanguage = targetLanguage;
+          
+          // localStorage에 감지 결과 영구 저장
+          this.saveDetectedLanguage(targetLanguage);
+        }
+        
+      } catch (error) {
+        // API 실패 시에는 기본 언어(ko) 유지
+      }
+    },
+    getUserPreferredLanguage() {
+      // localStorage에서 사용자가 직접 선택한 언어 가져오기
+      if (typeof window !== 'undefined') {
+        return localStorage.getItem('preferredLanguage');
+      }
+      return null;
+    },
+    getDetectedLanguage() {
+      // localStorage에서 IP로 감지된 언어 가져오기
+      if (typeof window !== 'undefined') {
+        return localStorage.getItem('detectedLanguage');
+      }
+      return null;
+    },
+    saveDetectedLanguage(language) {
+      // localStorage에 IP로 감지된 언어 영구 저장
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('detectedLanguage', language);
+      }
+    },
+    getLanguageByCountry(countryCode) {
+      const sidebarSettings = this.$siteSettings.sidebar || {};
+      
+      // 각 언어의 지원 국가 코드 확인
+      for (const [langCode, langConfig] of Object.entries(sidebarSettings)) {
+        if (langConfig.meta && langConfig.meta.countries && langConfig.meta.countries.includes(countryCode)) {
+          return langCode;
+        }
+      }
+      
+      // 매칭되지 않으면 fallback 언어 사용
+      const fallbackLang = this.$siteSettings.fallbackLanguage || 'en';
+      return fallbackLang;
+    }
   },
 
   metaInfo() {
