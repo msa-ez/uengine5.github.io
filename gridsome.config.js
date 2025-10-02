@@ -139,32 +139,32 @@ module.exports = {
           }
         ]
       },
-      en: {
-        // 언어 메타데이터
-        meta: {
-          code: 'en',
-          label: 'English',
-          flag: '🇺🇸',
-          countries: ['US', 'GB', 'CA', 'AU', 'NZ', 'IE'],
-          educationButtonText: 'Apply for Training',
-          defaultPath: '/en/bpm6-intro/'
-        },
-        // 사이드바 구조
-        navigation: [
-          {
-            name: 'getting-started',
-            sections: [
-              {
-                title: 'uEngine6 BPM',
-                items: [
-                  'bpm6-intro/',
-                  'bpm6-intro/business-process/',
-                ]
-              },
-            ]
-          }
-        ]
-      }
+      // en: {
+      //   // 언어 메타데이터
+      //   meta: {
+      //     code: 'en',
+      //     label: 'English',
+      //     flag: '🇺🇸',
+      //     countries: ['US', 'GB', 'CA', 'AU', 'NZ', 'IE'],
+      //     educationButtonText: 'Apply for Training',
+      //     defaultPath: '/en/bpm6-intro/'
+      //   },
+      //   // 사이드바 구조
+      //   navigation: [
+      //     {
+      //       name: 'getting-started',
+      //       sections: [
+      //         {
+      //           title: 'uEngine6 BPM',
+      //           items: [
+      //             'bpm6-intro/',
+      //             'bpm6-intro/business-process/',
+      //           ]
+      //         },
+      //       ]
+      //     }
+      //   ]
+      // }
       // 언어 추가 후 수정: 새 언어 설정을 여기에 추가
       // jp: {
       //   // 언어 메타데이터
